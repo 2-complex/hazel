@@ -1,0 +1,16 @@
+{
+  'type' : 'World',
+  'name' : 'bugWorld',
+  'visible' : 1,
+  'children' : [
+    ],
+  'sprites' : [
+        {
+          'type' : 'Sprite',
+          'name' : 'ladybug',
+          'file' : 'images/ladybug.png',
+        },
+    ],
+  'sounds' : [
+    ],
+}
