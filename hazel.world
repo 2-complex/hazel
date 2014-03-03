@@ -22,8 +22,16 @@
           'numberOfColumns' : 4,
           'numberOfRows' : 1,
           'file' : 'images/hazel.png',
-          "center" : 1,
+          'center' : 1,
         },
+
+        {
+          'type' : 'Sprite',
+          'name' : 'draftSprite',
+          'file' : 'images/draft.png',
+          'center' : 1,
+        },
+
         {
           'type' : 'Sprite',
           'name' : 'background',

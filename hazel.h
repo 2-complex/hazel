@@ -38,6 +38,13 @@ class Touch;
 
 
 
+enum CollisionCode
+{
+	kObject = 0,
+	kCraft = 1,
+	kUpdraft = 2
+};
+
 class HazelWorld
 	: public WorldBase
 {
@@ -54,19 +61,32 @@ public:
 	Object();
 	virtual ~Object();
 
+	CollisionCode collisionCode;
 	Actor* actor;
 
 	Vec2 position;
 	Vec2 velocity;
 
-	void step();
-	void draw() const;
+	virtual void step();
+	virtual void draw() const;
 };
 
 class Craft
 	: public Object
 {
+public:
+	Craft();
+	virtual ~Craft();
+};
 
+class Updraft
+	: public Object
+{
+public:
+	explicit Updraft(Sprite*);
+	virtual ~Updraft();
+
+	virtual void step();
 };
 
 class Hazel : public App
@@ -109,6 +129,7 @@ public:
 	virtual void touchUp(unsigned int index, const Vec2& C);
 	
 	virtual void step(double t);
+	virtual void handleCollisions();
 };
 
 

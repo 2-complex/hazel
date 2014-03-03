@@ -70,6 +70,13 @@ void Hazel::init()
 
     objects.push_back(primaryCraft);
 
+    for( int i = 0; i < 3; i++ )
+    {
+	    Updraft* up = new Updraft(world.getSprite("draftSprite"));
+	    up->position = Vec2(120 + i * 300, 50);
+		objects.push_back(up);
+		world.add(up->actor);
+	}
 }
 
 void Hazel::destroy()
@@ -160,11 +167,42 @@ void Hazel::step(double t)
             primaryCraft->actor->frame = 0;
         }
 
+		handleCollisions();
 
         lastTime = t;
     }
+
+
 }
 
+void Hazel::handleCollisions()
+{
+	map<CollisionCode, vector<Object*> > codeMap;
+	for(vector<Object*>::iterator itr = objects.begin(); itr != objects.end(); itr++)
+		codeMap[(*itr)->collisionCode].push_back(*itr);
+	
+	vector<Object*>& updrafts(codeMap[kUpdraft]);
+	vector<Object*>& crafts(codeMap[kCraft]);
+
+	for( vector<Object*>::iterator uitr = updrafts.begin(); uitr!=updrafts.end(); uitr++ )
+	{
+		Updraft* updraft = dynamic_cast<Updraft*>(*uitr);
+
+		for( vector<Object*>::iterator citr = crafts.begin(); citr!=crafts.end(); citr++ )
+		{
+			Craft* craft = dynamic_cast<Craft*>(*citr);
+
+			double v = fabs(updraft->position.x - craft->position.x);
+			double h = craft->position.y - updraft->position.y;
+			
+			if( v < 100.0 && h > 0 && h < 200 )
+			{
+				craft->velocity += Vec2(0, 0.2);
+			}
+		}
+	}
+	printf( "\n" );
+}
 
 Object::Object()
 	: actor(NULL)
@@ -175,15 +213,44 @@ Object::~Object() {}
 
 void Object::step()
 {
-    if( velocity.y > -0.4 )
-        velocity-= Vec2(0.0, 0.02);
+    if( velocity.y > -4.0 )
+        velocity-= Vec2(0.0, 0.1);
 
     position += velocity;
 }
 
 void Object::draw() const
 {
-	if( actor )
-    	actor->position = position;
+	actor->position = position;
 }
+
+
+Craft::Craft()
+{
+	collisionCode = kCraft;
+}
+
+Craft::~Craft()
+{
+
+}
+
+
+Updraft::Updraft(Sprite* insprite)
+{
+	actor = new Actor();
+	actor->sprite = insprite;
+	collisionCode = kUpdraft;
+}
+
+Updraft::~Updraft()
+{
+	delete actor;
+}
+
+void Updraft::step()
+{
+
+}
+
 
