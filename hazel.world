@@ -1,14 +1,33 @@
 {
   'type' : 'World',
-  'name' : 'bugWorld',
+  'name' : 'hazelWorld',
   'visible' : 1,
   'children' : [
+      {
+          'type' : 'Actor',
+          'name' : 'background',
+          'spriteName' : 'background',
+          'k' : 2,
+      },
+      {
+          'type' : 'Actor',
+          'name' : 'hazel',
+          'spriteName' : 'hazelSprite',
+      },
     ],
   'sprites' : [
         {
           'type' : 'Sprite',
-          'name' : 'ladybug',
-          'file' : 'images/ladybug.png',
+          'name' : 'hazelSprite',
+          'numberOfColumns' : 4,
+          'numberOfRows' : 1,
+          'file' : 'images/hazel.png',
+          "center" : 1,
+        },
+        {
+          'type' : 'Sprite',
+          'name' : 'background',
+          'file' : 'images/sand-and-grass.png',
         },
     ],
   'sounds' : [

@@ -1,4 +1,6 @@
 
+#include "transforms.h"
+
 #include "hazel.h"
 
 #include "sys/time.h"
@@ -20,6 +22,12 @@ Node* HazelWorld::getNode(const string& name)
 	return World::getNode(name);
 }
 
+void HazelWorld::initWorld()
+{
+
+}
+
+
 Hazel::Hazel()
 {
 
@@ -27,7 +35,17 @@ Hazel::Hazel()
 
 Hazel::~Hazel()
 {
-	
+
+}
+
+void Hazel::setBank(Bank* inBank)
+{
+	world.bank = inBank;
+}
+
+void Hazel::setPlayer(Player* inPlayer)
+{
+	world.initSound(inPlayer);
 }
 
 void Hazel::init()
@@ -36,9 +54,9 @@ void Hazel::init()
     Sprite::renderer = renderer;
     renderer->init();
 
-    glEnable(GL_ALPHA);
-    glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
+    glDisable(GL_DEPTH_TEST);
+    glEnable(GL_ALPHA);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     world.initWithPath("hazel.world");
@@ -95,7 +113,7 @@ void Hazel::keyboard(unsigned char inkey)
 
 void Hazel::reshape(int width, int height)
 {
-
+	renderer->projection = orthographic(0, width, 0, height, -1, 1);
 }
 
 void Hazel::step(double t)

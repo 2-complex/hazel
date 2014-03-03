@@ -44,6 +44,8 @@ class HazelWorld
 friend class Hazel;
 
 	Node* getNode(const string& name);
+
+	void initWorld();
 };
 
 class Hazel : public App
@@ -61,6 +63,9 @@ public:
 	void init();
 	void destroy();
 	
+	virtual void setBank(Bank* inBank);
+	virtual void setPlayer(Player* inPlayer);
+
 	virtual void draw() const;
 	
 	virtual void keyboard(unsigned char inkey);
