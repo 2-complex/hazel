@@ -48,6 +48,27 @@ friend class Hazel;
 	void initWorld();
 };
 
+class Object
+{
+public:
+	Object();
+	virtual ~Object();
+
+	Actor* actor;
+
+	Vec2 position;
+	Vec2 velocity;
+
+	void step();
+	void draw() const;
+};
+
+class Craft
+	: public Object
+{
+
+};
+
 class Hazel : public App
 {
 friend class HazelWorld;
@@ -55,6 +76,11 @@ friend class HazelWorld;
 private:
 	HazelWorld world;
 	RendererGL2* renderer;
+	double lastTime;
+
+	vector<Object*> objects;
+	set<unsigned char> keySet;
+	Craft* primaryCraft;
 
 public:
 	Hazel();
@@ -69,6 +95,9 @@ public:
 	virtual void draw() const;
 	
 	virtual void keyboard(unsigned char inkey);
+	virtual void keyDown(unsigned char inkey);
+    virtual void keyUp(unsigned char inkey);
+
 	virtual void reshape(int width, int height);
     
 	virtual bool mouseDown(const Vec2& C);
