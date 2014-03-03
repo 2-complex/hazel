@@ -11,7 +11,7 @@ int main(int argc, char** args)
 	AppEnvironment E;
 	Hazel app;
 	
-    E.initWindow("Hazel", 600, 800);
+    E.initWindow("Hazel", 800, 600);
     
     MacFileSystemBank* bank = new MacFileSystemBank;
     OpenALPlayer* player = new OpenALPlayer;
