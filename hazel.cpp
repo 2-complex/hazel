@@ -77,6 +77,12 @@ void Hazel::init()
 		objects.push_back(up);
 		world.add(up->actor);
 	}
+
+
+	Updraft* up = new Updraft(world.getSprite("draftSprite"));
+	up->position = Vec2(120 + 1 * 300, 450);
+	objects.push_back(up);
+	world.add(up->actor);
 }
 
 void Hazel::destroy()
@@ -179,7 +185,7 @@ void Hazel::handleCollisions()
 {
 	map<CollisionCode, vector<Object*> > codeMap;
 	for(vector<Object*>::iterator itr = objects.begin(); itr != objects.end(); itr++)
-		codeMap[(*itr)->collisionCode].push_back(*itr);
+	codeMap[(*itr)->collisionCode].push_back(*itr);
 	
 	vector<Object*>& updrafts(codeMap[kUpdraft]);
 	vector<Object*>& crafts(codeMap[kCraft]);
@@ -197,11 +203,10 @@ void Hazel::handleCollisions()
 			
 			if( v < 100.0 && h > 0 && h < 200 )
 			{
-				craft->velocity += Vec2(0, 0.2);
+				craft->velocity += Vec2(0, 0.4);
 			}
 		}
 	}
-	printf( "\n" );
 }
 
 Object::Object()
