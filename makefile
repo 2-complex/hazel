@@ -74,5 +74,10 @@ clean:
 	rm -f *.o
 	rm -f worldbase.cpp
 	rm -f worldbase.h
+
+clean-all:
+	rm -f *.o
+	rm -f worldbase.cpp
+	rm -f worldbase.h
 	rm -f g2c/g2c/obj/*.o
 

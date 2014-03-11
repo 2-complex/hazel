@@ -58,7 +58,7 @@ void Hazel::init()
     glEnable(GL_BLEND);
     glDisable(GL_DEPTH_TEST);
     glEnable(GL_ALPHA);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 
     world.initWithPath("hazel.world");
     world.init();
@@ -72,12 +72,11 @@ void Hazel::init()
 
     for( int i = 0; i < 3; i++ )
     {
-	    Updraft* up = new Updraft(world.getSprite("draftSprite"));
-	    up->position = Vec2(120 + i * 300, 50);
-		objects.push_back(up);
-		world.add(up->actor);
+        Updraft* up = new Updraft(world.getSprite("draftSprite"));
+        up->position = Vec2(120 + i * 300, 50);
+        objects.push_back(up);
+        world.add(up->actor);
 	}
-
 
 	Updraft* up = new Updraft(world.getSprite("draftSprite"));
 	up->position = Vec2(120 + 1 * 300, 450);

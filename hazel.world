@@ -9,6 +9,35 @@
           'spriteName' : 'background',
           'k' : 2,
       },
+
+      {
+          'type' : 'Actor',
+          'name' : 'tree0',
+          'spriteName' : 'lefttree',
+          'position' : [0,0],
+      },
+
+      {
+          'type' : 'Actor',
+          'name' : 'tree1',
+          'spriteName' : 'righttree',
+          'position' : [600,0],
+      },
+
+      {
+          'type' : 'Actor',
+          'name' : 'tree2',
+          'spriteName' : 'bigtree',
+          'position' : [100,0],
+      },
+
+      {
+          'type' : 'Actor',
+          'name' : 'tree3',
+          'spriteName' : 'littletree',
+          'position' : [400,0],
+      },
+
       {
           'type' : 'Actor',
           'name' : 'hazel',
@@ -34,8 +63,32 @@
 
         {
           'type' : 'Sprite',
+          'name' : 'lefttree',
+          'file' : 'images/lefttree.png',
+        },
+
+        {
+          'type' : 'Sprite',
+          'name' : 'righttree',
+          'file' : 'images/righttree.png',
+        },
+
+        {
+          'type' : 'Sprite',
+          'name' : 'bigtree',
+          'file' : 'images/bigtree.png',
+        },
+
+        {
+          'type' : 'Sprite',
+          'name' : 'littletree',
+          'file' : 'images/littletree.png',
+        },
+
+        {
+          'type' : 'Sprite',
           'name' : 'background',
-          'file' : 'images/sand-and-grass.png',
+          'file' : 'images/blueback.png',
         },
     ],
   'sounds' : [

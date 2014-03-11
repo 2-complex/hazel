@@ -529,8 +529,8 @@ bool Universe::crudeCollisionDetection( Body* A, Body* B, Collision* C )
     B->move(timeStep);
     
     OverlapInfo oInfo;
-    bool found_one;
-    if( found_one = A->overlaps(*B, &oInfo) )
+    bool found_one = A->overlaps(*B, &oInfo);
+    if( found_one )
     {
         C->P = A;
         C->Q = B;

@@ -21,8 +21,8 @@ void button( int b, int state, int x, int y );
 #endif
 
 
-#define kNumberOfBoxes 10
-#define kNumberOfBalls 10
+#define kNumberOfBoxes 20
+#define kNumberOfBalls 20
 
 
 
