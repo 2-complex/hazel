@@ -163,29 +163,43 @@ void Universe::clear()
     L.clear();
 }
 
+static Vec2 randVec2( double amount = 1.0 )
+{
+    double t = (double)(random());
+    double u = (double)(random()%1000001)/1000000.0;
+    return amount * u * Vec2( cos(t), sin(t) );
+}
+
+static Vec3 randVec3( double amount = 1.0 )
+{
+    double t = (double)(random());
+    double u = (double)(random());
+    double v = (double)(random()%1000001)/1000000.0;
+    return Vec3( sin(u)*cos(t), sin(u)*sin(t), cos(u) ) * amount * v;
+}
 
 void Universe::naturalPushOut( Body& P, Body& Q )
 {
-    Vector2d V, P_v, Q_v;
+    Vec2 V, P_v, Q_v;
     double fact=0.1;
     int counter = 0;
     OverlapInfo oInfo;
     
     while( P.overlaps(Q) )
     {
-        Vector2d N;
+        Vec2 N;
         
         N.set(1,0);
         if( P.overlaps(Q, &oInfo) ) N = (oInfo.normal);
         
-        assert(N!=Vector2d(0.0,0.0));
+        assert(N!=Vec2(0.0,0.0));
         
         //a workaround for a bug in overlaps that makes overlaps return (nan,nan)
         if( !(N.magSquared() > 0.5 && N.magSquared() < 2.0) ) N.set(0,0);
         
-        V = fact*(N + Vector2d::randVector(pushOutNormalJitter));
+        V = fact*(N + randVec2(pushOutNormalJitter));
         
-        Vector2d A,B;
+        Vec2 A,B;
         
         //with the big masses, this became necessary:
         if( P.immutable )
@@ -269,11 +283,11 @@ void applySurfaceFriction()
 }
 
 
-Vector2d Piece::midpoint() const
+Vec2 Piece::midpoint() const
 {
     double theta;
     double a, b;
-    Vector2d V;
+    Vec2 V;
     
     switch(tag)
     {
@@ -298,7 +312,7 @@ Vector2d Piece::midpoint() const
     }
     
     assert(false);
-    return Vector2d(0,0);
+    return Vec2(0,0);
 }
 
 
@@ -307,7 +321,7 @@ bool Piece::overlaps( const Piece* piece, vector<double>& where ) const
 {
     bool retval = false;
     
-    Vector2d Pt(P), Qt(Q), pPt(piece->P), pQt(piece->Q);
+    Vec2 Pt(P), Qt(Q), pPt(piece->P), pQt(piece->Q);
     double pr = piece->r;
     
     if( tag == kCirclePiece && piece->tag == kCirclePiece )
@@ -386,18 +400,19 @@ bool Collision::penetrates() const
 {
     double t = timeOfImpact;
     
-    Vector2d R1_2d( pointOfImpact - (P->position + t*P->velocity) ),
+    Vec2 R1_2d( pointOfImpact - (P->position + t*P->velocity) ),
              R2_2d( pointOfImpact - (Q->position + t*Q->velocity) );
     
-    Vector3d r1( R1_2d ), r2( R2_2d );
+    Vec3 r1( R1_2d ), r2( R2_2d );
     
-    Vector3d 	v1 = P->velocity,
-                v2 = Q->velocity,
-                w1(0.0, 0.0, P->omega),
-                w2(0.0, 0.0, Q->omega);
+    Vec3
+        v1 = P->velocity,
+        v2 = Q->velocity,
+        w1(0.0, 0.0, P->omega),
+        w2(0.0, 0.0, Q->omega);
     
-    Vector3d Vr = (w2.cross(r2) + v2) - (w1.cross(r1) + v1);
-    Vector3d N(normalOfImpact);
+    Vec3 Vr = (w2.cross(r2) + v2) - (w1.cross(r1) + v1);
+    Vec3 N(normalOfImpact);
     
     return( Vr.dot(N) <= 0.0 );
 }
@@ -857,7 +872,7 @@ void Universe::removeAllMarkedBodies()
 
 
 
-Vector2d shapePointIn(const Shape* s)
+Vec2 shapePointIn(const Shape* s)
 {
     switch(s->tag)
     {
@@ -872,7 +887,7 @@ Vector2d shapePointIn(const Shape* s)
     }
     
     assert(false);
-    return Vector2d();
+    return Vec2();
 }
 
 
@@ -913,7 +928,7 @@ bool shapesOverlap( const Shape* P, const Shape* Q, OverlapInfo* oInfo )
 void Body::updatePieces()
 {
     adjustShape();
-    Vector2d P;
+    Vec2 P;
     
     /*bug workaround: (things passing through eachother):*/
     piecesValid = false;
@@ -929,11 +944,11 @@ void Body::updatePieces()
             
             case kPolygon:
             {   
-                const vector<Vector2d>& PL( ((Polygon*)(s))->points() );
+                const vector<Vec2>& PL( ((Polygon*)(s))->points() );
                 int size = numberOfPieces;
                 
                 int i=0;
-                for( vector<Vector2d>::const_iterator itr = PL.begin(); itr!=PL.end(); itr++, i++ )
+                for( vector<Vec2>::const_iterator itr = PL.begin(); itr!=PL.end(); itr++, i++ )
                 {
                     pieces[(i+size-1)%size].Q = pieces[i].P = *itr;
                 }
@@ -958,7 +973,7 @@ void Body::updatePieces()
             
             case kPolygon:
             {   
-                const vector<Vector2d>& PL( ((Polygon*)(s))->points() );
+                const vector<Vec2>& PL( ((Polygon*)(s))->points() );
                 int size = numberOfPieces;
                 
                 double accum = 0.0, newaccum;
@@ -1009,7 +1024,7 @@ void Universe::binarySpaceSearchDiscrete_helper(PooledPieceList& inL, int depth,
     myStack[myStackPtr].L = inL;
     myStack[myStackPtr].depth = depth;
     
-    Vector2d K1,K2,D,P,Q;
+    Vec2 K1,K2,D,P,Q;
     vector<double> R(2), A(2), B(2);
     Piece p;
     int mydepth;
@@ -1093,15 +1108,15 @@ void Universe::binarySpaceSearchDiscrete_helper(PooledPieceList& inL, int depth,
         
         for( PooledPieceList::Node* n = L.begin(); n!=L.end(); n = n->next )
         {
-            Vector2d P(n->datum.P);
-            Vector2d Q(n->datum.Q);
+            Vec2 P(n->datum.P);
+            Vec2 Q(n->datum.Q);
             double r = n->datum.r, arcA = n->datum.arcA, arcB = n->datum.arcB;
                 
             switch(n->datum.tag)
             {   
                 case kLinePiece:
                 {
-                    Vector2d PA( arcA*Q + (1.0-arcA)*P ),
+                    Vec2 PA( arcA*Q + (1.0-arcA)*P ),
                              PB( arcB*Q + (1.0-arcB)*P );
                     rect_left = min(rect_left, min(PA.x, PB.x));
                     rect_right = max(rect_right, max(PA.x, PB.x));
@@ -1112,8 +1127,8 @@ void Universe::binarySpaceSearchDiscrete_helper(PooledPieceList& inL, int depth,
                 
                 case kCirclePiece:
                 {
-                    Vector2d PA( P + r*Vector2d(cos(arcA/r), sin(arcA/r)) ),
-                             PB( P + r*Vector2d(cos(arcB/r), sin(arcB/r)) );
+                    Vec2 PA( P + r*Vec2(cos(arcA/r), sin(arcA/r)) ),
+                             PB( P + r*Vec2(cos(arcB/r), sin(arcB/r)) );
                     
                     rect_left = min(rect_left, min(PA.x, PB.x));
                     rect_right = max(rect_right, max(PA.x, PB.x));
@@ -1309,7 +1324,7 @@ void Piece::draw() const
         
         case kLinePiece:
             glBegin(GL_LINES);
-                Vector2d A( P * (1.0-arcA) + Q * (arcA) ),
+                Vec2 A( P * (1.0-arcA) + Q * (arcA) ),
                         B( P * (1.0-arcB) + Q * (arcB) );
                 glVertex3f( A.x, A.y, 1 );
                 glVertex3f( B.x, B.y, 1 );
@@ -1325,10 +1340,10 @@ void Piece::draw() const
 
 
 
-Vector3d compute_impulse_from_Vr(   Vector3d Vr,
-                                    double m1, double I1, Vector3d r1,
-                                    double m2, double I2, Vector3d r2,
-                                    Vector3d N, double e )
+Vec3 compute_impulse_from_Vr(   Vec3 Vr,
+                                    double m1, double I1, Vec3 r1,
+                                    double m2, double I2, Vec3 r2,
+                                    Vec3 N, double e )
 {
     double vrn = Vr.dot(N);
     
@@ -1343,17 +1358,17 @@ Vector3d compute_impulse_from_Vr(   Vector3d Vr,
 }
 
 
-Vector3d compute_impulse_with_friction( Vector3d v1, Vector3d w1, double m1, double I1, Vector3d r1,
-                                        Vector3d v2, Vector3d w2, double m2, double I2, Vector3d r2,
-                                        Vector3d N, double e, double u_s, double u_d )
+Vec3 compute_impulse_with_friction( Vec3 v1, Vec3 w1, double m1, double I1, Vec3 r1,
+                                        Vec3 v2, Vec3 w2, double m2, double I2, Vec3 r2,
+                                        Vec3 N, double e, double u_s, double u_d )
 {
-    Vector3d Vr  = (w2.cross(r2) + v2) - (w1.cross(r1) + v1); //Vr = relative velocity at the point of impact
-    Vector3d Vrn = Vr.projectOnto(N);
-    Vector3d Vrt = Vr - Vrn; // the normal and tangential parts of Vr
+    Vec3 Vr  = (w2.cross(r2) + v2) - (w1.cross(r1) + v1); //Vr = relative velocity at the point of impact
+    Vec3 Vrn = Vr.projectOnto(N);
+    Vec3 Vrt = Vr - Vrn; // the normal and tangential parts of Vr
     
-    Vector3d newVrn, newVrt, newVr, j_stuck, j_slick;
-    Matrix3d K(KMatrix(m1, I1, r1) + KMatrix(m2, I2, r2));
-    Matrix3d Kinv(K.inverse());
+    Vec3 newVrn, newVrt, newVr, j_stuck, j_slick;
+    Mat3 K(KMatrix(m1, I1, r1) + KMatrix(m2, I2, r2));
+    Mat3 Kinv(K.inverse());
     
     //first compute the impulse as if the objects are interacting statically, i.e. with 0 tangential relative velocity
     
@@ -1365,14 +1380,14 @@ Vector3d compute_impulse_with_friction( Vector3d v1, Vector3d w1, double m1, dou
     
     //see if that impulse is in the 'friction cone', if it is, we're done
     
-    Vector3d j_stuck_n = j_stuck.projectOnto(N);
-    Vector3d j_stuck_t = j_stuck - j_stuck_n;
+    Vec3 j_stuck_n = j_stuck.projectOnto(N);
+    Vec3 j_stuck_t = j_stuck - j_stuck_n;
     if( j_stuck_t.magSquared() <= u_s*u_s*j_stuck.magSquared() )
         return j_stuck;
     
     //otherwise we have to compute a tangential frictional impulse:
     //first compute the unit tangent vector:
-    Vector3d T(Vr - Vr.projectOnto(N));
+    Vec3 T(Vr - Vr.projectOnto(N));
     
     N = N/N.mag();
     
@@ -1393,12 +1408,12 @@ Vector3d compute_impulse_with_friction( Vector3d v1, Vector3d w1, double m1, dou
 }
 
 
-Vector3d compute_impulse(   Vector3d v1, Vector3d w1, double m1, double I1, Vector3d r1,
-                               Vector3d v2, Vector3d w2, double m2, double I2, Vector3d r2,
-                               Vector3d N, double e )
+Vec3 compute_impulse(   Vec3 v1, Vec3 w1, double m1, double I1, Vec3 r1,
+                               Vec3 v2, Vec3 w2, double m2, double I2, Vec3 r2,
+                               Vec3 N, double e )
 {
-    Vector3d Vr  = (w2.cross(r2) + v2) - (w1.cross(r1) + v1);
-    Matrix3d K(KMatrix(m1, I1, r1) + KMatrix(m2, I2, r2));
+    Vec3 Vr  = (w2.cross(r2) + v2) - (w1.cross(r1) + v1);
+    Mat3 K(KMatrix(m1, I1, r1) + KMatrix(m2, I2, r2));
     
     N = N/N.mag();
     
@@ -1408,15 +1423,15 @@ Vector3d compute_impulse(   Vector3d v1, Vector3d w1, double m1, double I1, Vect
 }
 
 
-Matrix3d KMatrix(double m, double I, Vector3d r)
+Mat3 KMatrix(double m, double I, Vec3 r)
 {
     double a = r.x, b = r.y, c = r.z;
     
-    Matrix3d   M( b*b+c*c,    -a*b,    -a*c,
+    Mat3   M( b*b+c*c,    -a*b,    -a*c,
                      -a*b, a*a+c*c,    -b*c,
                      -a*c,    -b*c, a*a+b*b );
         
-    return( Matrix3d()/m + M/I );
+    return( Mat3()/m + M/I );
 }
 
 
@@ -1473,17 +1488,17 @@ pair<Delta,Delta> Universe::bounce(const Collision& C)
     u_s = max(u_d,u_s); //u_s should always be bigger than u_d no matter what.
     
     
-    Vector3d N( C.normalOfImpact );
+    Vec3 N( C.normalOfImpact );
     N/=N.mag();
     
     double t = C.timeOfImpact;
     
-    Vector2d 	R1_2d( C.pointOfImpact - (P->position + t*P->velocity) ),
+    Vec2 	R1_2d( C.pointOfImpact - (P->position + t*P->velocity) ),
                 R2_2d( C.pointOfImpact - (Q->position + t*Q->velocity) );
     
-    Vector3d R1( R1_2d ), R2( R2_2d );
+    Vec3 R1( R1_2d ), R2( R2_2d );
     
-    Vector3d 	V1 = P->velocity,
+    Vec3 	V1 = P->velocity,
                 V2 = Q->velocity,
                 w1(0.0, 0.0, P->omega),
                 w2(0.0, 0.0, Q->omega);
@@ -1503,15 +1518,15 @@ pair<Delta,Delta> Universe::bounce(const Collision& C)
     else
         e *= (1.0 - smallvr/vr);
     
-    Vector3d impulse = compute_impulse_with_friction( 	V1, w1, m1, I1, R1, 
+    Vec3 impulse = compute_impulse_with_friction( 	V1, w1, m1, I1, R1, 
                                                         V2, w2, m2, I2, R2,
                                                         N, e, u_s, u_d  );
     
-    impulse+=Vector3d::randVector(impulseJitter); //very experimental jitter (again I fished around for a good number)
+    impulse += randVec3(impulseJitter); //very experimental jitter (again I fished around for a good number)
     if(nudgeForceOn)
         impulse+=nudgeForceAmmount*N;
     
-    Vector2d impulse2d(impulse.x, impulse.y);
+    Vec2 impulse2d(impulse.x, impulse.y);
     
     pair<Delta,Delta> deltaPQ( Delta(t,-impulse2d/m1, -(R1.cross(impulse)/I1).z ),
                                Delta(t, impulse2d/m2,  (R2.cross(impulse)/I2).z ) );
@@ -1541,7 +1556,7 @@ void Universe::drawCollisionSet(const set<Collision>& S, double arrowLength)
     {
         glBegin(GL_LINES);
         
-        Vector2d A((*itr).pointOfImpact), B;
+        Vec2 A((*itr).pointOfImpact), B;
         B = A + (*itr).normalOfImpact*arrowLength;
         
         glVertex3f( A.x, A.y, 1 );
@@ -1556,7 +1571,7 @@ void Universe::drawCollisionSet(const set<Collision>& S, double arrowLength)
         for( int i=0; i<=5; i++ )
         {
             theta += 4*PI/5.0;
-            Vector2d V = (*itr).pointOfImpact + 4.0*Vector2d(cos(theta), sin(theta));
+            Vec2 V = (*itr).pointOfImpact + 4.0*Vec2(cos(theta), sin(theta));
             glVertex3f( V.x, V.y, 1 );
         }
         

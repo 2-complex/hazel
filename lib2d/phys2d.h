@@ -34,7 +34,7 @@ public:
         delta_v.set(0,0);
     }
     
-    Delta( double inT, const Vector2d& in_delta_v, double in_delta_w )
+    Delta( double inT, const Vec2& in_delta_v, double in_delta_w )
     {
         t = inT;
         delta_v = in_delta_v;
@@ -42,7 +42,7 @@ public:
     }
     
     double t;
-    Vector2d delta_v;
+    Vec2 delta_v;
     double delta_w;
     
     bool operator < (const class Delta& I) const {
@@ -69,8 +69,8 @@ class Collision
 public:
     Collision(){}
     
-    Vector2d pointOfImpact;
-    Vector2d normalOfImpact;
+    Vec2 pointOfImpact;
+    Vec2 normalOfImpact;
     double timeOfImpact;
         
     class Body* P;
@@ -97,7 +97,7 @@ class Piece {
 public:
     piece_type tag;
 //    bool isCircle;
-    Vector2d  P,  Q;
+    Vec2  P,  Q;
     double r;
     class Body* B;
     mutable class Piece* mother;
@@ -138,7 +138,7 @@ public:
     }
     
     
-    Piece(Vector2d inP, Vector2d inQ, Body* inB, double inArcA, double inArcB, double inPerimeterAccum)
+    Piece(Vec2 inP, Vec2 inQ, Body* inB, double inArcA, double inArcB, double inPerimeterAccum)
     {
         tag = kLinePiece;
         P = inP;
@@ -149,7 +149,7 @@ public:
         perimeterAccum = inPerimeterAccum;
     }
     
-    Piece(Vector2d inP, double inr, Body* inB)
+    Piece(Vec2 inP, double inr, Body* inB)
     {
         tag = kCirclePiece;
         P = inP;
@@ -163,9 +163,9 @@ public:
     typedef PooledList<Piece> PooledPieceList;
     
     bool overlaps( const Piece* piece, vector<double>& where ) const;
-    void onLeftOnRight( const Vector2d& K, const Vector2d& D, bool* on_left, bool* on_right ) const;
-    Vector2d midpoint() const;
-    void cutAndDivvy( Vector2d K1, Vector2d D, PooledPieceList& leftPieces, PooledPieceList& rightPieces ) const;
+    void onLeftOnRight( const Vec2& K, const Vec2& D, bool* on_left, bool* on_right ) const;
+    Vec2 midpoint() const;
+    void cutAndDivvy( Vec2 K1, Vec2 D, PooledPieceList& leftPieces, PooledPieceList& rightPieces ) const;
     
     void print() const
     {
@@ -208,15 +208,15 @@ bool bodiesCollide( const class Body* P, const class Body* Q );
 bool bodiesOverlap( const class Body* P, const class Body* Q, OverlapInfo* oInfo );
 bool bodiesOverlap( const class Body* P, const class Body* Q );
 bool shapesOverlap( const Shape* P, const Shape* Q, OverlapInfo* oInfo = NULL );
-Vector2d shapePointIn(const Shape* s);
+Vec2 shapePointIn(const Shape* s);
 
 
 
 class Body {
 
 public:
-    Vector2d position;
-    Vector2d velocity;
+    Vec2 position;
+    Vec2 velocity;
     double theta; //rotation
     double omega; //rotational velocity
     double restitution;
@@ -224,13 +224,13 @@ public:
     double staticFriction;
     double mass;
     double rotationalInertia;
-    Vector2d center;
+    Vec2 center;
     
     double rememberedMass;
     double rememberedRotationalInertia;
     
 private:
-    Vector2d old_position;
+    Vec2 old_position;
     double old_theta;
     
 public:
@@ -353,12 +353,12 @@ public:
     void set(const class Circle& C);
     void set(const class Polygon& P);
     
-    inline class Body& operator += (const class Vector2d& V) {
+    inline class Body& operator += (const class Vec2& V) {
         position += V;
         return *this;
     }
     
-    inline class Body& operator -= (const class Vector2d& V) {
+    inline class Body& operator -= (const class Vec2& V) {
         position -= V;
         return *this;
     }
@@ -414,20 +414,23 @@ public:
 
 
 
-Matrix3d KMatrix(double m, double I, Vector3d r);
+Mat3 KMatrix(double m, double I, Vec3 r);
 
-Vector3d compute_impulse_from_Vr(   Vector3d Vr,
-                                    double m1, double I1, Vector3d r1,
-                                    double m2, double I2, Vector3d r2,
-                                    Vector3d N, double e );
+Vec3 compute_impulse_from_Vr(
+    Vec3 Vr,
+    double m1, double I1, Vec3 r1,
+    double m2, double I2, Vec3 r2,
+    Vec3 N, double e );
 
-Vector3d compute_impulse(   Vector3d v1, Vector3d w1, double m1, double I1, Vector3d r1,
-                            Vector3d v2, Vector3d w2, double m2, double I2, Vector3d r2,
-                            Vector3d N, double e );
+Vec3 compute_impulse(
+    Vec3 v1, Vec3 w1, double m1, double I1, Vec3 r1,
+    Vec3 v2, Vec3 w2, double m2, double I2, Vec3 r2,
+    Vec3 N, double e );
                             
-Vector3d compute_impulse_with_friction( Vector3d v1, Vector3d w1, double m1, double I1, Vector3d r1,
-                                        Vector3d v2, Vector3d w2, double m2, double I2, Vector3d r2,
-                                        Vector3d N, double e, double u_s, double u_d );
+Vec3 compute_impulse_with_friction(
+    Vec3 v1, Vec3 w1, double m1, double I1, Vec3 r1,
+    Vec3 v2, Vec3 w2, double m2, double I2, Vec3 r2,
+    Vec3 N, double e, double u_s, double u_d );
 
 
 
@@ -441,7 +444,7 @@ typedef enum {
 class Universe {
 public:
     list<Body*> L;
-    Vector2d gravity;
+    Vec2 gravity;
     double surfaceFriction;
     
 private:

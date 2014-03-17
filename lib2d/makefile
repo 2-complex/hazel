@@ -2,7 +2,7 @@ CC = c++
 OPTIMIZATION = -force_cpusubtype_ALL -O3
 DEBUGGER = -g
 PROFILER = 
-INCLUDES = 
+INCLUDES = -I../g2c/g2c
 
 FILES = math2d.o phys2d.o
 FRAMEWORKS = -framework OpenGL -framework GLUT -framework Cocoa

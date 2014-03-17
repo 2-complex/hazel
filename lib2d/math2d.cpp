@@ -8,8 +8,8 @@ double squareOf(double t){ return t*t; }
 double min( double n, double m ) {return n<m?n:m;}
 double max( double n, double m ) {return n<m?m:n;}
 
-Vector2d normalize( const Vector2d& V ) {return V/V.mag();}
-Vector3d normalize( const Vector3d& V ) {return V/V.mag();}
+Vec2 normalize( const Vec2& V ) {return V/V.mag();}
+Vec3 normalize( const Vec3& V ) {return V/V.mag();}
 
 
 double* sin_table = NULL;
@@ -66,92 +66,83 @@ vector<double> quad_form(double a, double b, double c)
 }
 
   
-class Vector2d Vector2d::projectOnto( const class Vector2d& V ) const {
-    return ( V*dot(V)/V.magSquared() );
+Vec2 projectOnto( const Vec2& T, const Vec2& V )
+{
+    return V*T.dot(V)/V.magSquared();
 }
 
-class Vector2d Vector2d::reflectAbout( const class Vector2d& V ) const {
-    return 2*projectOnto(V) - (*this);
+Vec2 reflectAbout( const Vec2& T, const Vec2& V )
+{
+    return 2 * projectOnto(V) - T;
 }
 
-
-Vector2d Vector2d::perp() const {
-    Vector2d V;
+Vec2 right( const Vec2& T )
+{
+    Vec2 V;
     V.x = y;
     V.y = -x;
     return V;
 }
 
-Vector2d Vector2d::right() const {
-    return perp();
+Vec2 left( const Vec2& T )
+{
+    return -perp(T);
 }
 
-Vector2d Vector2d::left() const {
-    Vector2d V;
-    return V-perp();
+double angle( const Vec2& T )
+{
+    return atan2(T.y, T.x);
 }
 
-double Vector2d::angle() const {
-    return atan2(y,x);
-}
-
-double Vector2d::theta( const Vector2d V ) const {
+double theta( const Vec2& T, const Vec2& V )
+{
     return acos(dot(V)/(mag()*V.mag()));
 }
 
-double Vector2d::angleTo( const Vector2d V ) const {
+double angleTo( const Vec2& T, const Vec2& V )
+{
     return theta(V)*sgn( V.y*x-V.x*y );
 }
 
-bool Vector2d::between(const Vector2d U, const Vector2d V) const{
+bool between( const Vec2 U, const Vec2 V )
+{
     return V.y*x -V.x*y >0 &&  U.x*y -U.y*x>0;
 }
 
-bool Vector2d::betweenInclusive(const Vector2d U, const Vector2d V) const{
-    return V.y*x -V.x*y >=0 &&  U.x*y -U.y*x>=0;
+bool betweenInclusive( const Vec2& T, const Vec2 U, const Vec2 V )
+{
+    return V.y*T.x -V.x*T.y >=0 &&  U.x*T.y -U.y*x>=0;
 }
 
-class Vector2d& Vector2d::rotate(double theta) {
+Vec2& rotate( Vec2& T, double theta )
+{
     trig_pair p = sin_and_cos(theta);
     return rotate(p);
 }
 
-class Vector2d& Vector2d::rotate(const trig_pair p) {
+Vec2& rotate( Vec2& T, const trig_pair p)
+{
     double new_x, new_y;
     new_x = p.cos*x - p.sin*y;
     new_y = p.sin*x + p.cos*y;
     x = new_x;
     y = new_y;
-    return (*this);
+    return T;
 }
 
-
-void Vector2d::display() const {
-    printf( "<%f, %f>\n", x, y );
+Vec3 projectOnto( const Vec3& T, const Vec3& V )
+{
+    return ( V*T.dot(V)/V.magSquared() );
 }
 
-void Vector2d::print() const {
-    printf( "<%f, %f>", x, y );
+Vec3 reflectAbout( const Vec3& T, const class Vec3& V )
+{
+    return 2.0*T.projectOnto(V) - T;
 }
 
-class Vector3d Vector3d::projectOnto( const class Vector3d& V ) const {
-    return ( V*dot(V)/V.magSquared() );
-}
-
-class Vector3d Vector3d::reflectAbout( const class Vector3d& V ) const {
-    return 2.0*projectOnto(V) - (*this);
-}
-
-double Vector3d::theta( const Vector3d V ) const {
-    return acos(dot(V)/(mag()*V.mag()));
-}
-
-void Vector3d::display() const {
-    printf( "<%f, %f, %f>\n", x, y, z );
-}
-
-void Vector3d::print() const {
-    printf( "<%f, %f, %f>", x, y, z );
+double theta( const Vec3& T, const Vec3& V )
+{
+    return acos(T.dot(V)/(T.mag()*V.mag()));
 }
 
 
@@ -168,7 +159,7 @@ const vector<double> Line2d::intersectLine( const class Line2d& L ) const {
 
 
 
-class Polygon& Polygon::add( const Vector2d& V )
+class Polygon& Polygon::add( const Vec2& V )
 {	
     L.push_back(V);
     return *this;
@@ -176,20 +167,20 @@ class Polygon& Polygon::add( const Vector2d& V )
 
 class Polygon& Polygon::add( double x, double y )
 {
-    L.push_back(Vector2d(x,y));
+    L.push_back(Vec2(x,y));
     return *this;
 }
 
 
-class Polygon& Polygon::operator += (const Vector2d& V) {
-    vector<Vector2d>::iterator itr;
+class Polygon& Polygon::operator += (const Vec2& V) {
+    vector<Vec2>::iterator itr;
     for( itr=L.begin(); itr!=L.end(); itr++ )
         *itr+=V;
     return *this;
 }
 
-class Polygon& Polygon::operator -= (const Vector2d& V) {
-    vector<Vector2d>::iterator itr;
+class Polygon& Polygon::operator -= (const Vec2& V) {
+    vector<Vec2>::iterator itr;
     for( itr=L.begin(); itr!=L.end(); itr++ )
         *itr-=V;
     return *this;
@@ -197,26 +188,26 @@ class Polygon& Polygon::operator -= (const Vector2d& V) {
 
 class Polygon Polygon::operator* (double k) const {
 	Polygon P(*this);
-	for( vector<Vector2d>::iterator itr=P.L.begin(); itr!=P.L.end(); itr++ )
+	for( vector<Vec2>::iterator itr=P.L.begin(); itr!=P.L.end(); itr++ )
         *itr*=k;
 	return P;
 }
 
 class Polygon Polygon::operator/ (double k) const {
 	Polygon P(*this);
-	for( vector<Vector2d>::iterator itr=P.L.begin(); itr!=P.L.end(); itr++ )
+	for( vector<Vec2>::iterator itr=P.L.begin(); itr!=P.L.end(); itr++ )
         *itr/=k;
 	return P;
 }
 
 void Polygon::display() const {
-    vector<Vector2d>::const_iterator itr;
+    vector<Vec2>::const_iterator itr;
     for( itr=L.begin(); itr!=L.end(); itr++ )
         itr->display();
 }
 
 void Polygon::print() const {
-    vector<Vector2d>::const_iterator itr;
+    vector<Vec2>::const_iterator itr;
     for( itr=L.begin(); itr!=L.end(); itr++ )
     {
         itr->print();
@@ -224,7 +215,7 @@ void Polygon::print() const {
     }
 }
 
-Vector2d Polygon::pointIn() const
+Vec2 Polygon::pointIn() const
 {
     return L[0];
 }
@@ -232,12 +223,12 @@ Vector2d Polygon::pointIn() const
 void Polygon::rotate(double theta)
 {
     trig_pair p = sin_and_cos(theta);
-    for( vector<Vector2d>::iterator itr = L.begin(); itr!= L.end(); itr++ )
+    for( vector<Vec2>::iterator itr = L.begin(); itr!= L.end(); itr++ )
         itr->rotate(p);
 }
 
 
-bool Polygon::vectorInside( const Vector2d& V ) const 
+bool Polygon::vectorInside( const Vec2& V ) const 
 {    
     double theta = 0;
     int size = L.size();
@@ -246,9 +237,9 @@ bool Polygon::vectorInside( const Vector2d& V ) const
     return ( theta > 1 || theta < -1 );
 }
 
-Vector2d Polygon::average() const
+Vec2 Polygon::average() const
 {
-    Vector2d R;
+    Vec2 R;
     int size = L.size();
     for( int i=0; i<size; i++ )
         R+=L[i];
@@ -280,7 +271,7 @@ double Polygon::area() const
     return 0.5*accum;
 }
 
-Vector2d Polygon::centroid() const
+Vec2 Polygon::centroid() const
 {
     double accumx=0.0, accumy=0.0;
     int n = L.size();
@@ -291,13 +282,13 @@ Vector2d Polygon::centroid() const
         accumx+= (L[i].x+L[j].x)*t;
         accumy+= (L[i].y+L[j].y)*t;
     }
-    return Vector2d(accumx, accumy)/(6.0*area());
+    return Vec2(accumx, accumy)/(6.0*area());
 }
 
 void Polygon::reverse()
 {
     int size = L.size();
-    vector<Vector2d> newL(size);
+    vector<Vec2> newL(size);
     for( int i=0; i<size; i++ )
         newL[i] = L[size-i-1];
     L = newL;
@@ -306,7 +297,7 @@ void Polygon::reverse()
 
 bool Polygon::overlaps( const class Polygon& P, OverlapInfo* oInfo ) const
 {
-    vector<Vector2d>::const_iterator itr;
+    vector<Vec2>::const_iterator itr;
     bool retval = false;
     
     if( !oInfo )
@@ -334,7 +325,7 @@ bool Polygon::overlaps( const class Polygon& P, OverlapInfo* oInfo ) const
         
         for( int i=0; i<lsize; i++, TlengthAccum+=TsegmentLength )
         {
-            Vector2d    T0 = L[i], T1 = L[(i+1)%lsize],
+            Vec2    T0 = L[i], T1 = L[(i+1)%lsize],
                         PT0 = P.L[j], PT1 = P.L[(j+1)%plsize];
             TsegmentLength = (T1-T0).mag();
             PsegmentLength = (PT1-PT0).mag();
@@ -361,10 +352,10 @@ bool Polygon::overlaps( const class Polygon& P, OverlapInfo* oInfo ) const
 
 
 
-Vector2d Polygon::shortestPathOut(const Vector2d& P) const
+Vec2 Polygon::shortestPathOut(const Vec2& P) const
 {
-    vector<Vector2d>::const_iterator itr;
-    Vector2d V(L[0] - P);
+    vector<Vec2>::const_iterator itr;
+    Vec2 V(L[0] - P);
     
     //first take the minimum distance to a vertex
     for( itr=L.begin(); itr!=L.end(); itr++ )
@@ -374,13 +365,13 @@ Vector2d Polygon::shortestPathOut(const Vector2d& P) const
     int size = L.size();
     for( int i=0; i<size; i++ )
     {
-        Vector2d A(P-L[i]);
-        Vector2d B(L[(i+1)%size]-L[i]);
+        Vec2 A(P-L[i]);
+        Vec2 B(L[(i+1)%size]-L[i]);
         
         double d = A.dot(B);
         if( d >= 0 && d <= B.magSquared() )
         {
-            Vector2d C = A.projectOnto(B)-A;
+            Vec2 C = A.projectOnto(B)-A;
             if( V.magSquared() > C.magSquared() )
             {
                 //accuracy issues in the situation when the point 
@@ -419,11 +410,11 @@ bool Polygon::overlaps( const class Circle& C, OverlapInfo* oInfo ) const
     double segmentLength=0.0;
     for( int i=0; i<size; i++, lengthAccum += segmentLength )
     {
-        Vector2d P(L[i]),Q(L[(i+1)%size]);
+        Vec2 P(L[i]),Q(L[(i+1)%size]);
         segmentLength = (P-Q).mag();
         
         //bounding box check
-        Vector2d A = P-C.C, B = Q-C.C;
+        Vec2 A = P-C.C, B = Q-C.C;
         if ((A.x > C.r && B.x > C.r) || (A.y > C.r && B.y > C.r) ||
             (A.x < -C.r && B.x < -C.r) || (A.y < -C.r && B.y < -C.r)) continue;
         //end of bounding box check
@@ -555,9 +546,9 @@ void Polygon::continuousOverlapInfo( int a, double ta, int b, double tb, Overlap
 {
     int size = L.size();
     
-    Vector2d A((1-ta)*L[a] + ta*L[(a+1)%size]);
-    Vector2d B((1-tb)*L[b] + tb*L[(b+1)%size]);
-    Vector2d dA = L[(a+1)%size], dB = L[b];
+    Vec2 A((1-ta)*L[a] + ta*L[(a+1)%size]);
+    Vec2 B((1-tb)*L[b] + tb*L[(b+1)%size]);
+    Vec2 dA = L[(a+1)%size], dB = L[b];
     double Blength((B-dB).mag()), Alength((dA-A).mag());
     
     // If a==b, we handle separately.  Then the length of the domain of integration is
@@ -572,7 +563,7 @@ void Polygon::continuousOverlapInfo( int a, double ta, int b, double tb, Overlap
     
     // If a!=b, we go through the segments integrating as we go.
     
-    Vector2d N, P;
+    Vec2 N, P;
     double length;
     
     // first the segments on the ends of the domain:
@@ -583,8 +574,8 @@ void Polygon::continuousOverlapInfo( int a, double ta, int b, double tb, Overlap
     // then loop through the segments on the interior adding using the whole length of each segment
     for( int i=(a+1)%size; i!=b; i++, i%=size )
     {
-        Vector2d C(L[i]), dC(L[(i+1)%size]);
-        Vector2d Ccont(dC-C);
+        Vec2 C(L[i]), dC(L[(i+1)%size]);
+        Vec2 Ccont(dC-C);
         double Clength = Ccont.mag();
         length += Clength;
         P += (dC+C)*Clength;
@@ -601,7 +592,7 @@ vector<Polygon> Polygon::triangulate() const
       It should not be called frequently.*/
          
     vector<Polygon> R;
-    vector<Vector2d> temp_L = L;
+    vector<Vec2> temp_L = L;
     
     int i,j;
     
@@ -610,16 +601,16 @@ vector<Polygon> Polygon::triangulate() const
         int size = temp_L.size();
         for( i=0; i<size; i++ )
         {
-            Vector2d P1 = temp_L[i];
-            Vector2d P2 = temp_L[(i+1)%size];
-            Vector2d P3 = temp_L[(i+size-1)%size];
+            Vec2 P1 = temp_L[i];
+            Vec2 P2 = temp_L[(i+1)%size];
+            Vec2 P3 = temp_L[(i+size-1)%size];
             
             Polygon T;
             T.add(P1).add(P2).add(P3);
             
             bool bad_flag = false;
             
-            if( Vector3d(P2-P1).cross(Vector3d(P3-P2)).z < 0.0 )
+            if( Vec3(P2-P1).cross(Vec3(P3-P2)).z < 0.0 )
             {
                 bad_flag = true;
             }
@@ -643,7 +634,7 @@ vector<Polygon> Polygon::triangulate() const
             if(!bad_flag || i==size-1) //just so it doesn't crash
             {
                 R.push_back(T);
-                vector<Vector2d> newL;
+                vector<Vec2> newL;
                 for( int j=0; j<size; j++ )
                 {
                     if( j!=i )
@@ -708,27 +699,27 @@ int Polygon::windingNumber() const
 
 
 
-void Circle::set( const Vector2d& inc, double inr ) {
+void Circle::set( const Vec2& inc, double inr ) {
     tag = kCircle;
     r = inr; C = inc;
 }
 
 void Circle::set( double inx, double iny, double inr ) {
     tag = kCircle;
-    r = inr; C = Vector2d(inx,iny);
+    r = inr; C = Vec2(inx,iny);
 }
 
-bool Circle::vectorInside( const Vector2d V ) const {
+bool Circle::vectorInside( const Vec2 V ) const {
     return ( (V-C).magSquared()<r*r );
 }
 
 
-class Circle& Circle::operator -= (const Vector2d& V) {
+class Circle& Circle::operator -= (const Vec2& V) {
     C-=V;
     return *this;
 }
 
-class Circle& Circle::operator += (const Vector2d& V) {
+class Circle& Circle::operator += (const Vec2& V) {
     C+=V;
     return *this;
 }
@@ -758,7 +749,7 @@ void Circle::display() const
     printf("\n");
 }
 
-Vector2d Circle::pointIn() const
+Vec2 Circle::pointIn() const
 {
     return C;
 }
@@ -771,7 +762,7 @@ void Circle::rotate(double theta)
 bool Circle::overlaps( const class Circle& inC, OverlapInfo* oInfo ) const
 {
     //bounding box check
-    Vector2d U = inC.C - C;
+    Vec2 U = inC.C - C;
     double r_sum = inC.r + r;
     if (( U.x > r_sum ) ||
         ( U.y > r_sum ) ||
@@ -800,7 +791,7 @@ void Circle::continuousOverlapInfo( const class Circle& inC, OverlapInfo* oInfo 
     oInfo->contactPoint = (inC.r*C + r*inC.C)/(inC.r + r);
 }
 
-const vector<double> Circle::intersectLine( const Vector2d& P, const Vector2d& Q ) const
+const vector<double> Circle::intersectLine( const Vec2& P, const Vec2& Q ) const
 {
     double a,b,c;
     
