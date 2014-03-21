@@ -1,5 +1,7 @@
-#include "math2d.h"
+
 #include <algorithm>
+
+#include "math2d.h"
 
 namespace lib2d {
 
@@ -65,7 +67,6 @@ vector<double> quad_form(double a, double b, double c)
     return R;
 }
 
-  
 Vec2 projectOnto( const Vec2& T, const Vec2& V )
 {
     return V*T.dot(V)/V.magSquared();
@@ -73,20 +74,20 @@ Vec2 projectOnto( const Vec2& T, const Vec2& V )
 
 Vec2 reflectAbout( const Vec2& T, const Vec2& V )
 {
-    return 2 * projectOnto(V) - T;
+    return 2.0 * projectOnto(T, V) - T;
 }
 
 Vec2 right( const Vec2& T )
 {
     Vec2 V;
-    V.x = y;
-    V.y = -x;
+    V.x = T.y;
+    V.y = -T.x;
     return V;
 }
 
 Vec2 left( const Vec2& T )
 {
-    return -perp(T);
+    return -right(T);
 }
 
 double angle( const Vec2& T )
@@ -96,38 +97,38 @@ double angle( const Vec2& T )
 
 double theta( const Vec2& T, const Vec2& V )
 {
-    return acos(dot(V)/(mag()*V.mag()));
+    return acos(T.dot(V)/(T.mag()*V.mag()));
 }
 
 double angleTo( const Vec2& T, const Vec2& V )
 {
-    return theta(V)*sgn( V.y*x-V.x*y );
+    return theta(T, V)*sgn( V.y*T.x-V.x*T.y );
 }
 
-bool between( const Vec2 U, const Vec2 V )
+bool between( const Vec2& T, const Vec2& U, const Vec2& V )
 {
-    return V.y*x -V.x*y >0 &&  U.x*y -U.y*x>0;
+    return V.y*T.x -V.x*T.y > 0 &&  U.x*T.y -U.y*T.x > 0;
 }
 
 bool betweenInclusive( const Vec2& T, const Vec2 U, const Vec2 V )
 {
-    return V.y*T.x -V.x*T.y >=0 &&  U.x*T.y -U.y*x>=0;
+    return V.y*T.x -V.x*T.y >= 0 &&  U.x*T.y - U.y*T.x >= 0;
+}
+
+Vec2& rotate( Vec2& T, const trig_pair& p )
+{
+    double new_x, new_y;
+    new_x = p.cos*T.x - p.sin*T.y;
+    new_y = p.sin*T.x + p.cos*T.y;
+    T.x = new_x;
+    T.y = new_y;
+    return T;
 }
 
 Vec2& rotate( Vec2& T, double theta )
 {
     trig_pair p = sin_and_cos(theta);
-    return rotate(p);
-}
-
-Vec2& rotate( Vec2& T, const trig_pair p)
-{
-    double new_x, new_y;
-    new_x = p.cos*x - p.sin*y;
-    new_y = p.sin*x + p.cos*y;
-    x = new_x;
-    y = new_y;
-    return T;
+    return rotate(T, p);
 }
 
 Vec3 projectOnto( const Vec3& T, const Vec3& V )
@@ -137,7 +138,7 @@ Vec3 projectOnto( const Vec3& T, const Vec3& V )
 
 Vec3 reflectAbout( const Vec3& T, const class Vec3& V )
 {
-    return 2.0*T.projectOnto(V) - T;
+    return 2.0*projectOnto(T, V) - T;
 }
 
 double theta( const Vec3& T, const Vec3& V )
@@ -146,8 +147,15 @@ double theta( const Vec3& T, const Vec3& V )
 }
 
 
+Line2d::Line2d(){}
 
-const vector<double> Line2d::intersectLine( const class Line2d& L ) const {
+Line2d::Line2d(const Vec2& P, const Vec2& Q)
+    : P(P), Q(Q)
+{
+}
+
+const vector<double> Line2d::intersectLine( const class Line2d& L ) const
+{
     vector<double> R(2);
     double det = (Q.x-P.x)*(L.P.y-L.Q.y) - (Q.y-P.y)*(L.P.x-L.Q.x);
     R[0] = (L.P.y-L.Q.y)*(L.P.x-P.x) - (L.P.x-L.Q.x)*(L.P.y-P.y);
@@ -172,41 +180,47 @@ class Polygon& Polygon::add( double x, double y )
 }
 
 
-class Polygon& Polygon::operator += (const Vec2& V) {
+class Polygon& Polygon::operator += (const Vec2& V) 
+{
     vector<Vec2>::iterator itr;
     for( itr=L.begin(); itr!=L.end(); itr++ )
         *itr+=V;
     return *this;
 }
 
-class Polygon& Polygon::operator -= (const Vec2& V) {
+class Polygon& Polygon::operator -= (const Vec2& V)
+{
     vector<Vec2>::iterator itr;
     for( itr=L.begin(); itr!=L.end(); itr++ )
         *itr-=V;
     return *this;
 }
 
-class Polygon Polygon::operator* (double k) const {
+class Polygon Polygon::operator* (double k) const
+{
 	Polygon P(*this);
 	for( vector<Vec2>::iterator itr=P.L.begin(); itr!=P.L.end(); itr++ )
         *itr*=k;
 	return P;
 }
 
-class Polygon Polygon::operator/ (double k) const {
+class Polygon Polygon::operator/ (double k) const
+{
 	Polygon P(*this);
 	for( vector<Vec2>::iterator itr=P.L.begin(); itr!=P.L.end(); itr++ )
         *itr/=k;
 	return P;
 }
 
-void Polygon::display() const {
+void Polygon::display() const
+{
     vector<Vec2>::const_iterator itr;
     for( itr=L.begin(); itr!=L.end(); itr++ )
         itr->display();
 }
 
-void Polygon::print() const {
+void Polygon::print() const
+{
     vector<Vec2>::const_iterator itr;
     for( itr=L.begin(); itr!=L.end(); itr++ )
     {
@@ -224,7 +238,7 @@ void Polygon::rotate(double theta)
 {
     trig_pair p = sin_and_cos(theta);
     for( vector<Vec2>::iterator itr = L.begin(); itr!= L.end(); itr++ )
-        itr->rotate(p);
+        lib2d::rotate(*itr, p);
 }
 
 
@@ -233,7 +247,7 @@ bool Polygon::vectorInside( const Vec2& V ) const
     double theta = 0;
     int size = L.size();
     for( int i=0; i<size; i++ )
-        theta += (L[i]-V).angleTo(L[(i+1)%size]-V);
+        theta += angleTo(L[i]-V, L[(i+1)%size]-V);
     return ( theta > 1 || theta < -1 );
 }
 
@@ -371,12 +385,12 @@ Vec2 Polygon::shortestPathOut(const Vec2& P) const
         double d = A.dot(B);
         if( d >= 0 && d <= B.magSquared() )
         {
-            Vec2 C = A.projectOnto(B)-A;
+            Vec2 C = projectOnto(A, B)-A;
             if( V.magSquared() > C.magSquared() )
             {
                 //accuracy issues in the situation when the point 
                 //is extremely close to the line suggested to me that I should do this:
-                V = B.right();
+                V = right(B);
                 V *= C.mag()/V.mag();
             }
         }
@@ -556,7 +570,7 @@ void Polygon::continuousOverlapInfo( int a, double ta, int b, double tb, Overlap
     
     if( a==b )
     {
-        cInfo->normal = normalize((dA-dB).right());
+        cInfo->normal = normalize(right(dA-dB));
         cInfo->contactPoint = 0.5*(A+B);
         return;
     }
@@ -581,7 +595,7 @@ void Polygon::continuousOverlapInfo( int a, double ta, int b, double tb, Overlap
         P += (dC+C)*Clength;
     }
     
-    cInfo->normal = normalize((B-A).right());
+    cInfo->normal = normalize(right(B-A));
     cInfo->contactPoint = 0.5*(P / length);
 }
 
@@ -610,7 +624,7 @@ vector<Polygon> Polygon::triangulate() const
             
             bool bad_flag = false;
             
-            if( Vec3(P2-P1).cross(Vec3(P3-P2)).z < 0.0 )
+            if( Vec3(P2-P1, 0.0).cross(Vec3(P3-P2, 0.0)).z < 0.0 )
             {
                 bad_flag = true;
             }
@@ -689,7 +703,7 @@ int Polygon::windingNumber() const
     for(int i=0; i<size; i++)
     {
         int j=(i+1)%size, k=(i+2)%size;
-        theta += (L[j]-L[i]).angleTo(L[k]-L[j]);
+        theta += angleTo(L[j]-L[i], L[k]-L[j]);
     }
     
     double t = 0.5*theta*ONE_OVER_PI;
@@ -756,7 +770,7 @@ Vec2 Circle::pointIn() const
 
 void Circle::rotate(double theta)
 {
-    C.rotate(theta);
+    lib2d::rotate(C, theta);
 }
 
 bool Circle::overlaps( const class Circle& inC, OverlapInfo* oInfo ) const

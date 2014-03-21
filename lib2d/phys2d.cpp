@@ -1,8 +1,9 @@
+#include <algorithm>
+
 #include "math2d.h"
 #include "phys2d.h"
 #include "pooledlist.h"
 
-#include <algorithm>
 #include <stack>
 
 #include <pthread.h>
@@ -297,7 +298,7 @@ Vec2 Piece::midpoint() const
             if(b>a) a+=2.0*PI;
             theta = 0.5*(a+b)/r;
             V.set(r,0);
-            V.rotate(theta);
+            lib2d::rotate(V, theta);
             V+=P;
             return V;
         break;
@@ -403,20 +404,18 @@ bool Collision::penetrates() const
     Vec2 R1_2d( pointOfImpact - (P->position + t*P->velocity) ),
              R2_2d( pointOfImpact - (Q->position + t*Q->velocity) );
     
-    Vec3 r1( R1_2d ), r2( R2_2d );
+    Vec3 r1( R1_2d, 0.0 ), r2( R2_2d, 0.0 );
     
-    Vec3
-        v1 = P->velocity,
-        v2 = Q->velocity,
-        w1(0.0, 0.0, P->omega),
-        w2(0.0, 0.0, Q->omega);
+    Vec3 v1(P->velocity, 0.0);
+    Vec3 v2(Q->velocity, 0.0);
+    Vec3 w1(0.0, 0.0, P->omega);
+    Vec3 w2(0.0, 0.0, Q->omega);
     
     Vec3 Vr = (w2.cross(r2) + v2) - (w1.cross(r1) + v1);
-    Vec3 N(normalOfImpact);
+    Vec3 N(normalOfImpact, 0.0);
     
     return( Vr.dot(N) <= 0.0 );
 }
-
 
 
 PooledPieceList Universe::makePieceList() const
@@ -1262,7 +1261,7 @@ void Universe::binarySpaceSearchDiscrete_helper(PooledPieceList& inL, int depth,
                     
                     
                     D.set(Dx, Dy);
-                    double theta = r*((K1+t*D-P).angle()), phi = r*((K1+u*D-P).angle());
+                    double theta = r*(angle(K1+t*D-P)), phi = r*(angle(K1+u*D-P));
                     if(theta<0) theta += 2.0*PI*r;
                     if(phi<0) phi += 2.0*PI*r;
                     
@@ -1309,6 +1308,7 @@ void Universe::binarySpaceSearchDiscrete_helper(PooledPieceList& inL, int depth,
 
 void Piece::draw() const
 {
+#if GL_ON
     switch(tag)
     {
         case kCirclePiece:
@@ -1336,6 +1336,7 @@ void Piece::draw() const
     for( double theta=0.0; theta<=2.0*PI; theta+=PI/5.0 )
         glVertex3f( midpoint().x + 2*cos(theta), midpoint().y + 2*sin(theta), 1 );
     glEnd();
+#endif
 }
 
 
@@ -1363,7 +1364,7 @@ Vec3 compute_impulse_with_friction( Vec3 v1, Vec3 w1, double m1, double I1, Vec3
                                         Vec3 N, double e, double u_s, double u_d )
 {
     Vec3 Vr  = (w2.cross(r2) + v2) - (w1.cross(r1) + v1); //Vr = relative velocity at the point of impact
-    Vec3 Vrn = Vr.projectOnto(N);
+    Vec3 Vrn = projectOnto(Vr, N);
     Vec3 Vrt = Vr - Vrn; // the normal and tangential parts of Vr
     
     Vec3 newVrn, newVrt, newVr, j_stuck, j_slick;
@@ -1380,17 +1381,17 @@ Vec3 compute_impulse_with_friction( Vec3 v1, Vec3 w1, double m1, double I1, Vec3
     
     //see if that impulse is in the 'friction cone', if it is, we're done
     
-    Vec3 j_stuck_n = j_stuck.projectOnto(N);
+    Vec3 j_stuck_n = projectOnto(j_stuck, N);
     Vec3 j_stuck_t = j_stuck - j_stuck_n;
     if( j_stuck_t.magSquared() <= u_s*u_s*j_stuck.magSquared() )
         return j_stuck;
     
     //otherwise we have to compute a tangential frictional impulse:
     //first compute the unit tangent vector:
-    Vec3 T(Vr - Vr.projectOnto(N));
+    Vec3 T(Vr - projectOnto(Vr, N));
     
     N = N/N.mag();
-    
+
     //if the tangential relative motion is 0 anyway, we shouldn't actually get here,
     // but just in case, we just return the frictionless impulse
     if( T.mag()==0.0 )
@@ -1488,7 +1489,7 @@ pair<Delta,Delta> Universe::bounce(const Collision& C)
     u_s = max(u_d,u_s); //u_s should always be bigger than u_d no matter what.
     
     
-    Vec3 N( C.normalOfImpact );
+    Vec3 N( C.normalOfImpact, 0.0 );
     N/=N.mag();
     
     double t = C.timeOfImpact;
@@ -1496,12 +1497,12 @@ pair<Delta,Delta> Universe::bounce(const Collision& C)
     Vec2 	R1_2d( C.pointOfImpact - (P->position + t*P->velocity) ),
                 R2_2d( C.pointOfImpact - (Q->position + t*Q->velocity) );
     
-    Vec3 R1( R1_2d ), R2( R2_2d );
+    Vec3 R1( R1_2d, 0.0 ), R2( R2_2d, 0.0 );
     
-    Vec3 	V1 = P->velocity,
-                V2 = Q->velocity,
-                w1(0.0, 0.0, P->omega),
-                w2(0.0, 0.0, Q->omega);
+    Vec3 V1(P->velocity, 0.0);
+    Vec3 V2(Q->velocity, 0.0);
+    Vec3 w1(0.0, 0.0, P->omega);
+    Vec3 w2(0.0, 0.0, Q->omega);
     
     double  m1 = P->mass,
             m2 = Q->mass,
@@ -1540,18 +1541,23 @@ pair<Delta,Delta> Universe::bounce(const Collision& C)
 
 void Universe::drawAllCollisions()
 {
+#if GL_ON
     glColor3f( 0.0, 1.0, 0.0 );
     drawCollisionSet( findAllCollisions(), 30 );
+#endif
 }
 
 void Universe::drawAllCollisionsBinary()
 {
+#if GL_ON
     glColor3f( 1.0, 0.0, 0.0 );
     drawCollisionSet( findAllCollisionsBinary(), 15 );
+#endif
 }
 
 void Universe::drawCollisionSet(const set<Collision>& S, double arrowLength)
 {
+#if GL_ON
     for( set<Collision>::iterator itr = S.begin(); itr!=S.end(); itr++ )
     {
         glBegin(GL_LINES);
@@ -1577,7 +1583,7 @@ void Universe::drawCollisionSet(const set<Collision>& S, double arrowLength)
         
         glEnd();
     }
-
+#endif
 }
 
 

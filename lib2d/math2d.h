@@ -45,13 +45,43 @@ trig_pair factory_sin_and_cos(double);
 trig_pair lut_sin_and_cos(double);
 
 trig_pair fsin_and_cos(double theta); //wrapper for sin_and_cos
-
-
 vector<double> quad_form(double a, double b, double c);
 
 #define QUAD_FORM(A,B,C,r1,r2) { double a=A,b=B,c=C; double q = -0.5*( b + sgn(b)*sqrt(b*b - 4.0*a*c) ); r1 = q/a; r2 = c/q; }
 
+
+
+Vec2 projectOnto( const Vec2& T, const Vec2& V );
+Vec2 reflectAbout( const Vec2& T, const Vec2& V );
+Vec2 right( const Vec2& T );
+Vec2 left( const Vec2& T );
+double angle( const Vec2& T );
+double theta( const Vec2& T, const Vec2& V );
+double angleTo( const Vec2& T, const Vec2& V );
+bool between( const Vec2& T, const Vec2& U, const Vec2& V );
+bool betweenInclusive( const Vec2& T, const Vec2 U, const Vec2 V );
+Vec2& rotate( Vec2& T, const trig_pair& p );
+Vec2& rotate( Vec2& T, double theta );
+Vec3 projectOnto( const Vec3& T, const Vec3& V );
+Vec3 reflectAbout( const Vec3& T, const class Vec3& V );
+double theta( const Vec3& T, const Vec3& V );
+
+
+
+
 pair<double,double> findShortestEncapsulatingInterval( vector<double>& L, double perimeter );
+
+class Line2d 
+{
+public:
+    Line2d();
+    Line2d(const Vec2& P, const Vec2& Q);
+    
+    Vec2 P;
+    Vec2 Q;
+    
+    const vector<double> intersectLine( const class Line2d& L ) const;
+};
 
 class OverlapInfo
 {

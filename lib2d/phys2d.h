@@ -2,7 +2,7 @@
 #define _PHYS2D_
 
 #ifndef GL_ON
-#define GL_ON 1
+#define GL_ON 0
 #endif
 
 #ifndef _MATH2D_
