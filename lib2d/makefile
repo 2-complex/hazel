@@ -1,5 +1,5 @@
 CC = c++
-OPTIMIZATION = -force_cpusubtype_ALL -O3
+OPTIMIZATION = -O3
 DEBUGGER = -g
 PROFILER = 
 INCLUDES = -I../g2c/g2c
@@ -17,7 +17,7 @@ prof_test: math2d.o phys2d.o prof_test.cpp
 	$(CC) $(OPTIMIZATION) $(INCLUDES) $(FRAMEWORKS) $(FILES) prof_test.cpp -o prof_test $(PROFILER) $(DEBUGGER)
 
 test:  math2d.o phys2d.o test.cpp
-	$(CC) $(OPTIMIZATION) $(INCLUDES) $(FRAMEWORKS) $(FILES) test.cpp -o test $(PROFILER) $(DEBUGGER)
+	$(CC) $(OPTIMIZATION) $(INCLUDES) $(FILES) test.cpp -o test $(PROFILER) $(DEBUGGER)
 
 gl_test: math2d.o phys2d.o gl_test.cpp
 	$(CC) $(OPTIMIZATION) $(FRAMEWORKS) $(FILES) gl_test.cpp -o gl_test

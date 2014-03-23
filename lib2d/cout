@@ -1,0 +1,90 @@
+math2d.cpp:108:21: error: ‘Vec’ does not name a type
+math2d.cpp:108:26: error: ISO C++ forbids declaration of ‘T’ with no type [-fpermissive]
+math2d.cpp: In function ‘bool lib2d::between(const int&, const Vec2&, const Vec2&)’:
+math2d.cpp:110:18: error: request for member ‘x’ in ‘T’, which is of non-class type ‘const int’
+math2d.cpp:110:27: error: request for member ‘y’ in ‘T’, which is of non-class type ‘const int’
+math2d.cpp:110:43: error: request for member ‘y’ in ‘T’, which is of non-class type ‘const int’
+math2d.cpp:110:52: error: request for member ‘x’ in ‘T’, which is of non-class type ‘const int’
+math2d.cpp: In function ‘Vec2& lib2d::rotate(Vec2&, double)’:
+math2d.cpp:121:20: error: invalid initialization of reference of type ‘Vec2&’ from expression of type ‘lib2d::trig_pair’
+math2d.cpp:118:7: error: in passing argument 1 of ‘Vec2& lib2d::rotate(Vec2&, double)’
+math2d.cpp: In function ‘Vec2& lib2d::rotate(Vec2&, lib2d::trig_pair)’:
+math2d.cpp:129:5: error: ‘x’ was not declared in this scope
+math2d.cpp:130:5: error: ‘y’ was not declared in this scope
+math2d.cpp: At global scope:
+math2d.cpp:151:22: error: ‘Line2d’ has not been declared
+math2d.cpp:151:69: error: non-member function ‘const std::vector<double> lib2d::intersectLine(const lib2d::Line2d&)’ cannot have cv-qualifier
+math2d.cpp: In function ‘const std::vector<double> lib2d::intersectLine(const lib2d::Line2d&)’:
+math2d.cpp:154:19: error: ‘Q’ was not declared in this scope
+math2d.cpp:154:23: error: ‘P’ was not declared in this scope
+math2d.cpp:154:30: error: invalid use of incomplete type ‘const class lib2d::Line2d’
+math2d.cpp:151:57: error: forward declaration of ‘const class lib2d::Line2d’
+math2d.cpp:154:36: error: invalid use of incomplete type ‘const class lib2d::Line2d’
+math2d.cpp:151:57: error: forward declaration of ‘const class lib2d::Line2d’
+math2d.cpp:154:56: error: invalid use of incomplete type ‘const class lib2d::Line2d’
+math2d.cpp:151:57: error: forward declaration of ‘const class lib2d::Line2d’
+math2d.cpp:154:62: error: invalid use of incomplete type ‘const class lib2d::Line2d’
+math2d.cpp:151:57: error: forward declaration of ‘const class lib2d::Line2d’
+math2d.cpp:155:14: error: invalid use of incomplete type ‘const class lib2d::Line2d’
+math2d.cpp:151:57: error: forward declaration of ‘const class lib2d::Line2d’
+math2d.cpp:155:20: error: invalid use of incomplete type ‘const class lib2d::Line2d’
+math2d.cpp:151:57: error: forward declaration of ‘const class lib2d::Line2d’
+math2d.cpp:155:28: error: invalid use of incomplete type ‘const class lib2d::Line2d’
+math2d.cpp:151:57: error: forward declaration of ‘const class lib2d::Line2d’
+math2d.cpp:155:42: error: invalid use of incomplete type ‘const class lib2d::Line2d’
+math2d.cpp:151:57: error: forward declaration of ‘const class lib2d::Line2d’
+math2d.cpp:155:48: error: invalid use of incomplete type ‘const class lib2d::Line2d’
+math2d.cpp:151:57: error: forward declaration of ‘const class lib2d::Line2d’
+math2d.cpp:155:56: error: invalid use of incomplete type ‘const class lib2d::Line2d’
+math2d.cpp:151:57: error: forward declaration of ‘const class lib2d::Line2d’
+math2d.cpp:156:24: error: invalid use of incomplete type ‘const class lib2d::Line2d’
+math2d.cpp:151:57: error: forward declaration of ‘const class lib2d::Line2d’
+math2d.cpp:156:52: error: invalid use of incomplete type ‘const class lib2d::Line2d’
+math2d.cpp:151:57: error: forward declaration of ‘const class lib2d::Line2d’
+math2d.cpp: In member function ‘void lib2d::Polygon::rotate(double)’:
+math2d.cpp:235:23: error: no matching function for call to ‘lib2d::Polygon::rotate(Vec2&, lib2d::trig_pair&)’
+math2d.cpp:235:23: note: candidate is:
+math2d.cpp:231:6: note: void lib2d::Polygon::rotate(double)
+math2d.cpp:231:6: note:   candidate expects 1 argument, 2 provided
+math2d.cpp: In member function ‘bool lib2d::Polygon::overlaps(const lib2d::Polygon&, lib2d::OverlapInfo*) const’:
+math2d.cpp:341:44: error: invalid use of incomplete type ‘class lib2d::Line2d’
+math2d.cpp:151:57: error: forward declaration of ‘class lib2d::Line2d’
+math2d.cpp:341:74: error: invalid use of incomplete type ‘class lib2d::Line2d’
+math2d.cpp:151:57: error: forward declaration of ‘class lib2d::Line2d’
+math2d.cpp: In member function ‘std::vector<lib2d::Polygon> lib2d::Polygon::triangulate() const’:
+math2d.cpp:621:27: error: no matching function for call to ‘Vec3::Vec3(Vec2)’
+math2d.cpp:621:27: note: candidates are:
+In file included from math2d.h:14:0,
+                 from math2d.cpp:4:
+lin/lin.h:77:5: note: Vec3::Vec3(const Vec3&)
+lin/lin.h:77:5: note:   no known conversion for argument 1 from ‘Vec2’ to ‘const Vec3&’
+lin/lin.h:76:5: note: Vec3::Vec3(const Vec2&, double)
+lin/lin.h:76:5: note:   candidate expects 2 arguments, 1 provided
+lin/lin.h:75:5: note: Vec3::Vec3(double, const Vec2&)
+lin/lin.h:75:5: note:   candidate expects 2 arguments, 1 provided
+lin/lin.h:74:5: note: Vec3::Vec3(double, double, double)
+lin/lin.h:74:5: note:   candidate expects 3 arguments, 1 provided
+lin/lin.h:73:5: note: Vec3::Vec3()
+lin/lin.h:73:5: note:   candidate expects 0 arguments, 1 provided
+math2d.cpp:621:45: error: no matching function for call to ‘Vec3::Vec3(Vec2)’
+math2d.cpp:621:45: note: candidates are:
+In file included from math2d.h:14:0,
+                 from math2d.cpp:4:
+lin/lin.h:77:5: note: Vec3::Vec3(const Vec3&)
+lin/lin.h:77:5: note:   no known conversion for argument 1 from ‘Vec2’ to ‘const Vec3&’
+lin/lin.h:76:5: note: Vec3::Vec3(const Vec2&, double)
+lin/lin.h:76:5: note:   candidate expects 2 arguments, 1 provided
+lin/lin.h:75:5: note: Vec3::Vec3(double, const Vec2&)
+lin/lin.h:75:5: note:   candidate expects 2 arguments, 1 provided
+lin/lin.h:74:5: note: Vec3::Vec3(double, double, double)
+lin/lin.h:74:5: note:   candidate expects 3 arguments, 1 provided
+lin/lin.h:73:5: note: Vec3::Vec3()
+lin/lin.h:73:5: note:   candidate expects 0 arguments, 1 provided
+math2d.cpp: In member function ‘bool lib2d::Polygon::simple() const’:
+math2d.cpp:671:18: error: variable ‘lib2d::Line2d A’ has initializer but incomplete type
+math2d.cpp:679:26: error: variable ‘lib2d::Line2d B’ has initializer but incomplete type
+math2d.cpp: In member function ‘void lib2d::Circle::rotate(double)’:
+math2d.cpp:767:20: error: no matching function for call to ‘lib2d::Circle::rotate(Vec2&, double&)’
+math2d.cpp:767:20: note: candidate is:
+math2d.cpp:765:6: note: void lib2d::Circle::rotate(double)
+math2d.cpp:765:6: note:   candidate expects 1 argument, 2 provided
