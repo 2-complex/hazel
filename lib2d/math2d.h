@@ -1,6 +1,7 @@
 #ifndef _MATH2D_
 #define _MATH2D_
 
+#include "opengl.h"
 
 #include <stdio.h>
 #include <math.h>

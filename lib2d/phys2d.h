@@ -5,12 +5,10 @@
 #define GL_ON 0
 #endif
 
-#ifndef _MATH2D_
 #include "math2d.h"
-#endif
 
 #if GL_ON
-#include <glut/glut.h>
+#include "opengl.h"
 #endif
 
 #include <pthread.h>
@@ -23,6 +21,9 @@
 
 namespace lib2d
 {
+
+Vec2 randVec2( double amount = 1.0 );
+Vec3 randVec3( double amount = 1.0 );
 
 class Delta
 {

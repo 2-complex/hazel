@@ -5,13 +5,12 @@
 
 #include "phys2d.h"
 
-#define DRAW_ON 1
-
 using namespace lib2d;
 
+#define DRAW_ON 1
 
 #if DRAW_ON
-#include <glut/glut.h>
+#include <opengl.h>
 
 void display();
 void again();
@@ -65,7 +64,7 @@ class Environment
         for( int i=0; i<kNumberOfBoxes; i++ )
         {
             boxes[i].set(P2);
-            boxes[i].position = Vector2d(0.0, (i+1)*80.0) + Vector2d::randVector(10.0);
+            boxes[i].position = Vec2(0.0, (i+1)*80.0) + randVec2(10.0);
             boxes[i].velocity.set(0,-10);
             boxes[i].omega = 0.0;
             boxes[i].rotationalInertia = 1000.0;
@@ -80,7 +79,7 @@ class Environment
         for( int i=0; i<kNumberOfBalls; i++ )
         {
             balls[i].set(Circle(0,0, 10.0));
-            balls[i].position = Vector2d(50.0, (i+1)*80.0) + Vector2d::randVector(10.0);
+            balls[i].position = Vec2(50.0, (i+1)*80.0) + randVec2(10.0);
             balls[i].velocity.set(0,-10);
             balls[i].omega = 0.0;
             balls[i].rotationalInertia = 1000.0;

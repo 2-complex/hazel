@@ -164,14 +164,14 @@ void Universe::clear()
     L.clear();
 }
 
-static Vec2 randVec2( double amount = 1.0 )
+Vec2 randVec2( double amount )
 {
     double t = (double)(random());
     double u = (double)(random()%1000001)/1000000.0;
     return amount * u * Vec2( cos(t), sin(t) );
 }
 
-static Vec3 randVec3( double amount = 1.0 )
+Vec3 randVec3( double amount )
 {
     double t = (double)(random());
     double u = (double)(random());

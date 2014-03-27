@@ -2,16 +2,18 @@ CC = c++
 OPTIMIZATION = -O3
 DEBUGGER = -g
 PROFILER = 
-INCLUDES = -I../g2c/g2c
+INCLUDES = -I../../g2c/g2c
 
 FILES = math2d.o phys2d.o
 FRAMEWORKS = -framework OpenGL -framework GLUT -framework Cocoa
 
+GLUT = -lGL -lGLU -lglut
+
 math2d.o: math2d.cpp
-	$(CC) -c $(OPTIMIZATION) $(INCLUDES) math2d.cpp $(PROFILER) $(DEBUGGER)
+	$(CC) -c $(OPTIMIZATION) $(INCLUDES) -DGL_ON math2d.cpp $(PROFILER) $(DEBUGGER)
 
 phys2d.o: phys2d.cpp
-	$(CC) -c $(OPTIMIZATION) $(INCLUDES) phys2d.cpp $(PROFILER) $(DEBUGGER)
+	$(CC) -c $(OPTIMIZATION) $(INCLUDES) -DGL_ON phys2d.cpp $(PROFILER) $(DEBUGGER)
 
 prof_test: math2d.o phys2d.o prof_test.cpp
 	$(CC) $(OPTIMIZATION) $(INCLUDES) $(FRAMEWORKS) $(FILES) prof_test.cpp -o prof_test $(PROFILER) $(DEBUGGER)
@@ -23,7 +25,7 @@ gl_test: math2d.o phys2d.o gl_test.cpp
 	$(CC) $(OPTIMIZATION) $(FRAMEWORKS) $(FILES) gl_test.cpp -o gl_test
 
 acid_test: math2d.o phys2d.o acid_test.cpp
-	$(CC) $(OPTIMIZATION) $(FRAMEWORKS) $(FILES) acid_test.cpp -o acid_test $(PROFILER) $(DEBUGGER)
+	$(CC) $(OPTIMIZATION) $(INCLUDES) -DGL_ON $(FILES) acid_test.cpp -o acid_test $(PROFILER) $(DEBUGGER) $(GLUT)
 
 three_test: math2d.o phys2d.o three_test.cpp
 	$(CC) $(OPTIMIZATION) $(FRAMEWORKS) $(FILES) three_test.cpp -o three_test $(PROFILER) $(DEBUGGER)
