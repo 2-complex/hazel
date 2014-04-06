@@ -6,6 +6,8 @@
 #include "sprites.h"
 #include "worldbase.h"
 
+#include "lib2d/phys2d.h"
+
 #include <map>
 
 using namespace g2c;
@@ -101,6 +103,8 @@ private:
 	vector<Object*> objects;
 	set<unsigned char> keySet;
 	Craft* primaryCraft;
+
+	lib2d::Universe universe;
 
 public:
 	Hazel();

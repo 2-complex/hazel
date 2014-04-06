@@ -4,38 +4,83 @@
   'visible' : 1,
   'children' : [
       {
-          'type' : 'Actor',
-          'name' : 'background',
-          'spriteName' : 'background',
-          'k' : 2,
+          'type' : 'Layer',
+          'name' : 'backgroundLayer',
+          'children' : [
+             {
+               'type' : 'Actor',
+               'name' : 'background',
+               'spriteName' : 'background',
+               'k' : 2,
+             },
+          ],
       },
 
       {
-          'type' : 'Actor',
-          'name' : 'tree0',
-          'spriteName' : 'lefttree',
-          'position' : [0,0],
+          'type' : 'Layer',
+          'name' : 'treeLayer',
+          'children' : [
+            {
+                'type' : 'Actor',
+                'name' : 'tree0',
+                'spriteName' : 'lefttree',
+                'position' : [0,0],
+            },
+
+            {
+                'type' : 'Actor',
+                'name' : 'tree1',
+                'spriteName' : 'righttree',
+                'position' : [600,0],
+            },
+
+            {
+                'type' : 'Actor',
+                'name' : 'tree2',
+                'spriteName' : 'bigtree',
+                'position' : [100,0],
+            },
+
+            {
+                'type' : 'Actor',
+                'name' : 'tree3',
+                'spriteName' : 'littletree',
+                'position' : [400,0],
+            },
+          ],
       },
 
       {
-          'type' : 'Actor',
-          'name' : 'tree1',
-          'spriteName' : 'righttree',
-          'position' : [600,0],
+          'type' : 'Layer',
+          'name' : 'steamLayer',
+          "matrix" : [ 1.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 100, 0, 1 ],
+          'children' : []
       },
 
       {
-          'type' : 'Actor',
-          'name' : 'tree2',
-          'spriteName' : 'bigtree',
-          'position' : [100,0],
-      },
-
-      {
-          'type' : 'Actor',
-          'name' : 'tree3',
-          'spriteName' : 'littletree',
-          'position' : [400,0],
+        'type' : 'Layer',
+        'name' : 'landscapeLayer',
+        'children' : [
+            {
+              "type" : "Polygon",
+              "name" : "sully",
+              "visible" : 1,
+              "matrix" : [ 1.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30, 20, 0, 1 ],
+              "color" : [ 0.2, 0.2, 0.1, 1 ],
+              "vertices" : [
+                [ 0, 0 ], 
+                [ 300, 0 ],
+                [ 300, 300 ],
+                [ 150, 200 ],
+                [ 0, 300 ],
+                [ 0, 0 ],
+                [ 300, 0 ],
+                [ 300, 300 ],
+                [ 150, 200 ],
+                [ 0, 300 ]
+              ]
+            },
+        ],
       },
 
       {
@@ -50,8 +95,7 @@
           'name' : 'hazelSprite',
           'numberOfColumns' : 4,
           'numberOfRows' : 1,
-          'file' : 'images/hazel.png',
-          'center' : 1,
+          'file' : 'images/hazel.png'
         },
 
         {

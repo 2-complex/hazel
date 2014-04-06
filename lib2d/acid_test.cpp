@@ -10,7 +10,7 @@ using namespace lib2d;
 #define DRAW_ON 1
 
 #if DRAW_ON
-#include <opengl.h>
+#include "opengl.h"
 
 void display();
 void again();
@@ -20,8 +20,8 @@ void button( int b, int state, int x, int y );
 #endif
 
 
-#define kNumberOfBoxes 20
-#define kNumberOfBalls 20
+#define kNumberOfBoxes 40
+#define kNumberOfBalls 40
 
 
 
@@ -161,7 +161,7 @@ int main( int argc, char** args )
     glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGB );
     
     glutInitWindowPosition(30,30);
-    glutInitWindowSize(640,480);
+    glutInitWindowSize(600,600);
     glutCreateWindow("A Window");
     //glutFullScreen();
     

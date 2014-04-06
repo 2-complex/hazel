@@ -5,33 +5,17 @@ ARGUMENTS =
 OPTIMIZATION = -O0
 DEBUG = -g3
 ODEBUG = $(DEBUG)
-OSTYPE = $(shell uname -msr)
-
-FLAGS = -DGLUT
-
-ifeq ($(findstring Linux,$(OSTYPE)),Linux)
-	GLFLAGS = -lglut -lGLU -lGL -L/usr/X11R6/lib/ -lXmu -lXi -lXext -lX11 -lXt -lpthread
-endif
-
-ifeq ($(findstring CYGWIN,$(OSTYPE)),CYGWIN)
-	GLFLAGS = -L/usr/X11R6/lib -L/usr/lib/w32api -lglut32 -lglu32 -lopengl32 -lXm -lpthread
-endif
-
-ifeq ($(findstring Darwin,$(OSTYPE)),Darwin)
-	GLFLAGS = -framework Cocoa -framework OpenGL -framework GLUT
-	PNGFLAGS = -framework libpng
-	AUDIOFLAGS = -framework AudioToolbox -framework Foundation -framework OpenAL
-	GRAPHICSFLAGS = -framework Cocoa -framework QuartzCore
-endif
-
 
 ENVIRONMENTS_DIR = g2c/environments
-ENVIRONMENTS = environment.o appenvironment.o
+LIBG2C_DIR = g2c/g2c
 
-LIBG2CDIR = g2c/g2c
-LIBG2C = $(LIBG2CDIR)/libg2c.a
+LIBG2C = $(LIBG2C_DIR)/libg2c.a
+LIBENVIRONMENTS = $(ENVIRONMENTS_DIR)/libenvironments.a
+
+include $(LIBG2C_DIR)/platform.mk
 
 HAZEL = hazel.o worldbase.o
+LIB2D = math2d.o phys2d.o
 
 current: $(CURRENT)
 
@@ -39,14 +23,22 @@ run: $(CURRENT)
 	./$(CURRENT) $(ARGUMENTS)
 
 $(LIBG2C): force_look
-	$(MAKE) -C $(LIBG2CDIR) libg2c.a
+	$(MAKE) -C $(LIBG2C_DIR) libg2c.a
 
-apptest: $(LIBG2C) $(HAZEL) apptest.cpp $(ENVIRONMENTS)
+$(LIBENVIRONMENTS): force_look
+	$(MAKE) -C $(ENVIRONMENTS_DIR) libenvironments.a
+
+apptest: $(LIBG2C) $(LIBENVIRONMENTS) $(LIB2D) $(HAZEL) apptest.cpp
 	c++ $(FLAGS) $(DEBUG) $(OPTIMIZATION) $(GLFLAGS) $(AUDIOFLAGS) \
-		$(ENVIRONMENTS) $(LIBG2C) \
+		-I$(ENVIRONMENTS_DIR) \
+		-I$(LIBG2C_DIR) \
+		apptest.cpp -o apptest \
+		$(LIBENVIRONMENTS)\
+		$(LIBG2C) \
 		$(HAZEL) \
-		-I$(ENVIRONMENTS_DIR) -I$(LIBG2CDIR) \
-		apptest.cpp -o apptest
+		$(LIB2D) \
+		$(GRAPHICS_LIBRARIES) \
+		$(AUDIO_LIBRARIES)
 
 
 worldbase.cpp: hazel.world basegen.py
@@ -56,16 +48,16 @@ worldbase.h: hazel.world basegen.py
 	python basegen.py hazel.world WorldBase
 
 worldbase.o: worldbase.cpp worldbase.h
-	c++ $(FLAGS) -c $(DEBUG) $(OPTIMIZATION) -I$(LIBG2CDIR) worldbase.cpp
+	c++ $(FLAGS) -c $(DEBUG) $(OPTIMIZATION) -I$(LIBG2C_DIR) worldbase.cpp
+
+math2d.o: lib2d/math2d.cpp lib2d/math2d.h
+	c++ -c $(DEBUG) -Ig2c/g2c $(OPTIMIZATION) -DGL_ON=0 lib2d/math2d.cpp
+
+phys2d.o: lib2d/phys2d.cpp lib2d/phys2d.h lib2d/math2d.h
+	c++ -c $(DEBUG) -Ig2c/g2c $(OPTIMIZATION) -DGL_ON=0 lib2d/phys2d.cpp
 
 hazel.o: hazel.cpp hazel.h
-	c++ $(FLAGS) -c $(DEBUG) $(OPTIMIZATION) -I$(LIBG2CDIR) hazel.cpp
-
-environment.o: $(ENVIRONMENTS_DIR)/environment.h $(ENVIRONMENTS_DIR)/environment.cpp
-	c++ $(FLAGS) -c $(DEBUG) $(OPTIMIZATION) -I$(LIBG2CDIR) $(ENVIRONMENTS_DIR)/environment.cpp
-
-appenvironment.o: $(ENVIRONMENTS_DIR)/appenvironment.h $(ENVIRONMENTS_DIR)/appenvironment.cpp
-	c++ $(FLAGS) -c $(DEBUG) $(OPTIMIZATION) -I$(LIBG2CDIR) $(ENVIRONMENTS_DIR)/appenvironment.cpp
+	c++ $(FLAGS) -c $(DEBUG) $(OPTIMIZATION) -I$(LIBG2C_DIR) hazel.cpp
 
 
 .PHONY: force_look

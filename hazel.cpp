@@ -6,6 +6,8 @@
 #include "sys/time.h"
 #include "stdlib.h"
 
+#include "lib2d/phys2d.h"
+
 
 void HazelPrefs::rewrite() const
 {
@@ -24,7 +26,6 @@ Node* HazelWorld::getNode(const string& name)
 
 void HazelWorld::initWorld()
 {
-
 }
 
 
@@ -64,6 +65,7 @@ void Hazel::init()
     world.init();
     world.initWorld();
 
+
     primaryCraft = new Craft;
     primaryCraft->actor = world.hazel;
     primaryCraft->position.set(100, 300);
@@ -76,12 +78,27 @@ void Hazel::init()
         up->position = Vec2(120 + i * 300, 50);
         objects.push_back(up);
         world.add(up->actor);
-	}
+    }
 
-	Updraft* up = new Updraft(world.getSprite("draftSprite"));
-	up->position = Vec2(120 + 1 * 300, 450);
-	objects.push_back(up);
-	world.add(up->actor);
+    Updraft* up = new Updraft(world.getSprite("draftSprite"));
+    up->position = Vec2(120 + 1 * 300, 450);
+    objects.push_back(up);
+    world.steamLayer->add(up->actor);
+
+
+
+    lib2d::Polygon p;
+
+    p.add(0,0);
+    p.add(100,0);
+    p.add(100,100);
+    p.add(0,100);
+
+    lib2d::Body* p_body = new lib2d::Body(p);
+    p_body->velocity = Vec2(2,2);
+    p_body->omega = 0.1;
+
+    universe.add(p_body);
 }
 
 void Hazel::destroy()
@@ -152,6 +169,13 @@ void Hazel::reshape(int width, int height)
 
 void Hazel::step(double t)
 {
+    if( t-lastTime > 1.0 / 35.0 )
+    {
+        universe.applyGravity();
+        universe.handleCollisions();
+        universe.move();
+    }
+
     if( t-lastTime > 1.0 / 35.0 )
     {
         for(vector<Object*>::iterator itr = objects.begin(); itr != objects.end(); itr++)
