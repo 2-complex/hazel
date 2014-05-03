@@ -86,15 +86,11 @@ void Hazel::init()
     world.steamLayer->add(up->actor);
 
 
+    p.add(-30,-20);
+    p.add(80,0);
+    p.add(-30,20);
 
-    lib2d::Polygon p;
-
-    p.add(0,0);
-    p.add(100,0);
-    p.add(100,100);
-    p.add(0,100);
-
-    lib2d::Body* p_body = new lib2d::Body(p);
+    p_body = new lib2d::Body(p);
     p_body->velocity = Vec2(2,2);
     p_body->omega = 0.1;
 
@@ -141,10 +137,28 @@ void Hazel::draw() const
     glClearColor(0.1, 0.05, 0.04, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    for(vector<Object*>::const_iterator itr = objects.begin(); itr != objects.end(); itr++)
-		(*itr)->draw();
+    //for(vector<Object*>::const_iterator itr = objects.begin(); itr != objects.end(); itr++)
+    //    (*itr)->draw();
 
     world.draw();
+
+#if GLUT
+    glDisable(GL_DEPTH_TEST);
+    glEnable(GL_BLEND);
+    glCullFace(GL_NONE);
+    glEnable(GL_ALPHA);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    glMatrixMode(GL_MODELVIEW);
+    glPushMatrix();
+    glLoadIdentity();
+
+    glMatrixMode(GL_PROJECTION);
+    gluOrtho2D(0.0, windowWidth, 0.0, windowHeight);
+    
+
+    universe.draw();
+#endif
 }
 
 void Hazel::keyboard(unsigned char inkey)
@@ -165,6 +179,8 @@ void Hazel::keyUp(unsigned char inkey)
 void Hazel::reshape(int width, int height)
 {
     renderer->projection = orthographic(0, width, 0, height, -1, 1);
+    windowWidth = width;
+    windowHeight = height;
 }
 
 void Hazel::step(double t)

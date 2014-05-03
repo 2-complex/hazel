@@ -8,8 +8,13 @@
 
 #include <pthread.h>
 
-namespace lib2d {
+#if GL_ON
+#include "opengl.h"
+#endif
 
+
+namespace lib2d
+{
 
 void Body::tare()
 {
@@ -53,6 +58,20 @@ void Body::set(const Polygon& P)
     pieces = new Piece[P.points().size()];
     
     tare();
+}
+
+void Body::draw() const
+{
+#ifdef GL_ON
+    adjustShape();
+
+    switch(s->tag)
+    {
+        case kCircle: ((Circle*)(s))->draw(); break;
+        case kPolygon: ((Polygon*)(s))->draw(); break;
+        default: assert(false); break;
+    }
+#endif
 }
 
 
@@ -162,6 +181,15 @@ void Collision::reverse()
 void Universe::clear()
 {
     L.clear();
+}
+
+void Universe::draw() const
+{
+#if GL_ON
+    list<Body*>::const_iterator list_itr;
+    for( list_itr = L.begin(); list_itr != L.end(); list_itr++ )
+        (*list_itr)->draw();
+#endif
 }
 
 Vec2 randVec2( double amount )

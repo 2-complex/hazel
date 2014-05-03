@@ -1,6 +1,5 @@
 #ifndef _MATH2D_
 #define _MATH2D_
-
 #include "opengl.h"
 
 #include <stdio.h>
@@ -137,7 +136,6 @@ shape_type shape_then(const class Shape* A, const class Shape* B);
 shape_type shape_then(const class Shape& A, const class Shape& B);
 
 
-
 class Polygon : public Shape
 {
 public: // (just for this program though)
@@ -160,24 +158,7 @@ public:
     Vec2 pointIn() const;
     void rotate(double theta);
     
-    void draw() {
-#if GL_ON
-    
-    vector<Polygon> pl = triangulate();
-    
-    for( vector<Polygon>::iterator itr = pl.begin(); itr!=pl.end(); itr++ )
-    {
-        glColor3f(1,1,1);
-        glBegin(GL_POLYGON);
-        
-        const vector<Vec2>& tl = itr->points();
-        for( vector<Vec2>::const_iterator itr = tl.begin(); itr!=tl.end(); itr++ )
-            glVertex3f( (int)(itr->x), (int)(itr->y), 1 );
-        
-        glEnd();
-    }
-#endif
-    }
+    void draw() const;
     
     Vec2 average() const;
     
@@ -235,18 +216,7 @@ public:
     void print() const;
     void display() const;
     
-    void draw() {
-#if GL_ON
-        const int FACETS = 32;
-        glBegin(GL_POLYGON);
-        glColor3f(1,1,1);
-        for( int i=0; i<FACETS; i++ )
-        {
-            glVertex3f( C.x+r*cos(2.0*PI*i/FACETS), C.y+r*sin(2.0*PI*i/FACETS), 1 );
-        }
-        glEnd();
-#endif
-    }
+    void draw() const;
     
     Vec2 pointIn() const;
     

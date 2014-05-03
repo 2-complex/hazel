@@ -106,6 +106,12 @@ private:
 
 	lib2d::Universe universe;
 
+	lib2d::Polygon p;
+	lib2d::Body* p_body;
+
+	int windowWidth;
+	int windowHeight;
+
 public:
 	Hazel();
 	virtual ~Hazel();

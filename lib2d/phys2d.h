@@ -1,15 +1,7 @@
 #ifndef _PHYS2D_
 #define _PHYS2D_
 
-#ifndef GL_ON
-#define GL_ON 0
-#endif
-
 #include "math2d.h"
-
-#if GL_ON
-#include "opengl.h"
-#endif
 
 #include <pthread.h>
 
@@ -369,18 +361,7 @@ public:
 		return *this;
     }
 
-    virtual void draw() {
-#ifdef GL_ON
-        adjustShape();
-	
-        switch(s->tag)
-        {
-            case kCircle: ((Circle*)(s))->draw(); break;
-            case kPolygon: ((Polygon*)(s))->draw(); break;
-            default: assert(false); break;
-        }
-#endif
-    }
+    void draw() const;
 
     void display() const;
     void print() const;
@@ -504,16 +485,7 @@ public:
     void clear();
 
 public:
-    void draw() const
-    {
-#if GL_ON
-        list<Body*>::const_iterator list_itr;
-        for( list_itr = L.begin(); list_itr != L.end(); list_itr++ )
-        {
-            (*list_itr)->draw();
-        }
-#endif
-    }
+    void draw() const;
     
     class Universe& add(Body& B) {return add(&B);};
     class Universe& add(Body* B);

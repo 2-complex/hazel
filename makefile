@@ -51,10 +51,10 @@ worldbase.o: worldbase.cpp worldbase.h
 	c++ $(FLAGS) -c $(DEBUG) $(OPTIMIZATION) -I$(LIBG2C_DIR) worldbase.cpp
 
 math2d.o: lib2d/math2d.cpp lib2d/math2d.h
-	c++ -c $(DEBUG) -Ig2c/g2c $(OPTIMIZATION) -DGL_ON=0 lib2d/math2d.cpp
+	c++ -c $(DEBUG) -Ig2c/g2c $(OPTIMIZATION) -DGL_ON=1 lib2d/math2d.cpp
 
 phys2d.o: lib2d/phys2d.cpp lib2d/phys2d.h lib2d/math2d.h
-	c++ -c $(DEBUG) -Ig2c/g2c $(OPTIMIZATION) -DGL_ON=0 lib2d/phys2d.cpp
+	c++ -c $(DEBUG) -Ig2c/g2c $(OPTIMIZATION) -DGL_ON=1 lib2d/phys2d.cpp
 
 hazel.o: hazel.cpp hazel.h
 	c++ $(FLAGS) -c $(DEBUG) $(OPTIMIZATION) -I$(LIBG2C_DIR) hazel.cpp

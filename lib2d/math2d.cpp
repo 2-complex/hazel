@@ -3,6 +3,10 @@
 
 #include "math2d.h"
 
+#if GL_ON
+#include "opengl.h"
+#endif
+
 namespace lib2d {
 
 int mymod( int n, int m ) { return ((n%m)+m)%m; }
@@ -241,6 +245,25 @@ void Polygon::rotate(double theta)
         lib2d::rotate(*itr, p);
 }
 
+
+void Polygon::draw() const
+{
+#if GL_ON
+    vector<Polygon> pl = triangulate();
+    
+    for( vector<Polygon>::iterator itr = pl.begin(); itr!=pl.end(); itr++ )
+    {
+        glColor3f(1,1,1);
+        glBegin(GL_POLYGON);
+        
+        const vector<Vec2>& tl = itr->points();
+        for( vector<Vec2>::const_iterator itr = tl.begin(); itr!=tl.end(); itr++ )
+            glVertex3f( (int)(itr->x), (int)(itr->y), 1 );
+        
+        glEnd();
+    }
+#endif
+}
 
 bool Polygon::vectorInside( const Vec2& V ) const 
 {    
@@ -761,6 +784,20 @@ void Circle::display() const
 {
     print();
     printf("\n");
+}
+
+void Circle::draw() const
+{
+#if GL_ON
+    const int FACETS = 32;
+    glBegin(GL_POLYGON);
+    glColor3f(1,1,1);
+    for( int i=0; i<FACETS; i++ )
+    {
+        glVertex3f( C.x+r*cos(2.0*PI*i/FACETS), C.y+r*sin(2.0*PI*i/FACETS), 1 );
+    }
+    glEnd();
+#endif
 }
 
 Vec2 Circle::pointIn() const
