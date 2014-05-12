@@ -126,8 +126,19 @@ void Hazel::draw() const
     glLoadIdentity();
 
     glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+    glLoadIdentity();
     gluOrtho2D(0.0, windowWidth, 0.0, windowHeight);
+
+    game.drawPhysics();
+
+    glMatrixMode(GL_PROJECTION);
+    glPopMatrix();
+    
+    glMatrixMode(GL_MODELVIEW);
+    glPopMatrix();
 #endif
+
 }
 
 void Hazel::keyboard(unsigned char inkey)

@@ -250,16 +250,16 @@ void Polygon::draw() const
 {
 #if GL_ON
     vector<Polygon> pl = triangulate();
-    
+
     for( vector<Polygon>::iterator itr = pl.begin(); itr!=pl.end(); itr++ )
     {
-        glColor3f(1,1,1);
-        glBegin(GL_POLYGON);
-        
+        glColor3f(1,0,0);
+        glBegin(GL_LINE_LOOP);
+
         const vector<Vec2>& tl = itr->points();
         for( vector<Vec2>::const_iterator itr = tl.begin(); itr!=tl.end(); itr++ )
-            glVertex3f( (int)(itr->x), (int)(itr->y), 1 );
-        
+            glVertex3f( itr->x, itr->y, 1.0 );
+
         glEnd();
     }
 #endif

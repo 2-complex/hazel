@@ -10,6 +10,7 @@
             {
                 'type' : 'Actor',
                 'name' : 'background',
+                'visible' : 1,
                 'spriteName' : 'background',
                 'k' : 2,
             },
@@ -19,14 +20,15 @@
       {
           'type' : 'Layer',
           'name' : 'gameContainer',
+          'visible' : 1,
           'children' : [
           ],
       },
 
-
       {
           'type' : 'Layer',
           'name' : 'treeLayer',
+          'visible' : 1,
           'children' : [
             {
                 'type' : 'Actor',
@@ -56,20 +58,6 @@
                 'position' : [400, 0],
             },
           ],
-      },
-
-      {
-          'type' : 'Layer',
-          'name' : 'steamLayer',
-          "matrix" : [ 1.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 100, 0, 1 ],
-          'children' : []
-      },
-
-      {
-        'type' : 'Layer',
-        'name' : 'landscapeLayer',
-        'children' : [
-        ],
       },
     ],
   'sprites' : [
