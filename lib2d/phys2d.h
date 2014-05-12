@@ -237,7 +237,7 @@ public:
     
     char* name;
     
-    bool immutable;
+    bool stiff;
     bool nailed;
     bool erase_me;
     
@@ -278,59 +278,44 @@ public:
         if( pieces ) { delete[] pieces; pieces = NULL; }
     }
     
-    void makeImmutable()
+    void makeStiff()
     {
-        if( !immutable )
+        if( !stiff )
         {
-            if( !nailed )
-                rememberedMass = mass;
-            
             rememberedRotationalInertia = rotationalInertia;
             
-            mass = kImmutableMass;
             rotationalInertia = kImmutableRotationalInertia;
             velocity.set(0,0);
             omega = 0.0;
         }
         
-        immutable = true;
-    }
-    
-    void makeMutable()
-    {
-        if( immutable )
-        {
-            rotationalInertia = rememberedRotationalInertia;
-            if( !nailed )
-                mass = rememberedMass;
-        }
-        
-        immutable = false;
+        stiff = true;
     }
     
     void nail()
     {
-        if( !nailed && !immutable )
+        if( !nailed )
         {
             rememberedMass = mass;
+
             mass = kImmutableMass;
-            velocity.set(0,0);
+            omega = 0.0;
         }
         
         nailed = true;
     }
-    
-    void unnail()
+
+    void makeImmutable()
     {
-        if( nailed )
-        {
-            if( !immutable )
-                mass = rememberedMass;
-        }
-        
-        nailed = false;
+        nail();
+        makeStiff();
     }
-    
+
+    bool immutable()
+    {
+        return stiff && nailed;
+    }
+
     void markForRemoval()
     {
         erase_me = true;

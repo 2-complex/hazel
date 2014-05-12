@@ -24,7 +24,7 @@ void Body::tare()
     mass = 10.0;
     rotationalInertia = 10000.0;
     restitution = 0.5;
-    immutable = false;
+    stiff = false;
     nailed = false;
     erase_me = false;
     
@@ -231,12 +231,12 @@ void Universe::naturalPushOut( Body& P, Body& Q )
         Vec2 A,B;
         
         //with the big masses, this became necessary:
-        if( P.immutable )
+        if( P.stiff )
         {
             A = -0.001*V; //not exactly 1 and 0, lest pushOutAll run for ever
             B =  0.999*V;
         }
-        else if( Q.immutable )
+        else if( Q.stiff )
         {
             A = -0.999*V;
             A =  0.001*V;
@@ -299,7 +299,7 @@ void Universe::applyGravity()
 {
     for( list<Body*>::iterator itr = L.begin(); itr!=L.end(); itr++)
     {
-        if( !( (*itr)->immutable || (*itr)->nailed ) )
+        if( !(*itr)->nailed )
         {
             (*itr)->velocity += gravity*timeStep;
         }
@@ -531,14 +531,14 @@ void Universe::handleCollisions()
                 
                 if(C.penetrates())
                 {
-                    if( !(C.P->immutable && C.Q->immutable) )
+                    if( !(C.P->immutable() && C.Q->immutable()) )
                     {
                         pair<Delta,Delta> deltaPQ( bounce(C) ); //get the deltas for a bounce
                         
-                        if( !(C.P->immutable) )
+                        if( !(C.P->immutable()) )
                             C.P->applyDelta(deltaPQ.first); //then apply the deltas
                         
-                        if( !(C.Q->immutable) )
+                        if( !(C.Q->immutable()) )
                             C.Q->applyDelta(deltaPQ.second);
                     }
                 }
@@ -1080,7 +1080,7 @@ void Universe::binarySpaceSearchDiscrete_helper(PooledPieceList& inL, int depth,
         
         for( PooledPieceList::Node* n = L.begin(); n!=L.end(); n = n->next )
         {
-            if( !(n->datum.B->immutable) )
+            if( !(n->datum.B->immutable()) )
             {
                 safe_to_prune = false;
                 break;
@@ -1469,7 +1469,7 @@ pair<Delta,Delta> Universe::bounce(const Collision& C)
     Body* P = C.P;
     Body* Q = C.Q;
     
-    if( P->immutable && Q->immutable )
+    if( P->immutable() && Q->immutable() )
         return pair<Delta,Delta>();
     
     double e=0.0; //they use e for restitution
