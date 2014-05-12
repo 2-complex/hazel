@@ -69,32 +69,7 @@
         'type' : 'Layer',
         'name' : 'landscapeLayer',
         'children' : [
-            {
-              "type" : "Polygon",
-              "name" : "sully",
-              "visible" : 1,
-              "matrix" : [ 1.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 30, 20, 0, 1 ],
-              "color" : [ 0.2, 0.2, 0.1, 1 ],
-              "vertices" : [
-                [ 0, 0 ], 
-                [ 300, 0 ],
-                [ 300, 300 ],
-                [ 150, 200 ],
-                [ 0, 300 ],
-                [ 0, 0 ],
-                [ 300, 0 ],
-                [ 300, 300 ],
-                [ 150, 200 ],
-                [ 0, 300 ]
-              ]
-            },
         ],
-      },
-
-      {
-          'type' : 'Actor',
-          'name' : 'hazel',
-          'spriteName' : 'hazelSprite',
       },
     ],
   'sprites' : [
