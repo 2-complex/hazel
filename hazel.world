@@ -7,14 +7,22 @@
           'type' : 'Layer',
           'name' : 'backgroundLayer',
           'children' : [
-             {
-               'type' : 'Actor',
-               'name' : 'background',
-               'spriteName' : 'background',
-               'k' : 2,
-             },
+            {
+                'type' : 'Actor',
+                'name' : 'background',
+                'spriteName' : 'background',
+                'k' : 2,
+            },
           ],
       },
+
+      {
+          'type' : 'Layer',
+          'name' : 'gameContainer',
+          'children' : [
+          ],
+      },
+
 
       {
           'type' : 'Layer',
@@ -24,28 +32,28 @@
                 'type' : 'Actor',
                 'name' : 'tree0',
                 'spriteName' : 'lefttree',
-                'position' : [0,0],
+                'position' : [0, 0],
             },
 
             {
                 'type' : 'Actor',
                 'name' : 'tree1',
                 'spriteName' : 'righttree',
-                'position' : [600,0],
+                'position' : [600, 0],
             },
 
             {
                 'type' : 'Actor',
                 'name' : 'tree2',
                 'spriteName' : 'bigtree',
-                'position' : [100,0],
+                'position' : [100, 0],
             },
 
             {
                 'type' : 'Actor',
                 'name' : 'tree3',
                 'spriteName' : 'littletree',
-                'position' : [400,0],
+                'position' : [400, 0],
             },
           ],
       },

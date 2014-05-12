@@ -14,7 +14,7 @@ LIBENVIRONMENTS = $(ENVIRONMENTS_DIR)/libenvironments.a
 
 include $(LIBG2C_DIR)/platform.mk
 
-HAZEL = hazel.o worldbase.o
+HAZEL = hazel.o game.o worldbase.o
 LIB2D = math2d.o phys2d.o
 
 current: $(CURRENT)
@@ -58,6 +58,9 @@ phys2d.o: lib2d/phys2d.cpp lib2d/phys2d.h lib2d/math2d.h
 
 hazel.o: hazel.cpp hazel.h
 	c++ $(FLAGS) -c $(DEBUG) $(OPTIMIZATION) -I$(LIBG2C_DIR) hazel.cpp
+
+game.o: game.h game.cpp
+	c++ $(FLAGS) -c $(DEBUG) -Ig2c/g2c $(OPTIMIZATION) game.cpp
 
 
 .PHONY: force_look
