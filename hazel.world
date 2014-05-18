@@ -66,7 +66,8 @@
           'name' : 'hazelSprite',
           'numberOfColumns' : 4,
           'numberOfRows' : 1,
-          'file' : 'images/hazel.png'
+          'file' : 'images/hazel.png',
+          'polygon' : [[100, 100], [200, 100], [200,200]],
         },
 
         {
