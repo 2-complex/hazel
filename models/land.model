@@ -1,0 +1,66 @@
+{
+  'type' : 'Model',
+  'name' : 'box',
+  'include' : ['land.mesh'],
+  'elements' : [
+    {
+      'type' : 'Texture2D',
+      'name' : 'land',
+      'file' : 'images/land.png',
+      'unit' : 0,
+    },
+    {
+      'type' : 'Assumption',
+      'name' : 'dirtMaterial',
+      'effect' : 'dirtEffect',
+      'color' : [1.0, 1.0, 1.1, 1, ],
+      'texture' : 'land',
+    },
+    {
+      'type' : 'Assumption',
+      'name' : 'landTransform',
+    },
+    {
+      'type' : 'Assumption',
+      'name' : 'context',
+    },
+    {
+      'type' : 'Effect',
+      'name' : 'dirtEffect',
+      'vertexCode' : '
+        uniform mat4 modelView;
+        uniform mat4 projection;
+
+        attribute vec3 position;
+
+        varying vec3 v_position;
+
+        void main()
+        {
+          v_position = position;
+          gl_Position = vec4(position, 1.0);
+        }
+        ',
+      'fragmentCode' : '
+        varying vec3 v_position;
+
+        uniform sampler2D texture;
+
+        void main()
+        {
+          gl_FragColor = texture2D(texture, v_position.xy);
+        }
+        ',
+    },
+    {
+      'type' : 'Shape',
+      'name' : 'landShape',
+      'geometry' : 'land_mesh_geometry',
+      'assumptions' : [
+        'dirtMaterial',
+        'landTransform',
+        'context',
+      ],
+    },
+  ],
+}

@@ -15,10 +15,10 @@ Game::~Game()
 
 void Game::init(World* world)
 {
-    primaryCraft = new Craft(world->getSprite("hazelSprite"));
+    primaryCraft = new Craft(world->getSampler("hazelSprite"));
     addObject(primaryCraft);
 
-    primaryCraft->body->position.set(100, 300);
+    primaryCraft->body->position.set(100, 1000);
 
     Layer* gameContainer = (Layer*)world->findChild("gameContainer");
 
@@ -30,25 +30,48 @@ void Game::init(World* world)
 
     for( int i = 0; i < 3; i++ )
     {
-        Updraft* up = new Updraft(world->getSprite("draftSprite"));
+        Updraft* up = new Updraft(world->getSampler("draftSprite"));
         addObject(up);
 
-        up->body->position = Vec2(120 + i * 300, 50);
-
-        gameLayer->add(up->actor);
+        up->body->position = Vec2(120 + i * 500, 50);
     }
 
     Land* land = new Land();
     addObject(land);
-
     land->body->position.set(200,100);
 
-    Updraft* up = new Updraft(world->getSprite("draftSprite"));
+    Updraft* up = new Updraft(world->getSampler("draftSprite"));
     addObject(up);
 
     up->body->position = Vec2(420, 450);
 
-    steamLayer->add(up->actor);
+
+    {
+        Tree* tree = new Tree(world->getSampler("GB_0"));
+        addObject(tree);
+        tree->body->position.set(150,20);
+    }
+
+    {
+        Tree* tree = new Tree(world->getSampler("GB_1"));
+        addObject(tree);
+        tree->body->position.set(650,20);
+    }
+
+    {
+        Tree* tree = new Tree(world->getSampler("TB_1"));
+        addObject(tree);
+        tree->body->position.set(1250,150);
+    }
+
+    {
+        Tree* tree = new Tree(world->getSampler("TT_1"));
+        addObject(tree);
+        tree->body->position.set(1150,550);
+    }
+
+    landModel.bank = world->bank;
+    world->bank->initSerializableWithPath(&landModel, "models/land.model");
 }
 
 void Game::destroy()
@@ -139,9 +162,9 @@ void Game::handleCollisions()
             double v = fabs(updraft->body->position.x - craft->body->position.x);
             double h = craft->body->position.y - updraft->body->position.y;
             
-            if( v < 100.0 && h > 0 && h < 200 )
+            if( v < 100.0 && h > 0 && h < 400 )
             {
-                craft->body->velocity += Vec2(0, 0.4);
+                craft->body->velocity += Vec2(0, 0.25);
             }
         }
     }
@@ -162,7 +185,9 @@ void GameLayer::drawInTree(
     const Color& worldColor) const
 {
     const vector<Object*> &objects(game->objects);
-    const Universe& universe(game->universe);
+//    const Universe& universe(game->universe);
+
+    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 
     for(vector<Object*>::const_iterator itr = objects.begin();
         itr != objects.end();
@@ -170,6 +195,17 @@ void GameLayer::drawInTree(
     {
         (*itr)->draw();
     }
+
+    glBlendFunc(GL_ONE, GL_ONE);
+
+    for(vector<Object*>::const_iterator itr = objects.begin();
+        itr != objects.end();
+        itr++)
+    {
+        (*itr)->drawTranslucent();
+    }
+
+    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 
@@ -183,6 +219,21 @@ Object::~Object() {}
 
 void Object::initBody()
 {
+    /*
+    if( actor && actor->sprite )
+    {
+        
+        vector<Vec2> L( actor->sprite->polygon.getVertices() );
+
+        for(vector<Vec2>::iterator itr = L.begin();
+            itr != L.end();
+            itr++)
+        {
+            p.add(*itr);
+        }
+    }
+    */
+    
     body = new lib2d::Body(p);
 }
 
@@ -199,12 +250,16 @@ void Object::draw() const
     }
 }
 
+void Object::drawTranslucent() const
+{
+}
 
-Craft::Craft(Sprite* insprite)
+
+Craft::Craft(Sampler* insampler)
     : Object()
 {
     actor = new Actor();
-    actor->sprite = insprite;
+    actor->sprite = insampler;
     collisionCode = kCraft;
 }
 
@@ -215,21 +270,20 @@ Craft::~Craft()
 
 void Craft::step()
 {
-    if( body->velocity.y > -4.0 )
-        body->velocity-= Vec2(0.0, 0.1);
+    if( body->velocity.y > -8.0 )
+        body->velocity-= Vec2(0.0, 0.15);
 }
 
 void Craft::initBody()
 {
-    p.add(-30,-20).add(80,0).add(-30,20);
-    body = new lib2d::Body(p);
+    Object::initBody();
     body->makeStiff();
 }
 
-Updraft::Updraft(Sprite* insprite)
+Updraft::Updraft(Sampler* insampler)
 {
     actor = new Actor();
-    actor->sprite = insprite;
+    actor->sprite = insampler;
     collisionCode = kUpdraft;
 }
 
@@ -242,6 +296,16 @@ void Updraft::step()
 {
 }
 
+void Updraft::draw() const
+{
+}
+
+void Updraft::drawTranslucent() const
+{
+    actor->position = body->position + Vec2(0, 250);
+    actor->draw();
+}
+
 Land::Land()
 {
 }
@@ -252,9 +316,40 @@ Land::~Land()
 
 void Land::initBody()
 {
-    p.add(-100,-100).add(100,-100).add(100,100).add(-100,100);
+    p.add(-1000, -100).add(1000, -100).add(1000, 0).add(-1000, 0);
     body = new lib2d::Body(p);
+    body->makeImmutable();
 
+    vector<Vec2> L(p.L);
+
+
+
+/*
+    for(vector<Vec2>::iterator itr = L.begin();
+        itr != L.end();
+        itr++)
+    {
+        
+    }
+*/
+}
+
+Tree::Tree(Sampler* insampler)
+{
+    actor = new Actor();
+    actor->sprite = insampler;
+    collisionCode = kTree;
+}
+
+Tree::~Tree()
+{
+    delete actor;
+}
+
+void Tree::initBody()
+{
+    Object::initBody();
     body->makeImmutable();
 }
+
 

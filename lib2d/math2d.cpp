@@ -249,19 +249,16 @@ void Polygon::rotate(double theta)
 void Polygon::draw() const
 {
 #if GL_ON
-    vector<Polygon> pl = triangulate();
+    glColor3f(1,0,0);
+    glBegin(GL_LINE_LOOP);
 
-    for( vector<Polygon>::iterator itr = pl.begin(); itr!=pl.end(); itr++ )
+    const vector<Vec2>& tl = points();
+    for( vector<Vec2>::const_iterator itr = tl.begin(); itr!=tl.end(); itr++ )
     {
-        glColor3f(1,0,0);
-        glBegin(GL_LINE_LOOP);
-
-        const vector<Vec2>& tl = itr->points();
-        for( vector<Vec2>::const_iterator itr = tl.begin(); itr!=tl.end(); itr++ )
-            glVertex3f( itr->x, itr->y, 1.0 );
-
-        glEnd();
+        glVertex3f( itr->x, itr->y, 1.0 );
     }
+
+    glEnd();
 #endif
 }
 
@@ -832,7 +829,10 @@ bool Circle::overlaps( const class Circle& inC, OverlapInfo* oInfo ) const
 bool Circle::overlaps( const class Polygon& P, OverlapInfo* oInfo ) const
 {
     bool retval = P.overlaps( *this, oInfo );
-    if( oInfo ) oInfo->normal *=-1;
+
+    if( oInfo )
+        oInfo->normal *=-1;
+
     return retval;
 }
 
@@ -845,17 +845,17 @@ void Circle::continuousOverlapInfo( const class Circle& inC, OverlapInfo* oInfo 
 const vector<double> Circle::intersectLine( const Vec2& P, const Vec2& Q ) const
 {
     double a,b,c;
-    
+
     a = (P.x-Q.x)*(P.x-Q.x) + (P.y-Q.y)*(P.y-Q.y);
     b = 2.0*((P.x-Q.x)*(C.x-P.x) + (P.y-Q.y)*(C.y-P.y));
     c = (P.x-C.x)*(P.x-C.x) + (P.y-C.y)*(P.y-C.y) - r*r;
-    
+
     vector<double> R(2);
-    
+
     double q = -0.5*( b + sgn(b)*sqrt(b*b - 4.0*a*c) );
     R[0] = q/a;
     R[1] = c/q;
-  
+
     return R;
 }
 
@@ -867,6 +867,6 @@ shape_type shape_then(const class Shape& A, const class Shape& B) {
     return shape_then(&A,&B);
 }
 
-
 } //end namespace
+
 

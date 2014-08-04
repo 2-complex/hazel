@@ -1,0 +1,30 @@
+{
+  'elements' : [
+    {
+      'type' : 'Buffer',
+      'name' : 'land_mesh_vertices',
+      'array' : [
+        -2.0, -2.0, 2.0, 0, 0, 1, .2, .2,
+        2.0, -2.0, 2.0, 0, 0, 1, .5, .2,
+        2.0, 2.0, 2.0, 0, 0, 1, .5, .5,
+        -2.0, 2.0, 2.0, 0, 0, 1, .2, .5,
+      ],
+    },
+    {
+      'type' : 'IndexBuffer',
+      'name' : 'land_mesh_indices',
+      'array' : [
+        0, 1, 2,
+        0, 2, 3,
+      ],
+    },
+    {
+      'type' : 'Geometry',
+      'name' : 'land_mesh_geometry',
+      'indices' : 'land_mesh_indices',
+      'normal' : { 'type' : 'Field', 'buffer' : 'land_mesh_vertices', 'size' : 3, 'stride' : 8, 'offset' : 3, },
+      'texcoord' : { 'type' : 'Field', 'buffer' : 'land_mesh_vertices', 'size' : 2, 'stride' : 8, 'offset' : 6, },
+      'vertex' : { 'type' : 'Field', 'buffer' : 'land_mesh_vertices', 'size' : 3, 'stride' : 8, 'offset' : 0, },
+    },
+  ],
+}

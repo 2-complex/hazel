@@ -30,9 +30,9 @@ void HazelWorld::destroyWorld()
 {
 }
 
-
 Hazel::Hazel()
 	: lastTime(0.0)
+    , drawPhysicsOn(false)
 {
 
 }
@@ -115,35 +115,41 @@ void Hazel::draw() const
     world.draw();
 
 #if GLUT
-    glDisable(GL_DEPTH_TEST);
-    glEnable(GL_BLEND);
-    glCullFace(GL_NONE);
-    glEnable(GL_ALPHA);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    if( drawPhysicsOn )
+    {
+        glDisable(GL_DEPTH_TEST);
+        glEnable(GL_BLEND);
+        glCullFace(GL_NONE);
+        glEnable(GL_ALPHA);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    glMatrixMode(GL_MODELVIEW);
-    glPushMatrix();
-    glLoadIdentity();
+        glMatrixMode(GL_MODELVIEW);
+        glPushMatrix();
+        glLoadIdentity();
 
-    glMatrixMode(GL_PROJECTION);
-    glPushMatrix();
-    glLoadIdentity();
-    gluOrtho2D(0.0, windowWidth, 0.0, windowHeight);
+        glMatrixMode(GL_PROJECTION);
+        glPushMatrix();
+        glLoadIdentity();
+        gluOrtho2D(0.0, windowWidth, 0.0, windowHeight);
 
-    game.drawPhysics();
+        game.drawPhysics();
 
-    glMatrixMode(GL_PROJECTION);
-    glPopMatrix();
-    
-    glMatrixMode(GL_MODELVIEW);
-    glPopMatrix();
+        glMatrixMode(GL_PROJECTION);
+        glPopMatrix();
+        
+        glMatrixMode(GL_MODELVIEW);
+        glPopMatrix();
+    }
 #endif
 
 }
 
 void Hazel::keyboard(unsigned char inkey)
 {
-
+    if (inkey == 'p')
+    {
+        drawPhysicsOn = !drawPhysicsOn;
+    }
 }
 
 void Hazel::keyDown(unsigned char inkey)

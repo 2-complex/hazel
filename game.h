@@ -4,7 +4,7 @@
 
 #include "lib2d/phys2d.h"
 #include "sprites.h"
-
+#include "graphics.h"
 
 #include <vector>
 
@@ -16,7 +16,8 @@ enum CollisionCode
 {
     kObject = 0,
     kCraft = 1,
-    kUpdraft = 2
+    kUpdraft = 2,
+    kTree = 3
 };
 
 class Object
@@ -35,13 +36,14 @@ public:
 
     virtual void step();
     virtual void draw() const;
+    virtual void drawTranslucent() const;
 };
 
 class Craft
     : public Object
 {
 public:
-    explicit Craft(Sprite*);
+    explicit Craft(Sampler*);
     virtual ~Craft();
 
     virtual void initBody();
@@ -53,10 +55,12 @@ class Updraft
     : public Object
 {
 public:
-    explicit Updraft(Sprite*);
+    explicit Updraft(Sampler*);
     virtual ~Updraft();
 
     virtual void step();
+    virtual void draw() const;
+    virtual void drawTranslucent() const;
 };
 
 class Land
@@ -65,6 +69,16 @@ class Land
 public:
     explicit Land();
     virtual ~Land();
+
+    virtual void initBody();
+};
+
+class Tree
+    : public Object
+{
+public:
+    explicit Tree(Sampler*);
+    virtual ~Tree();
 
     virtual void initBody();
 };
@@ -82,6 +96,8 @@ public:
 private:
     vector<Object*> objects;
     Craft* primaryCraft;
+
+    Model landModel;
 
     lib2d::Universe universe;
 

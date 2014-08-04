@@ -29,14 +29,14 @@ public:
 		addProperty("unlockedLevel", unlockedLevel);
 	}
 	virtual ~HazelPrefs() {}
-	
+
 	std::string key;
 	Bank* bank;
-	
+
 	BoolProperty musicOn;
 	BoolProperty soundFXOn;
 	IntProperty unlockedLevel;
-	
+
 	void rewrite() const;
 };
 
@@ -69,6 +69,8 @@ private:
 	int windowWidth;
 	int windowHeight;
 
+	bool drawPhysicsOn;
+
 public:
 	Hazel();
 	virtual ~Hazel();
@@ -76,7 +78,6 @@ public:
 	virtual void setBank(Bank* inBank);
 	virtual void setPlayer(Player* inPlayer);
 
-private:
 	void init();
 	void destroy();
 

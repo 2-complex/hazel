@@ -1393,7 +1393,7 @@ Vec3 compute_impulse_with_friction( Vec3 v1, Vec3 w1, double m1, double I1, Vec3
 {
     Vec3 Vr  = (w2.cross(r2) + v2) - (w1.cross(r1) + v1); //Vr = relative velocity at the point of impact
     Vec3 Vrn = projectOnto(Vr, N);
-    Vec3 Vrt = Vr - Vrn; // the normal and tangential parts of Vr
+    // Vec3 Vrt = Vr - Vrn; // the normal and tangential parts of Vr
     
     Vec3 newVrn, newVrt, newVr, j_stuck, j_slick;
     Mat3 K(KMatrix(m1, I1, r1) + KMatrix(m2, I2, r2));
