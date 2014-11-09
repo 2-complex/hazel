@@ -1,0 +1,359 @@
+TG2C
+v6
+r1
+cCheck dependencies
+cCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/app.o /Users/peterson/source/g2c/g2c/app.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/animations.o /Users/peterson/source/g2c/g2c/animations.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/fattening.o /Users/peterson/source/g2c/g2c/fattening.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/bank.o /Users/peterson/source/g2c/g2c/bank.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/SDKSettings.plist
+c00000000531EE2DC000000000000036B
+t1394533084
+s875
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/CoreServices/SystemVersion.plist
+c00000000531EE2DD000000000000019E
+t1394533085
+s414
+
+N/Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/animations.o
+t2
+s0
+
+N/Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/app.o
+t2
+s0
+
+N/Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/bank.o
+t2
+s0
+
+N/Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/fattening.o
+t2
+s0
+
+N/Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/graphics.o
+t2
+s0
+
+N/Users/peterson/source/g2c/g2c/animations.cpp
+c00000000532DFA590000000000001043
+t1395522137
+s4163
+
+N/Users/peterson/source/g2c/g2c/app.cpp
+c00000000541E018A00000000000008BD
+t1411252618
+s2237
+
+N/Users/peterson/source/g2c/g2c/bank.cpp
+c00000000540B9CFC0000000000000E6A
+t1410047228
+s3690
+
+N/Users/peterson/source/g2c/g2c/fattening.cpp
+c00000000540B9CFC0000000000001319
+t1410047228
+s4889
+
+N/Users/peterson/source/g2c/g2c/graphics.cpp
+c00000000541E705C0000000000008B49
+t1411280988
+s35657
+
+CBuild AST from /Users/peterson/source/g2c/g2c/animations.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/app.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/bank.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/fattening.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/graphics.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/listener.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/macbank.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/openalplayer.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/parse.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/player.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/serializable.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/sound.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/sprites.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/texture.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/transforms.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/util.cpp
+r0
+
+CBuild AST from /Users/peterson/source/g2c/g2c/wave.cpp
+r0
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies69a78212a9ceb941^ab599b12a9ceb941^---0#1#1#--18"Check dependencies36"ACF56DF9-5176-4F62-9EAD-80E659C6C3A2-
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/animations.o /Users/peterson/source/g2c/g2c/animations.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/app.o /Users/peterson/source/g2c/g2c/app.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/bank.o /Users/peterson/source/g2c/g2c/bank.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/fattening.o /Users/peterson/source/g2c/g2c/fattening.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/graphics.o /Users/peterson/source/g2c/g2c/graphics.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/listener.o /Users/peterson/source/g2c/g2c/listener.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/macbank.o /Users/peterson/source/g2c/g2c/macbank.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/openalplayer.o /Users/peterson/source/g2c/g2c/openalplayer.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/parse.o /Users/peterson/source/g2c/g2c/parse.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/player.o /Users/peterson/source/g2c/g2c/player.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/serializable.o /Users/peterson/source/g2c/g2c/serializable.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/sound.o /Users/peterson/source/g2c/g2c/sound.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/sprites.o /Users/peterson/source/g2c/g2c/sprites.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/texture.o /Users/peterson/source/g2c/g2c/texture.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/transforms.o /Users/peterson/source/g2c/g2c/transforms.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/util.o /Users/peterson/source/g2c/g2c/util.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/wave.o /Users/peterson/source/g2c/g2c/wave.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/animations.o /Users/peterson/source/g2c/g2c/animations.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s432974098.608954
+e432974099.670956
+r0
+xCompileC
+xProject.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/animations.o
+x/Users/peterson/source/g2c/g2c/animations.cpp
+xnormal
+xarmv7
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/peterson/source/g2c/g2c/animations.cpp:23:
+oIn file included from /Users/peterson/source/g2c/g2c/animations.h:27:
+oIn file included from /Users/peterson/source/g2c/g2c/sprites.h:29:
+oIn file included from /Users/peterson/source/g2c/g2c/bank.h:28:
+oIn file included from /Users/peterson/source/g2c/g2c/texture.h:28:
+o/Users/peterson/source/g2c/g2c/opengl.h:37:18: fatal error: 'glut/glut.h' file not found
+o        #include <glut/glut.h>
+o                 ^
+o1 error generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"Compile /Users/peterson/source/g2c/g2c/animations.cpp157"CompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/animations.o animations.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler42239c12a9ceb941^ea21ae13a9ceb941^-498"In file included from /Users/peterson/source/g2c/g2c/animations.cpp:23:In file included from /Users/peterson/source/g2c/g2c/animations.h:27:In file included from /Users/peterson/source/g2c/g2c/sprites.h:29:In file included from /Users/peterson/source/g2c/g2c/bank.h:28:In file included from /Users/peterson/source/g2c/g2c/texture.h:28:/Users/peterson/source/g2c/g2c/opengl.h:37:18: fatal error: 'glut/glut.h' file not found        #include <glut/glut.h>                 ^1 error generated.-0#0#1#-19%DVTDocumentLocation2@61"file://localhost/Users/peterson/source/g2c/g2c/animations.cpp0000000000000000^2847"CompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/animations.o animations.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/peterson/source/g2c/g2c    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/Cellar/cmake/3.0.2/bin:/Users/peterson/android/android-ndk-r10:/Users/peterson/android/android-sdk-macosx/platform-tools:/Users/peterson/android/android-sdk-macosx/tools:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Users/peterson/.rvm/gems/ruby-1.9.2-p290@rails309/bin:/Users/peterson/.rvm/gems/ruby-1.9.2-p290@global/bin:/Users/peterson/.rvm/rubies/ruby-1.9.2-p290/bin:/Users/peterson/.rvm/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/peterson/ec2/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch armv7 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DCMAKE_INTDIR=\"Debug-iphoneos\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -g -Wno-sign-conversion -miphoneos-version-min=7.1 -I/Users/peterson/source/g2c/g2c/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/DerivedSources/armv7 -I/Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/peterson/source/g2c/g2c/Debug-iphoneos -MMD -MT dependencies -MF /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/animations.d --serialize-diagnostics /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/animations.dia -c /Users/peterson/source/g2c/g2c/animations.cpp -o /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/animations.o36"69120D29-A456-4AB8-BA21-68DDACE0FC7B-
+b9F023E29-A0F6-41DA-A487-10FE2BDD8BF6
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/app.o /Users/peterson/source/g2c/g2c/app.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s432974098.608928
+e432974099.367577
+r0
+xCompileC
+xProject.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/app.o
+x/Users/peterson/source/g2c/g2c/app.cpp
+xnormal
+xarmv7
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/peterson/source/g2c/g2c/app.cpp:23:
+oIn file included from /Users/peterson/source/g2c/g2c/app.h:28:
+oIn file included from /Users/peterson/source/g2c/g2c/bank.h:28:
+oIn file included from /Users/peterson/source/g2c/g2c/texture.h:28:
+o/Users/peterson/source/g2c/g2c/opengl.h:37:18: fatal error: 'glut/glut.h' file not found
+o        #include <glut/glut.h>
+o                 ^
+o1 error generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection46"Compile /Users/peterson/source/g2c/g2c/app.cpp143"CompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/app.o app.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compilera7239c12a9ceb941^4e0b5e13a9ceb941^-417"In file included from /Users/peterson/source/g2c/g2c/app.cpp:23:In file included from /Users/peterson/source/g2c/g2c/app.h:28:In file included from /Users/peterson/source/g2c/g2c/bank.h:28:In file included from /Users/peterson/source/g2c/g2c/texture.h:28:/Users/peterson/source/g2c/g2c/opengl.h:37:18: fatal error: 'glut/glut.h' file not found        #include <glut/glut.h>                 ^1 error generated.1(36%IDEClangDiagnosticActivityLogMessage2@28"'glut/glut.h' file not found-432974099#18446744073709551615#0#4(2@64"In file included from /Users/peterson/source/g2c/g2c/app.cpp:23:-432974099#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@54"file://localhost/Users/peterson/source/g2c/g2c/app.cpp0000000000000000^22#9#22#9#899#0#21"Apple LLVM 5.1 Notice--2@62"In file included from /Users/peterson/source/g2c/g2c/app.h:28:-432974099#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@52"file://localhost/Users/peterson/source/g2c/g2c/app.h0000000000000000^27#9#27#9#950#0#21"Apple LLVM 5.1 Notice--2@63"In file included from /Users/peterson/source/g2c/g2c/bank.h:28:-432974099#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@53"file://localhost/Users/peterson/source/g2c/g2c/bank.h0000000000000000^27#9#27#9#975#0#21"Apple LLVM 5.1 Notice--2@66"In file included from /Users/peterson/source/g2c/g2c/texture.h:28:-432974099#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@56"file://localhost/Users/peterson/source/g2c/g2c/texture.h0000000000000000^27#9#27#9#955#0#21"Apple LLVM 5.1 Notice--2#27"com.apple.dt.IDE.diagnostic3@55"file://localhost/Users/peterson/source/g2c/g2c/opengl.h0000000000000000^36#17#36#17#1251#0#29"Lexical or Preprocessor Issue--0#0#1#-19%DVTDocumentLocation4@54"file://localhost/Users/peterson/source/g2c/g2c/app.cpp0000000000000000^2805"CompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/app.o app.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/peterson/source/g2c/g2c    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/Cellar/cmake/3.0.2/bin:/Users/peterson/android/android-ndk-r10:/Users/peterson/android/android-sdk-macosx/platform-tools:/Users/peterson/android/android-sdk-macosx/tools:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Users/peterson/.rvm/gems/ruby-1.9.2-p290@rails309/bin:/Users/peterson/.rvm/gems/ruby-1.9.2-p290@global/bin:/Users/peterson/.rvm/rubies/ruby-1.9.2-p290/bin:/Users/peterson/.rvm/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/peterson/ec2/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch armv7 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DCMAKE_INTDIR=\"Debug-iphoneos\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -g -Wno-sign-conversion -miphoneos-version-min=7.1 -I/Users/peterson/source/g2c/g2c/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/DerivedSources/armv7 -I/Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/peterson/source/g2c/g2c/Debug-iphoneos -MMD -MT dependencies -MF /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/app.d --serialize-diagnostics /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/app.dia -c /Users/peterson/source/g2c/g2c/app.cpp -o /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/app.o36"C47FE138-2E64-43A1-BA84-3D7B546DED40-
+b9F023E29-A0F6-41DA-A487-10FE2BDD8BF6
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/bank.o /Users/peterson/source/g2c/g2c/bank.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s432974098.609168
+e432974099.468800
+r0
+xCompileC
+xProject.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/bank.o
+x/Users/peterson/source/g2c/g2c/bank.cpp
+xnormal
+xarmv7
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/peterson/source/g2c/g2c/bank.cpp:23:
+oIn file included from /Users/peterson/source/g2c/g2c/bank.h:28:
+oIn file included from /Users/peterson/source/g2c/g2c/texture.h:28:
+o/Users/peterson/source/g2c/g2c/opengl.h:37:18: fatal error: 'glut/glut.h' file not found
+o        #include <glut/glut.h>
+o                 ^
+o1 error generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Compile /Users/peterson/source/g2c/g2c/bank.cpp145"CompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/bank.o bank.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler18259c12a9ceb941^5f097813a9ceb941^-355"In file included from /Users/peterson/source/g2c/g2c/bank.cpp:23:In file included from /Users/peterson/source/g2c/g2c/bank.h:28:In file included from /Users/peterson/source/g2c/g2c/texture.h:28:/Users/peterson/source/g2c/g2c/opengl.h:37:18: fatal error: 'glut/glut.h' file not found        #include <glut/glut.h>                 ^1 error generated.-0#0#1#-19%DVTDocumentLocation2@55"file://localhost/Users/peterson/source/g2c/g2c/bank.cpp0000000000000000^2811"CompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/bank.o bank.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/peterson/source/g2c/g2c    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/Cellar/cmake/3.0.2/bin:/Users/peterson/android/android-ndk-r10:/Users/peterson/android/android-sdk-macosx/platform-tools:/Users/peterson/android/android-sdk-macosx/tools:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Users/peterson/.rvm/gems/ruby-1.9.2-p290@rails309/bin:/Users/peterson/.rvm/gems/ruby-1.9.2-p290@global/bin:/Users/peterson/.rvm/rubies/ruby-1.9.2-p290/bin:/Users/peterson/.rvm/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/peterson/ec2/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch armv7 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DCMAKE_INTDIR=\"Debug-iphoneos\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -g -Wno-sign-conversion -miphoneos-version-min=7.1 -I/Users/peterson/source/g2c/g2c/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/DerivedSources/armv7 -I/Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/peterson/source/g2c/g2c/Debug-iphoneos -MMD -MT dependencies -MF /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/bank.d --serialize-diagnostics /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/bank.dia -c /Users/peterson/source/g2c/g2c/bank.cpp -o /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/bank.o36"C8F0BEA5-96E9-4315-AC75-C5437CC11E97-
+b9F023E29-A0F6-41DA-A487-10FE2BDD8BF6
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/fattening.o /Users/peterson/source/g2c/g2c/fattening.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s432974098.609161
+e432974099.771216
+r0
+xCompileC
+xProject.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/fattening.o
+x/Users/peterson/source/g2c/g2c/fattening.cpp
+xnormal
+xarmv7
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/peterson/source/g2c/g2c/fattening.cpp:23:
+oIn file included from /Users/peterson/source/g2c/g2c/fattening.h:28:
+oIn file included from /Users/peterson/source/g2c/g2c/graphics.h:32:
+o/Users/peterson/source/g2c/g2c/opengl.h:37:18: fatal error: 'glut/glut.h' file not found
+o        #include <glut/glut.h>
+o                 ^
+o1 error generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection52"Compile /Users/peterson/source/g2c/g2c/fattening.cpp155"CompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/fattening.o fattening.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler92249c12a9ceb941^685ec613a9ceb941^-366"In file included from /Users/peterson/source/g2c/g2c/fattening.cpp:23:In file included from /Users/peterson/source/g2c/g2c/fattening.h:28:In file included from /Users/peterson/source/g2c/g2c/graphics.h:32:/Users/peterson/source/g2c/g2c/opengl.h:37:18: fatal error: 'glut/glut.h' file not found        #include <glut/glut.h>                 ^1 error generated.-0#0#1#-19%DVTDocumentLocation2@60"file://localhost/Users/peterson/source/g2c/g2c/fattening.cpp0000000000000000^2841"CompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/fattening.o fattening.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/peterson/source/g2c/g2c    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/Cellar/cmake/3.0.2/bin:/Users/peterson/android/android-ndk-r10:/Users/peterson/android/android-sdk-macosx/platform-tools:/Users/peterson/android/android-sdk-macosx/tools:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Users/peterson/.rvm/gems/ruby-1.9.2-p290@rails309/bin:/Users/peterson/.rvm/gems/ruby-1.9.2-p290@global/bin:/Users/peterson/.rvm/rubies/ruby-1.9.2-p290/bin:/Users/peterson/.rvm/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/peterson/ec2/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch armv7 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DCMAKE_INTDIR=\"Debug-iphoneos\" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -g -Wno-sign-conversion -miphoneos-version-min=7.1 -I/Users/peterson/source/g2c/g2c/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/DerivedSources/armv7 -I/Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/peterson/source/g2c/g2c/Debug-iphoneos -MMD -MT dependencies -MF /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/fattening.d --serialize-diagnostics /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/fattening.dia -c /Users/peterson/source/g2c/g2c/fattening.cpp -o /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/fattening.o36"8349E231-14B9-47D0-A0B2-DAB706FF11CD-
+b9F023E29-A0F6-41DA-A487-10FE2BDD8BF6
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/graphics.o /Users/peterson/source/g2c/g2c/graphics.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/listener.o /Users/peterson/source/g2c/g2c/listener.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/macbank.o /Users/peterson/source/g2c/g2c/macbank.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/openalplayer.o /Users/peterson/source/g2c/g2c/openalplayer.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/parse.o /Users/peterson/source/g2c/g2c/parse.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/player.o /Users/peterson/source/g2c/g2c/player.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/serializable.o /Users/peterson/source/g2c/g2c/serializable.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/sound.o /Users/peterson/source/g2c/g2c/sound.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/sprites.o /Users/peterson/source/g2c/g2c/sprites.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/texture.o /Users/peterson/source/g2c/g2c/texture.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/transforms.o /Users/peterson/source/g2c/g2c/transforms.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/util.o /Users/peterson/source/g2c/g2c/util.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/wave.o /Users/peterson/source/g2c/g2c/wave.cpp normal armv7 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/animations.o /Users/peterson/source/g2c/g2c/animations.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/app.o /Users/peterson/source/g2c/g2c/app.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/bank.o /Users/peterson/source/g2c/g2c/bank.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/fattening.o /Users/peterson/source/g2c/g2c/fattening.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/graphics.o /Users/peterson/source/g2c/g2c/graphics.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/listener.o /Users/peterson/source/g2c/g2c/listener.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/macbank.o /Users/peterson/source/g2c/g2c/macbank.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/openalplayer.o /Users/peterson/source/g2c/g2c/openalplayer.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/parse.o /Users/peterson/source/g2c/g2c/parse.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/player.o /Users/peterson/source/g2c/g2c/player.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/serializable.o /Users/peterson/source/g2c/g2c/serializable.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/sound.o /Users/peterson/source/g2c/g2c/sound.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/sprites.o /Users/peterson/source/g2c/g2c/sprites.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/texture.o /Users/peterson/source/g2c/g2c/texture.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/transforms.o /Users/peterson/source/g2c/g2c/transforms.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/util.o /Users/peterson/source/g2c/g2c/util.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/wave.o /Users/peterson/source/g2c/g2c/wave.cpp normal armv7s c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCreateUniversalBinary /Users/peterson/source/g2c/g2c/Debug-iphoneos/libG2C.a normal armv7\ armv7s\ arm64
+r0
+
+CLibtool /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/arm64/libG2C.a normal arm64
+r0
+
+CLibtool /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7/libG2C.a normal armv7
+r0
+
+CLibtool /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/G2C.build/Objects-normal/armv7s/libG2C.a normal armv7s
+r0
+

@@ -1,0 +1,133 @@
+\hypertarget{classg2c_1_1_actor}{
+\section{g2c::Actor Class Reference}
+\label{classg2c_1_1_actor}\index{g2c::Actor@{g2c::Actor}}
+}
+
+
+{\ttfamily \#include $<$sprites.h$>$}Inheritance diagram for g2c::Actor::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5cm]{classg2c_1_1_actor}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classg2c_1_1_actor_a1451aed47353957d0f8d74ee50c7104a}{Actor} (\hyperlink{classg2c_1_1_sprite}{Sprite} $\ast$insprite)
+\item 
+virtual void \hyperlink{classg2c_1_1_actor_a587aff8d8df73dbba0c659459e094074}{draw} () const 
+\item 
+\hypertarget{classg2c_1_1_actor_a42f0174a2b27e7c69d9a58911e210c06}{
+virtual void {\bfseries handleChild} (const \hyperlink{classparse_1_1_node}{parse::Node} $\ast$n)}
+\label{classg2c_1_1_actor_a42f0174a2b27e7c69d9a58911e210c06}
+
+\item 
+\hypertarget{classg2c_1_1_actor_adb5c4a33b015a9cf16a5d1076a479a0a}{
+virtual \hyperlink{classg2c_1_1_polygon}{Polygon} {\bfseries collisionPolygon} () const }
+\label{classg2c_1_1_actor_adb5c4a33b015a9cf16a5d1076a479a0a}
+
+\item 
+\hypertarget{classg2c_1_1_actor_a4c188103cf877e1cde49318ea9df493a}{
+bool {\bfseries vectorInside} (const Vec2 \&C) const }
+\label{classg2c_1_1_actor_a4c188103cf877e1cde49318ea9df493a}
+
+\item 
+\hypertarget{classg2c_1_1_actor_a699ccadcaf7be1db90aa5b7b5d94b6f3}{
+virtual \hyperlink{classg2c_1_1_actor}{Actor} $\ast$ {\bfseries actorInClick} (const Vec2 \&C)}
+\label{classg2c_1_1_actor_a699ccadcaf7be1db90aa5b7b5d94b6f3}
+
+\item 
+\hypertarget{classg2c_1_1_actor_acad54bfc77fe49491b32f01f3907535f}{
+virtual void {\bfseries removeSprite} (const \hyperlink{classg2c_1_1_sprite}{Sprite} $\ast$sprite)}
+\label{classg2c_1_1_actor_acad54bfc77fe49491b32f01f3907535f}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classg2c_1_1_actor_a8c539cd4fa278028f6c9db0e42027de6}{
+\hyperlink{classg2c_1_1_sprite}{Sprite} $\ast$ {\bfseries sprite}}
+\label{classg2c_1_1_actor_a8c539cd4fa278028f6c9db0e42027de6}
+
+\item 
+\hypertarget{classg2c_1_1_actor_a081ed2c7b4394e3c44284887ce9242d3}{
+\hyperlink{classg2c_1_1_mesh}{Mesh} $\ast$ {\bfseries mesh}}
+\label{classg2c_1_1_actor_a081ed2c7b4394e3c44284887ce9242d3}
+
+\item 
+double \& \hyperlink{classg2c_1_1_actor_aebf317d39fb7bf28c061741bd927f81f}{x}
+\item 
+double \& \hyperlink{classg2c_1_1_actor_ae627fd6cc00197b7e0a0b05d1d93b350}{y}
+\item 
+\hyperlink{classg2c_1_1_double_property}{DoubleProperty} \hyperlink{classg2c_1_1_actor_ab180e437af1643b93944397b5c1bc02f}{k}
+\item 
+\hyperlink{classg2c_1_1_int_property}{IntProperty} \hyperlink{classg2c_1_1_actor_a2b162d082f8f5e60463a4da42e9c58fd}{frame}
+\item 
+\hyperlink{classg2c_1_1_vec2_property}{Vec2Property} \hyperlink{classg2c_1_1_actor_aa674ee18247cbd0c2b908beb8496b71f}{position}
+\item 
+\hypertarget{classg2c_1_1_actor_a54a2f290b3e7ac35c98f170b961a9a4f}{
+\hyperlink{classg2c_1_1_polygon}{Polygon} {\bfseries polygon}}
+\label{classg2c_1_1_actor_a54a2f290b3e7ac35c98f170b961a9a4f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An \hyperlink{classg2c_1_1_actor}{Actor} represents 2D graphics on the screen, typically a sprite at a particular 2D location with a current frame of animation. Several actors might use the same \hyperlink{classg2c_1_1_sprite}{Sprite}. For instance, a sprite might be a picture of a bullet, and a game with lots of bullets on the screen at the same time would use several Actors all pointing to the same \hyperlink{classg2c_1_1_sprite}{Sprite}.
+
+An \hyperlink{classg2c_1_1_actor}{Actor} has a pointer to a \hyperlink{classg2c_1_1_sprite}{Sprite} and also a \hyperlink{classg2c_1_1_mesh}{Mesh}. \hyperlink{classg2c_1_1_actor_a587aff8d8df73dbba0c659459e094074}{Actor::draw()} draws the mesh using the sprite as a texture. If no \hyperlink{classg2c_1_1_mesh}{Mesh} is specified, a default rectangular mesh is used.
+
+Actors can be positioned and scaled using x,y, and k, also a frame of animation that is current. The frame gets used to compute texture coordiates when drawing the mesh. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classg2c_1_1_actor_a1451aed47353957d0f8d74ee50c7104a}{
+\index{g2c::Actor@{g2c::Actor}!Actor@{Actor}}
+\index{Actor@{Actor}!g2c::Actor@{g2c::Actor}}
+\subsubsection[{Actor}]{\setlength{\rightskip}{0pt plus 5cm}g2c::Actor::Actor ({\bf Sprite} $\ast$ {\em insprite})\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{classg2c_1_1_actor_a1451aed47353957d0f8d74ee50c7104a}
+Initializes the \hyperlink{classg2c_1_1_actor}{Actor} with given \hyperlink{classg2c_1_1_sprite}{Sprite} object. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classg2c_1_1_actor_a587aff8d8df73dbba0c659459e094074}{
+\index{g2c::Actor@{g2c::Actor}!draw@{draw}}
+\index{draw@{draw}!g2c::Actor@{g2c::Actor}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void g2c::Actor::draw () const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classg2c_1_1_actor_a587aff8d8df73dbba0c659459e094074}
+Draws mesh using sprite as a texture. If mesh is NULL, uses a default unit square \hyperlink{classg2c_1_1_mesh}{Mesh}. If sprite is NULL 
+
+Reimplemented from \hyperlink{classg2c_1_1_node}{g2c::Node}.
+
+Reimplemented in \hyperlink{classg2c_1_1_text_ab3296a30652c4c3157ae8a8e87449bb4}{g2c::Text}, \hyperlink{classg2c_1_1_integer_aac99d7502a55bf5db01f5d673779e36e}{g2c::Integer}, and \hyperlink{classg2c_1_1_button_a1d3bfdc06e37d9e533d1cd3b8d308579}{g2c::Button}.
+
+\subsection{Member Data Documentation}
+\hypertarget{classg2c_1_1_actor_a2b162d082f8f5e60463a4da42e9c58fd}{
+\index{g2c::Actor@{g2c::Actor}!frame@{frame}}
+\index{frame@{frame}!g2c::Actor@{g2c::Actor}}
+\subsubsection[{frame}]{\setlength{\rightskip}{0pt plus 5cm}{\bf IntProperty} {\bf g2c::Actor::frame}}}
+\label{classg2c_1_1_actor_a2b162d082f8f5e60463a4da42e9c58fd}
+The index of the current frame of animation of the \hyperlink{classg2c_1_1_sprite}{Sprite} to draw. \hypertarget{classg2c_1_1_actor_ab180e437af1643b93944397b5c1bc02f}{
+\index{g2c::Actor@{g2c::Actor}!k@{k}}
+\index{k@{k}!g2c::Actor@{g2c::Actor}}
+\subsubsection[{k}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DoubleProperty} {\bf g2c::Actor::k}}}
+\label{classg2c_1_1_actor_ab180e437af1643b93944397b5c1bc02f}
+A scaling factor. \hypertarget{classg2c_1_1_actor_aa674ee18247cbd0c2b908beb8496b71f}{
+\index{g2c::Actor@{g2c::Actor}!position@{position}}
+\index{position@{position}!g2c::Actor@{g2c::Actor}}
+\subsubsection[{position}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2Property} {\bf g2c::Actor::position}}}
+\label{classg2c_1_1_actor_aa674ee18247cbd0c2b908beb8496b71f}
+The 2D coordinates where to draw on the screen. \hypertarget{classg2c_1_1_actor_aebf317d39fb7bf28c061741bd927f81f}{
+\index{g2c::Actor@{g2c::Actor}!x@{x}}
+\index{x@{x}!g2c::Actor@{g2c::Actor}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}double\& {\bf g2c::Actor::x}}}
+\label{classg2c_1_1_actor_aebf317d39fb7bf28c061741bd927f81f}
+The x coordinate where to draw on the screen. Modifying x changes position. \hypertarget{classg2c_1_1_actor_ae627fd6cc00197b7e0a0b05d1d93b350}{
+\index{g2c::Actor@{g2c::Actor}!y@{y}}
+\index{y@{y}!g2c::Actor@{g2c::Actor}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}double\& {\bf g2c::Actor::y}}}
+\label{classg2c_1_1_actor_ae627fd6cc00197b7e0a0b05d1d93b350}
+The x coordinate where to draw on the screen. Modifying y changes position. 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+sprites.h\item 
+sprites.cpp\end{DoxyCompactItemize}

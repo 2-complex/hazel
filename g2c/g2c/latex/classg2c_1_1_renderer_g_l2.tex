@@ -1,0 +1,58 @@
+\hypertarget{classg2c_1_1_renderer_g_l2}{
+\section{g2c::RendererGL2 Class Reference}
+\label{classg2c_1_1_renderer_g_l2}\index{g2c::RendererGL2@{g2c::RendererGL2}}
+}
+
+
+{\ttfamily \#include $<$sprites.h$>$}Inheritance diagram for g2c::RendererGL2::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classg2c_1_1_renderer_g_l2}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classg2c_1_1_renderer_g_l2_acd65c8c77dbecbe19c2bb19ef3847ce5}{init} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classg2c_1_1_renderer_g_l2_a42c4be1e991664f9a2ba8ef013cb00c1}{drawMesh} (const \hyperlink{classg2c_1_1_mesh}{Mesh} $\ast$m, const Mat4 \&matrix, const Mat3 \&texMatrix, const \hyperlink{classg2c_1_1_color}{Color} \&color, const \hyperlink{classg2c_1_1_texture}{Texture} $\ast$texture) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classg2c_1_1_renderer_g_l2_a437787e58e897d930dcebed42f1be546}{
+bool {\bfseries initialized}}
+\label{classg2c_1_1_renderer_g_l2_a437787e58e897d930dcebed42f1be546}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An implementation of \hyperlink{classg2c_1_1_renderer}{Renderer} to draw meshes using OpenGL calls from the OpenGL ES 2 collection. The draw function in this will work in desktop OpenGL or in OpenGL ES 2.
+
+Set Sprite::renderer to an instance of \hyperlink{classg2c_1_1_renderer_g_l2}{RendererGL2} to and call \hyperlink{classg2c_1_1_renderer_g_l2_acd65c8c77dbecbe19c2bb19ef3847ce5}{init()}. Then all meshes will draw using it. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classg2c_1_1_renderer_g_l2_a42c4be1e991664f9a2ba8ef013cb00c1}{
+\index{g2c::RendererGL2@{g2c::RendererGL2}!drawMesh@{drawMesh}}
+\index{drawMesh@{drawMesh}!g2c::RendererGL2@{g2c::RendererGL2}}
+\subsubsection[{drawMesh}]{\setlength{\rightskip}{0pt plus 5cm}void g2c::RendererGL2::drawMesh (const {\bf Mesh} $\ast$ {\em mesh}, \/  const Mat4 \& {\em matrix}, \/  const Mat3 \& {\em texMatrix}, \/  const {\bf Color} \& {\em color}, \/  const {\bf Texture} $\ast$ {\em texture}) const\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classg2c_1_1_renderer_g_l2_a42c4be1e991664f9a2ba8ef013cb00c1}
+Overridden to draw a \hyperlink{classg2c_1_1_mesh}{Mesh} object. If mesh is NULL, drawMesh must still draw a default unit square. 
+
+Implements \hyperlink{classg2c_1_1_renderer_a60445bc0c7ec75f1c7ee20066c25f8b3}{g2c::Renderer}.\hypertarget{classg2c_1_1_renderer_g_l2_acd65c8c77dbecbe19c2bb19ef3847ce5}{
+\index{g2c::RendererGL2@{g2c::RendererGL2}!init@{init}}
+\index{init@{init}!g2c::RendererGL2@{g2c::RendererGL2}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void g2c::RendererGL2::init ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classg2c_1_1_renderer_g_l2_acd65c8c77dbecbe19c2bb19ef3847ce5}
+Overridden to initialize the renderer. 
+
+Implements \hyperlink{classg2c_1_1_renderer_adcfacb02cf062a77f0fb71ab30dbae76}{g2c::Renderer}.
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+sprites.h\item 
+sprites.cpp\end{DoxyCompactItemize}

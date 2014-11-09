@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>28DA6084-8956-40AB-B924-CC6A0602B89B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Trampoline</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CEF83EFC-41E0-427D-AE4D-C5F715E33FBE</key>
+		<string>https://github.com/2-complex/g2c.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>trampolines/steam/Trampoline.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CEF83EFC-41E0-427D-AE4D-C5F715E33FBE</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/2-complex/g2c.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CEF83EFC-41E0-427D-AE4D-C5F715E33FBE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CEF83EFC-41E0-427D-AE4D-C5F715E33FBE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>g2c</string>
+		</dict>
+	</array>
+</dict>
+</plist>

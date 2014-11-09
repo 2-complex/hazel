@@ -1,0 +1,33 @@
+\hypertarget{classg2c_1_1_button_handler}{
+\section{g2c::ButtonHandler Class Reference}
+\label{classg2c_1_1_button_handler}\index{g2c::ButtonHandler@{g2c::ButtonHandler}}
+}
+
+
+{\ttfamily \#include $<$sprites.h$>$}\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classg2c_1_1_button_handler_adc10feaf556e7f9a1e27b45082e34e4e}{
+virtual void {\bfseries down} (\hyperlink{classg2c_1_1_button}{Button} $\ast$button)}
+\label{classg2c_1_1_button_handler_adc10feaf556e7f9a1e27b45082e34e4e}
+
+\item 
+\hypertarget{classg2c_1_1_button_handler_a28679b2bf70b70e75c4646c797374500}{
+virtual void {\bfseries up} (\hyperlink{classg2c_1_1_button}{Button} $\ast$button)}
+\label{classg2c_1_1_button_handler_a28679b2bf70b70e75c4646c797374500}
+
+\item 
+\hypertarget{classg2c_1_1_button_handler_ae42a49c45a666d4f16722c5e831cf968}{
+virtual void {\bfseries click} (\hyperlink{classg2c_1_1_button}{Button} $\ast$button)=0}
+\label{classg2c_1_1_button_handler_ae42a49c45a666d4f16722c5e831cf968}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract helper class for \hyperlink{classg2c_1_1_button}{Button} the purpose of which is to hold the virtual function click(). Subclass \hyperlink{classg2c_1_1_button_handler}{ButtonHandler} and override click, then set a Button's handler element to an instnace of the subclass. click() will be called when the button is clicked. 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+sprites.h\item 
+sprites.cpp\end{DoxyCompactItemize}

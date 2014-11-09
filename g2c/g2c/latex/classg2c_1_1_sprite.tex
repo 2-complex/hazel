@@ -1,0 +1,97 @@
+\hypertarget{classg2c_1_1_sprite}{
+\section{g2c::Sprite Class Reference}
+\label{classg2c_1_1_sprite}\index{g2c::Sprite@{g2c::Sprite}}
+}
+
+
+{\ttfamily \#include $<$sprites.h$>$}Inheritance diagram for g2c::Sprite::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=6cm]{classg2c_1_1_sprite}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classg2c_1_1_sprite_ab605111518df32637cbb10f442071a5b}{
+Mat4 {\bfseries getOffsetMatrix} (double x=0.0, double y=0.0, double k=1.0) const }
+\label{classg2c_1_1_sprite_ab605111518df32637cbb10f442071a5b}
+
+\item 
+\hypertarget{classg2c_1_1_sprite_a138759194d8d7be86e27dea0c6a0897b}{
+Mat3 {\bfseries getTexMatrix} (int frame=0) const }
+\label{classg2c_1_1_sprite_a138759194d8d7be86e27dea0c6a0897b}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classg2c_1_1_sprite_a16c5ad30837942d0687d54a04953bc94}{
+\hyperlink{classg2c_1_1_string_property}{StringProperty} {\bfseries file}}
+\label{classg2c_1_1_sprite_a16c5ad30837942d0687d54a04953bc94}
+
+\item 
+\hypertarget{classg2c_1_1_sprite_a950069d33a7ae543f31a596569c0a839}{
+\hyperlink{classg2c_1_1_int_property}{IntProperty} {\bfseries numberOfColumns}}
+\label{classg2c_1_1_sprite_a950069d33a7ae543f31a596569c0a839}
+
+\item 
+\hypertarget{classg2c_1_1_sprite_a2eea2ddb6eff64c44d4d86567103e046}{
+\hyperlink{classg2c_1_1_int_property}{IntProperty} {\bfseries numberOfRows}}
+\label{classg2c_1_1_sprite_a2eea2ddb6eff64c44d4d86567103e046}
+
+\item 
+\hypertarget{classg2c_1_1_sprite_a5ecdb4a09f9abbc0ca6db3c90472ae72}{
+\hyperlink{classg2c_1_1_bool_property}{BoolProperty} {\bfseries center}}
+\label{classg2c_1_1_sprite_a5ecdb4a09f9abbc0ca6db3c90472ae72}
+
+\item 
+\hypertarget{classg2c_1_1_sprite_a16e246843e6eab65e442dac687534780}{
+\hyperlink{classg2c_1_1_bool_property}{BoolProperty} {\bfseries flipRows}}
+\label{classg2c_1_1_sprite_a16e246843e6eab65e442dac687534780}
+
+\item 
+\hypertarget{classg2c_1_1_sprite_ad46d6a4c78d395f282c97e988ef51ac3}{
+\hyperlink{classg2c_1_1_polygon}{Polygon} {\bfseries polygon}}
+\label{classg2c_1_1_sprite_ad46d6a4c78d395f282c97e988ef51ac3}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classg2c_1_1_sprite_a6c1f9f057d8e505ca6f66a71343ff6a9}{
+static bool {\bfseries drawLines} = false}
+\label{classg2c_1_1_sprite_a6c1f9f057d8e505ca6f66a71343ff6a9}
+
+\item 
+\hypertarget{classg2c_1_1_sprite_abf2fcf0bb64c335b0a41f21fe82b5e05}{
+static \hyperlink{classg2c_1_1_renderer}{Renderer} $\ast$ {\bfseries renderer} = NULL}
+\label{classg2c_1_1_sprite_abf2fcf0bb64c335b0a41f21fe82b5e05}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classg2c_1_1_sprite_a31e0617f286d70f61664218767e7a963}{
+virtual std::string {\bfseries serializeElements} (std::string indent=\char`\"{}\char`\"{}) const }
+\label{classg2c_1_1_sprite_a31e0617f286d70f61664218767e7a963}
+
+\item 
+\hypertarget{classg2c_1_1_sprite_ae53a67afb41347fd05de1688b9a005f5}{
+virtual void {\bfseries handleChild} (const \hyperlink{classparse_1_1_node}{parse::Node} $\ast$n)}
+\label{classg2c_1_1_sprite_ae53a67afb41347fd05de1688b9a005f5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A \hyperlink{classg2c_1_1_sprite}{Sprite} represnts a texture on the GPU whose image is a rectangular array of animation frames. For instance a chracter in a side-\/scroller could use a \hyperlink{classg2c_1_1_sprite}{Sprite} to hold all the possible poses.
+
+\hyperlink{classg2c_1_1_sprite}{Sprite} can be initialized by using the functions of its parent class \hyperlink{classg2c_1_1_texture2_d}{Texture2D} to load in a \hyperlink{classg2c_1_1_bitmap}{Bitmap} and then setting numberOfRows and numberOfColumns.
+
+The class \hyperlink{classg2c_1_1_actor}{Actor} is made to draw a \hyperlink{classg2c_1_1_sprite}{Sprite} on the screen with specific coordinates and current animation frames. 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+sprites.h\item 
+sprites.cpp\end{DoxyCompactItemize}

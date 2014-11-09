@@ -1,0 +1,100 @@
+\hypertarget{classg2c_1_1_text}{
+\section{g2c::Text Class Reference}
+\label{classg2c_1_1_text}\index{g2c::Text@{g2c::Text}}
+}
+
+
+{\ttfamily \#include $<$sprites.h$>$}Inheritance diagram for g2c::Text::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5cm]{classg2c_1_1_text}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classg2c_1_1_text_a58370a00a8812fe81985cd69bc25c163}{
+{\bfseries Text} (\hyperlink{classg2c_1_1_font}{Font} $\ast$infont)}
+\label{classg2c_1_1_text_a58370a00a8812fe81985cd69bc25c163}
+
+\item 
+virtual void \hyperlink{classg2c_1_1_text_ab3296a30652c4c3157ae8a8e87449bb4}{draw} () const 
+\item 
+\hypertarget{classg2c_1_1_text_a707929240f4ecc9113345c8128b2a749}{
+virtual std::string {\bfseries serializeElements} (std::string indent) const }
+\label{classg2c_1_1_text_a707929240f4ecc9113345c8128b2a749}
+
+\item 
+\hypertarget{classg2c_1_1_text_abd97b62c5a137c4410673fa8f798202f}{
+virtual void {\bfseries handleChild} (const \hyperlink{classparse_1_1_node}{parse::Node} $\ast$n)}
+\label{classg2c_1_1_text_abd97b62c5a137c4410673fa8f798202f}
+
+\item 
+\hypertarget{classg2c_1_1_text_a8a68d2f6ac6251a5ba158f3d7dbf0e2e}{
+virtual \hyperlink{classg2c_1_1_polygon}{Polygon} {\bfseries collisionPolygon} () const }
+\label{classg2c_1_1_text_a8a68d2f6ac6251a5ba158f3d7dbf0e2e}
+
+\item 
+\hypertarget{classg2c_1_1_text_ac78497d459bbece12e7a3bbd2fb877f5}{
+void {\bfseries keyboard} (unsigned char inkey)}
+\label{classg2c_1_1_text_ac78497d459bbece12e7a3bbd2fb877f5}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::string \hyperlink{classg2c_1_1_text_a0b1d9a8876fced2290eeda161d992084}{justification}
+\item 
+std::string \hyperlink{classg2c_1_1_text_a9b4447b44f0831b3f40ef12ebac60dc1}{s}
+\item 
+\hyperlink{classg2c_1_1_font}{Font} $\ast$ \hyperlink{classg2c_1_1_text_a1bb9fa51e3d58a6561d4449495d3ce75}{font}
+\item 
+\hypertarget{classg2c_1_1_text_a5bca37a540e7ad2d8b5f2b940473c9ac}{
+std::string {\bfseries fontName}}
+\label{classg2c_1_1_text_a5bca37a540e7ad2d8b5f2b940473c9ac}
+
+\item 
+\hypertarget{classg2c_1_1_text_ae352a66b9303fb1a742ce39c06a8c063}{
+bool {\bfseries drawPipe}}
+\label{classg2c_1_1_text_ae352a66b9303fb1a742ce39c06a8c063}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classg2c_1_1_actor}{Actor} for drawing text from a string and a \hyperlink{classg2c_1_1_font}{Font} object. \hyperlink{classg2c_1_1_text_ab3296a30652c4c3157ae8a8e87449bb4}{Text::draw} draws a quad for each character in its member string s, sampling the texture represented by font to get characters. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classg2c_1_1_text_ab3296a30652c4c3157ae8a8e87449bb4}{
+\index{g2c::Text@{g2c::Text}!draw@{draw}}
+\index{draw@{draw}!g2c::Text@{g2c::Text}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void g2c::Text::draw () const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classg2c_1_1_text_ab3296a30652c4c3157ae8a8e87449bb4}
+Draws an image of the c++ string s using the characters in font. 
+
+Reimplemented from \hyperlink{classg2c_1_1_actor_a587aff8d8df73dbba0c659459e094074}{g2c::Actor}.
+
+Reimplemented in \hyperlink{classg2c_1_1_integer_aac99d7502a55bf5db01f5d673779e36e}{g2c::Integer}.
+
+\subsection{Member Data Documentation}
+\hypertarget{classg2c_1_1_text_a1bb9fa51e3d58a6561d4449495d3ce75}{
+\index{g2c::Text@{g2c::Text}!font@{font}}
+\index{font@{font}!g2c::Text@{g2c::Text}}
+\subsubsection[{font}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Font}$\ast$ {\bf g2c::Text::font}}}
+\label{classg2c_1_1_text_a1bb9fa51e3d58a6561d4449495d3ce75}
+A font object is a \hyperlink{classg2c_1_1_sprite}{Sprite} whose frames correspond to the characters to be drawn. \hypertarget{classg2c_1_1_text_a0b1d9a8876fced2290eeda161d992084}{
+\index{g2c::Text@{g2c::Text}!justification@{justification}}
+\index{justification@{justification}!g2c::Text@{g2c::Text}}
+\subsubsection[{justification}]{\setlength{\rightskip}{0pt plus 5cm}std::string {\bf g2c::Text::justification}}}
+\label{classg2c_1_1_text_a0b1d9a8876fced2290eeda161d992084}
+A string either \char`\"{}left\char`\"{}, \char`\"{}right\char`\"{} or \char`\"{}center\char`\"{} describing how the drawn string eminates from the coordinates of this \hyperlink{classg2c_1_1_actor}{Actor}. \hypertarget{classg2c_1_1_text_a9b4447b44f0831b3f40ef12ebac60dc1}{
+\index{g2c::Text@{g2c::Text}!s@{s}}
+\index{s@{s}!g2c::Text@{g2c::Text}}
+\subsubsection[{s}]{\setlength{\rightskip}{0pt plus 5cm}std::string {\bf g2c::Text::s}}}
+\label{classg2c_1_1_text_a9b4447b44f0831b3f40ef12ebac60dc1}
+A standard c++ string, this is the text that gets drawn. 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+sprites.h\item 
+sprites.cpp\end{DoxyCompactItemize}

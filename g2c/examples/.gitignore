@@ -1,0 +1,16 @@
+*.dSYM
+
+atlas
+modelfile
+quad
+serialize
+ship
+sound
+sprite
+steam
+text
+triangle
+tetrahedron
+worldfile
+worldapptest
+

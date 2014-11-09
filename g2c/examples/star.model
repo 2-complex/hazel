@@ -1,0 +1,64 @@
+{
+  'type' : 'Model',
+  'name' : 'box',
+  'elements' : [
+    {
+      'type' : 'Texture2D',
+      'name' : 'glimmer',
+      'file' : 'glimmer.png',
+      'unit' : 0,
+    },
+    {
+      'type' : 'Assumption',
+      'name' : 'starMaterial',
+      'effect' : 'fatteningEffect',
+      'color' : [1.0, 1.0, 1.1, 1, ],
+      'texture' : 'glimmer',
+    },
+    {
+      'type' : 'Assumption',
+      'name' : 'context',
+    },
+    {
+      'type' : 'Effect',
+      'name' : 'fatteningEffect',
+      'vertexCode' : '
+        uniform mat4 modelView;
+        uniform mat4 projection;
+
+        attribute vec3 position;
+        attribute vec2 texcoord;
+
+        varying vec3 v_position;
+        varying vec2 v_texCoord;
+
+        void main()
+        {
+          v_position = position;
+          v_texCoord = 0.5 * texcoord.xy + 0.5;
+          gl_Position = projection * modelView * vec4(position, 1.0);
+        }
+        ',
+      'fragmentCode' : '
+        varying vec3 v_position;
+        varying vec2 v_texCoord;
+
+        uniform sampler2D texture;
+
+        void main()
+        {
+          gl_FragColor =
+            vec4(0.6 * texture2D(texture, v_texCoord.xy).xyz, 1.0);
+        }
+        ',
+    },
+    {
+      'type' : 'Shape',
+      'name' : 'starShape',
+      'assumptions' : [
+        'starMaterial',
+        'context',
+      ],
+    },
+  ],
+}
