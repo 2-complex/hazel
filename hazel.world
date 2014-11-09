@@ -85,8 +85,9 @@
         {
           'type' : 'Sprite',
           'name' : 'hazelSprite',
-          'numberOfColumns' : 4,
+          'numberOfColumns' : 3,
           'numberOfRows' : 1,
+          'center' : 1,
           'file' : 'images/hazel.png',
           'polygon' :
             {
@@ -105,7 +106,7 @@
         {
           'type' : 'Sprite',
           'name' : 'GB_0',
-          'file' : 'images/GB_0101_0.png',
+          'file' : 'images/bush_fat.png',
           'polygon' :
             {
               'type' : 'Polygon',
@@ -123,7 +124,7 @@
         {
           'type' : 'Sprite',
           'name' : 'GB_1',
-          'file' : 'images/GB_0101_1.png',
+          'file' : 'images/bush_fat.png',
           'polygon' :
             {
               'type' : 'Polygon',
@@ -141,13 +142,13 @@
         {
           'type' : 'Sprite',
           'name' : 'GB_2',
-          'file' : 'images/GB_0101_2.png',
+          'file' : 'images/bush_fat.png',
         },
 
         {
           'type' : 'Sprite',
           'name' : 'GB_3',
-          'file' : 'images/GB_0101_3.png',
+          'file' : 'images/bush_fat.png',
         },
 
         {
@@ -209,7 +210,7 @@
               ],
             },
         },
-
+        
         {
           'type' : 'Sprite',
           'name' : 'TT_2',

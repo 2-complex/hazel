@@ -182,15 +182,15 @@ i"texture.h"
 i<queue>
 
 N/Users/peterson/source/hazel/g2c/g2c/element.h
-c000000005308C941000000000000041E
-t1393084737
-s1054
+c0000000053DEFC51000000000000041B
+t1407122513
+s1051
 i"serializable.h"
 
 N/Users/peterson/source/hazel/g2c/g2c/graphics.h
-c00000000539F8CF20000000000002AF0
-t1402965234
-s10992
+c0000000053DEFC5100000000000030F8
+t1407122513
+s12536
 i<vector>
 i<list>
 i<string>
@@ -231,8 +231,8 @@ i<android/log.h>
 i<stdio.h>
 
 N/Users/peterson/source/hazel/g2c/g2c/macbank.h
-c000000005308C9410000000000000951
-t1393084737
+c0000000053DEFC510000000000000951
+t1407122513
 s2385
 i"bank.h"
 i<AudioToolbox/AudioToolbox.h>
@@ -254,8 +254,8 @@ i<AL/alc.h>
 i<map>
 
 N/Users/peterson/source/hazel/g2c/g2c/opengl.h
-c0000000053419BB300000000000005C3
-t1396808627
+c0000000053DEFC5100000000000005C3
+t1407122513
 s1475
 i<OpenGLES/ES1/gl.h>
 i<OpenGLES/ES1/glext.h>
@@ -302,22 +302,22 @@ i"serializable.h"
 i"player.h"
 
 N/Users/peterson/source/hazel/g2c/g2c/sprites.h
-c00000000539F89220000000000006059
-t1402964258
-s24665
-i<vector>
-i<string>
-i<set>
-i<map>
-i"opengl.h"
-i"util.h"
-i"lin/lin.h"
+c0000000053F28A6A00000000000063E3
+t1408404074
+s25571
 i"listener.h"
 i"parse.h"
 i"serializable.h"
 i"bank.h"
 i"texture.h"
 i"sound.h"
+i"util.h"
+i"lin/lin.h"
+i"opengl.h"
+i<vector>
+i<string>
+i<set>
+i<map>
 
 N/Users/peterson/source/hazel/g2c/g2c/texture.h
 c000000005341800500000000000010F4
@@ -349,8 +349,8 @@ i<stdint.h>
 i<stddef.h>
 
 N/Users/peterson/source/hazel/game.h
-c0000000053963E4A00000000000007BA
-t1402355274
+c0000000053F2999200000000000007BA
+t1408407954
 s1978
 i"lib2d/phys2d.h"
 i"sprites.h"
@@ -397,16 +397,16 @@ i"util.h"
 i<stdlib.h>
 
 N/Users/peterson/source/hazel/ios/../g2c/g2c/graphics.cpp
-c0000000053D4317C0000000000008D6B
-t1406415228
-s36203
+c0000000053DEFC980000000000008E57
+t1407122584
+s36439
 i"graphics.h"
 i<stdlib.h>
 
 N/Users/peterson/source/hazel/ios/../g2c/g2c/graphics.h
-c00000000539F8CF20000000000002AF0
-t1402965234
-s10992
+c0000000053DEFC5100000000000030F8
+t1407122513
+s12536
 i<vector>
 i<list>
 i<string>
@@ -440,9 +440,9 @@ i"listener.h"
 i"opengl.h"
 
 N/Users/peterson/source/hazel/ios/../g2c/g2c/macbank.cpp
-c0000000053DD563F0000000000002C1E
-t1407014463
-s11294
+c0000000053E962930000000000002C1A
+t1407804051
+s11290
 i"macbank.h"
 i"util.h"
 i"log.h"
@@ -490,29 +490,29 @@ i"log.h"
 i<stdlib.h>
 
 N/Users/peterson/source/hazel/ios/../g2c/g2c/sprites.cpp
-c0000000053DD6E3A000000000000F7A3
-t1407020602
-s63395
+c0000000053F28A4B000000000000FCAA
+t1408404043
+s64682
 i"sprites.h"
 i<assert.h>
 
 N/Users/peterson/source/hazel/ios/../g2c/g2c/sprites.h
-c00000000539F89220000000000006059
-t1402964258
-s24665
-i<vector>
-i<string>
-i<set>
-i<map>
-i"opengl.h"
-i"util.h"
-i"lin/lin.h"
+c0000000053F28A6A00000000000063E3
+t1408404074
+s25571
 i"listener.h"
 i"parse.h"
 i"serializable.h"
 i"bank.h"
 i"texture.h"
 i"sound.h"
+i"util.h"
+i"lin/lin.h"
+i"opengl.h"
+i<vector>
+i<string>
+i<set>
+i<map>
 
 N/Users/peterson/source/hazel/ios/../g2c/g2c/texture.cpp
 c0000000053844C460000000000003501
@@ -551,14 +551,14 @@ i<string.h>
 i<stdlib.h>
 
 N/Users/peterson/source/hazel/ios/../game.cpp
-c0000000053DD9A1600000000000018DB
-t1407031830
-s6363
+c0000000053F2989F0000000000001910
+t1408407711
+s6416
 i"game.h"
 
 N/Users/peterson/source/hazel/ios/../hazel.cpp
-c0000000053DD8CC20000000000000ABF
-t1407028418
+c0000000053DFC96D0000000000000ABF
+t1407175021
 s2751
 i"transforms.h"
 i"hazel.h"
@@ -577,14 +577,14 @@ i"lib2d/phys2d.h"
 i<map>
 
 N/Users/peterson/source/hazel/ios/../hazel.world
-c00000000539639D60000000000001565
-t1402354134
-s5477
+c0000000053F295A20000000000001581
+t1408406946
+s5505
 
 N/Users/peterson/source/hazel/ios/../images
-c000000005383E9840000000000000682
-t1401153924
-s1666
+c0000000053F294A6000000000000074E
+t1408406694
+s1870
 
 N/Users/peterson/source/hazel/ios/../lib2d/math2d.cpp
 c0000000053DEE4200000000000004C90
@@ -595,9 +595,9 @@ i"math2d.h"
 i"opengl.h"
 
 N/Users/peterson/source/hazel/ios/../lib2d/phys2d.cpp
-c0000000053715EA7000000000000A7E8
-t1399938727
-s42984
+c0000000053DEF6E5000000000000A7EB
+t1407121125
+s42987
 i<algorithm>
 i"math2d.h"
 i"phys2d.h"
@@ -612,8 +612,8 @@ t1400546712
 s170
 
 N/Users/peterson/source/hazel/ios/../worldbase.cpp
-c0000000053963A24000000000000042E
-t1402354212
+c0000000053F29514000000000000042E
+t1408406804
 s1070
 i"worldbase.h"
 
@@ -632,9 +632,9 @@ i"EAGLView.h"
 i"EAGLViewController.h"
 
 N/Users/peterson/source/hazel/ios/Classes/EAGLView.h
-c0000000053DED451000000000000061A
-t1407112273
-s1562
+c0000000053DF1CF1000000000000062D
+t1407130865
+s1581
 i<UIKit/UIKit.h>
 i"ESSetup.h"
 i"sprites.h"
@@ -643,9 +643,9 @@ i"app.h"
 i<map>
 
 N/Users/peterson/source/hazel/ios/Classes/EAGLView.mm
-c0000000053DEE3D1000000000000203A
-t1407116241
-s8250
+c0000000053DF1CE30000000000001BB6
+t1407130851
+s7094
 i"EAGLView.h"
 i"ES1Setup.h"
 i"ES2Setup.h"
@@ -661,8 +661,8 @@ i<UIKit/UIKit.h>
 i"EAGLView.h"
 
 N/Users/peterson/source/hazel/ios/Classes/EAGLViewController.mm
-c0000000053DEE3D200000000000008BF
-t1407116242
+c0000000053DEF71200000000000008BF
+t1407121170
 s2239
 i"EAGLViewController.h"
 
@@ -702,10 +702,15 @@ i<QuartzCore/QuartzCore.h>
 i<OpenGLES/EAGL.h>
 i<OpenGLES/EAGLDrawable.h>
 
+N/Users/peterson/source/hazel/ios/Default-568h@2x.png
+c0000000052F5931200000000000048A2
+t1391825682
+s18594
+
 N/Users/peterson/source/hazel/ios/Default~ipad.png
-c0000000053DEDCD50000000000007312
-t1407114453
-s29458
+c0000000053DEF9080000000000007C29
+t1407121672
+s31785
 
 N/Users/peterson/source/hazel/ios/Default~iphone.png
 c0000000053291F800000000000002EAC
@@ -774,6 +779,10 @@ t2
 s0
 
 N/Users/peterson/source/hazel/ios/build/Debug-iphoneos/Hazel.app.dSYM
+t2
+s0
+
+N/Users/peterson/source/hazel/ios/build/Debug-iphoneos/Hazel.app/Default-568h@2x.png
 t2
 s0
 
@@ -1138,8 +1147,8 @@ i<list>
 i<stdio.h>
 
 N/Users/peterson/source/hazel/worldbase.h
-c0000000053963A2400000000000002C6
-t1402354212
+c0000000053F2951400000000000002C6
+t1408406804
 s710
 i"sprites.h"
 
@@ -1160,13 +1169,13 @@ t2
 s0
 
 NHazel-Info.plist
-c0000000053DEE2080000000000000677
-t1407115784
+c0000000053DEF3D90000000000000677
+t1407120345
 s1655
 
 CCheck dependencies
 r0
-lSLF07#2@18"Check dependencies428809158#428809158#0(182"[BEROR]CodeSign error: Certificate identity 'iPhone Developer: Peterson Trethewey (6M2D73M4H3)' appears more than once in the keychain. The codesign tool requires there only be one.1(4@174"CodeSign error: Certificate identity 'iPhone Developer: Peterson Trethewey (6M2D73M4H3)' appears more than once in the keychain. The codesign tool requires there only be one.428809158#18446744073709551615#0#0(1@0"0(0#1#0"17213695488#0"0#
+lSLF07#2@18"Check dependencies432969907#432969908#0(182"[BEROR]CodeSign error: Certificate identity 'iPhone Developer: Peterson Trethewey (6M2D73M4H3)' appears more than once in the keychain. The codesign tool requires there only be one.1(4@174"CodeSign error: Certificate identity 'iPhone Developer: Peterson Trethewey (6M2D73M4H3)' appears more than once in the keychain. The codesign tool requires there only be one.432969908#18446744073709551615#0#0(1@0"0(0#1#0"17205133824#0"0#
 
 CCompileC build/Hazel.build/Debug-iphoneos/Hazel.build/Objects-normal/armv6/AppDelegate.o /Users/peterson/source/hazel/ios/Classes/AppDelegate.mm normal armv6 objective-c++ com.apple.compilers.gcc.4_2
 r0
@@ -1345,6 +1354,9 @@ r0
 CCompileXIB /Users/peterson/source/hazel/ios/Resources/EAGLViewController.xib
 r0
 
+CCopyPNGFile /Users/peterson/source/hazel/ios/build/Debug-iphoneos/Hazel.app/Default-568h@2x.png Default-568h@2x.png
+r0
+
 CCopyPNGFile /Users/peterson/source/hazel/ios/build/Debug-iphoneos/Hazel.app/Default~ipad.png Default~ipad.png
 r0
 
@@ -1388,6 +1400,9 @@ CCreateUniversalBinary /Users/peterson/source/hazel/ios/build/Debug-iphoneos/Haz
 r0
 
 CGenerateDSYMFile /Users/peterson/source/hazel/ios/build/Debug-iphoneos/Hazel.app.dSYM /Users/peterson/source/hazel/ios/build/Debug-iphoneos/Hazel.app/Hazel
+r0
+
+CLd /Users/peterson/source/hazel/ios/build/Debug-iphoneos/Hazel.app/Hazel normal armv6
 r0
 
 CLd /Users/peterson/source/hazel/ios/build/Hazel.build/Debug-iphoneos/Hazel.build/Objects-normal/armv6/Hazel normal armv6

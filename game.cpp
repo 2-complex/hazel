@@ -96,12 +96,12 @@ void Game::step(double t)
         if( keySet.find('d') != keySet.end() )
         {
             primaryCraft->body->velocity += Vec2(0.3, 0.0);
-            primaryCraft->actor->frame = 2;
+            primaryCraft->actor->frame = 1;
         }
         else if( keySet.find('a') != keySet.end() )
         {
             primaryCraft->body->velocity -= Vec2(0.2, 0.0);
-            primaryCraft->actor->frame = 1;
+            primaryCraft->actor->frame = 2;
         }
         else
         {
@@ -147,7 +147,7 @@ void Game::handleCollisions()
     map<CollisionCode, vector<Object*> > codeMap;
     for(vector<Object*>::iterator itr = objects.begin(); itr != objects.end(); itr++)
     codeMap[(*itr)->collisionCode].push_back(*itr);
-    
+
     vector<Object*>& updrafts(codeMap[kUpdraft]);
     vector<Object*>& crafts(codeMap[kCraft]);
 
@@ -161,7 +161,7 @@ void Game::handleCollisions()
 
             double v = fabs(updraft->body->position.x - craft->body->position.x);
             double h = craft->body->position.y - updraft->body->position.y;
-            
+
             if( v < 100.0 && h > 0 && h < 400 )
             {
                 craft->body->velocity += Vec2(0, 0.25);
@@ -185,7 +185,13 @@ void GameLayer::drawInTree(
     const Color& worldColor) const
 {
     const vector<Object*> &objects(game->objects);
-//    const Universe& universe(game->universe);
+
+    glEnable(GL_TEXTURE_2D);
+
+	glEnable(GL_ALPHA);
+	glDisable(GL_DEPTH_TEST);
+	glEnable(GL_BLEND);
+
 
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -222,7 +228,7 @@ void Object::initBody()
     /*
     if( actor && actor->sprite )
     {
-        
+
         vector<Vec2> L( actor->sprite->polygon.getVertices() );
 
         for(vector<Vec2>::iterator itr = L.begin();
@@ -233,7 +239,7 @@ void Object::initBody()
         }
     }
     */
-    
+
     body = new lib2d::Body(p);
 }
 
@@ -322,14 +328,12 @@ void Land::initBody()
 
     vector<Vec2> L(p.L);
 
-
-
 /*
     for(vector<Vec2>::iterator itr = L.begin();
         itr != L.end();
         itr++)
     {
-        
+
     }
 */
 }
