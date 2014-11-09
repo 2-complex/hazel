@@ -162,7 +162,7 @@ void Hazel::keyUp(unsigned char inkey)
     game.keyUp(inkey);
 }
 
-void Hazel::reshape(int width, int height)
+void Hazel::resize(int width, int height)
 {
     renderer->projection = orthographic(0, width, 0, height, -1, 1);
     windowWidth = width;
