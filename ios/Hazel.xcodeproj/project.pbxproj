@@ -26,7 +26,6 @@
 		1F30957818D954AB00DEEC53 /* macbank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F30953B18D954AA00DEEC53 /* macbank.cpp */; };
 		1F30958F18D954AB00DEEC53 /* openalplayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F30955418D954AB00DEEC53 /* openalplayer.cpp */; };
 		1F30959118D954AB00DEEC53 /* parse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F30955918D954AB00DEEC53 /* parse.cpp */; };
-		1F30959218D954AB00DEEC53 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F30955B18D954AB00DEEC53 /* player.cpp */; };
 		1F30959318D954AB00DEEC53 /* serializable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F30955D18D954AB00DEEC53 /* serializable.cpp */; };
 		1F30959418D954AB00DEEC53 /* sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F30955F18D954AB00DEEC53 /* sound.cpp */; };
 		1F30959518D954AB00DEEC53 /* sprites.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F30956118D954AB00DEEC53 /* sprites.cpp */; };
@@ -49,6 +48,7 @@
 		1FB2591513EB4E6F008BA04B /* ES2Setup.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2591213EB4E6F008BA04B /* ES2Setup.mm */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
+		512A871A1A0F3E19008524B4 /* audioplayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 512A87181A0F3E19008524B4 /* audioplayer.cpp */; };
 		AFC29B8911D56BC3006F150F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = AFC29B8211D56BC3006F150F /* Icon-72.png */; };
 		AFC29B8A11D56BC3006F150F /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AFC29B8311D56BC3006F150F /* Icon-Small-50.png */; };
 		AFC29B8B11D56BC3006F150F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = AFC29B8411D56BC3006F150F /* Icon-Small.png */; };
@@ -99,8 +99,6 @@
 		1F30955618D954AB00DEEC53 /* opengl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = opengl.h; path = ../g2c/g2c/opengl.h; sourceTree = SOURCE_ROOT; };
 		1F30955918D954AB00DEEC53 /* parse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = parse.cpp; path = ../g2c/g2c/parse.cpp; sourceTree = SOURCE_ROOT; };
 		1F30955A18D954AB00DEEC53 /* parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = parse.h; path = ../g2c/g2c/parse.h; sourceTree = SOURCE_ROOT; };
-		1F30955B18D954AB00DEEC53 /* player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = player.cpp; path = ../g2c/g2c/player.cpp; sourceTree = SOURCE_ROOT; };
-		1F30955C18D954AB00DEEC53 /* player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = player.h; path = ../g2c/g2c/player.h; sourceTree = SOURCE_ROOT; };
 		1F30955D18D954AB00DEEC53 /* serializable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = serializable.cpp; path = ../g2c/g2c/serializable.cpp; sourceTree = SOURCE_ROOT; };
 		1F30955E18D954AB00DEEC53 /* serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = serializable.h; path = ../g2c/g2c/serializable.h; sourceTree = SOURCE_ROOT; };
 		1F30955F18D954AB00DEEC53 /* sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sound.cpp; path = ../g2c/g2c/sound.cpp; sourceTree = SOURCE_ROOT; };
@@ -137,6 +135,8 @@
 		1FB2591313EB4E6F008BA04B /* ESSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSetup.h; sourceTree = "<group>"; };
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		512A87181A0F3E19008524B4 /* audioplayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audioplayer.cpp; sourceTree = "<group>"; };
+		512A87191A0F3E19008524B4 /* audioplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioplayer.h; sourceTree = "<group>"; };
 		AFC29B8211D56BC3006F150F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Images/Icon-72.png"; sourceTree = "<group>"; };
 		AFC29B8311D56BC3006F150F /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Images/Icon-Small-50.png"; sourceTree = "<group>"; };
 		AFC29B8411D56BC3006F150F /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Images/Icon-Small.png"; sourceTree = "<group>"; };
@@ -217,6 +217,8 @@
 		1F30952618D954AA00DEEC53 /* g2c */ = {
 			isa = PBXGroup;
 			children = (
+				512A87181A0F3E19008524B4 /* audioplayer.cpp */,
+				512A87191A0F3E19008524B4 /* audioplayer.h */,
 				1F30952918D954AA00DEEC53 /* animations.cpp */,
 				1F30952A18D954AA00DEEC53 /* animations.h */,
 				1F30952B18D954AA00DEEC53 /* app.cpp */,
@@ -240,8 +242,6 @@
 				1F30955618D954AB00DEEC53 /* opengl.h */,
 				1F30955918D954AB00DEEC53 /* parse.cpp */,
 				1F30955A18D954AB00DEEC53 /* parse.h */,
-				1F30955B18D954AB00DEEC53 /* player.cpp */,
-				1F30955C18D954AB00DEEC53 /* player.h */,
 				1F30955D18D954AB00DEEC53 /* serializable.cpp */,
 				1F30955E18D954AB00DEEC53 /* serializable.h */,
 				1F30955F18D954AB00DEEC53 /* sound.cpp */,
@@ -436,7 +436,6 @@
 				1F30957818D954AB00DEEC53 /* macbank.cpp in Sources */,
 				1F30958F18D954AB00DEEC53 /* openalplayer.cpp in Sources */,
 				1F30959118D954AB00DEEC53 /* parse.cpp in Sources */,
-				1F30959218D954AB00DEEC53 /* player.cpp in Sources */,
 				1F30959318D954AB00DEEC53 /* serializable.cpp in Sources */,
 				1F30959418D954AB00DEEC53 /* sound.cpp in Sources */,
 				1F30959518D954AB00DEEC53 /* sprites.cpp in Sources */,
@@ -445,6 +444,7 @@
 				1F30959918D954AB00DEEC53 /* util.cpp in Sources */,
 				1F30959A18D954AB00DEEC53 /* wave.cpp in Sources */,
 				1F4DB7A918D95E2A00AFD0CB /* hazel.cpp in Sources */,
+				512A871A1A0F3E19008524B4 /* audioplayer.cpp in Sources */,
 				1F4DB7AC18D95E7500AFD0CB /* worldbase.cpp in Sources */,
 				1F14AD1B198D76F9007D3188 /* game.cpp in Sources */,
 				1F14AD3C198D7860007D3188 /* math2d.cpp in Sources */,
@@ -468,6 +468,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				HEADER_SEARCH_PATHS = ../../g2c/g2c;
 				INFOPLIST_FILE = "Hazel-Info.plist";
+				LD_NO_PIE = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../g2c/g2c\"",
@@ -489,6 +490,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				HEADER_SEARCH_PATHS = ../../g2c/g2c;
 				INFOPLIST_FILE = "HazelAttack-Info.plist";
+				LD_NO_PIE = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../g2c/g2c\"",

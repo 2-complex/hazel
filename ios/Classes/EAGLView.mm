@@ -49,7 +49,7 @@ using namespace g2c;
     
     spriteRenderer->init();
     
-    Sprite::renderer = spriteRenderer;
+    Mesh::renderer = spriteRenderer;
     
     [self setAnimationFrameInterval: 1];
     
@@ -172,7 +172,7 @@ using namespace g2c;
     mWidth = width;
     mHeight = height;
 
-    insider->app->reshape(width, height);
+    insider->app->resize(width, height);
 }
 
 -(void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
