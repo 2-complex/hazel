@@ -76,7 +76,7 @@ public:
     virtual ~Hazel();
 
     virtual void setBank(Bank* inBank);
-    virtual void setPlayer(AudioPlayer* inPlayer);
+    virtual void setAudioPlayer(AudioPlayer* inPlayer);
 
     void init();
     void destroy();

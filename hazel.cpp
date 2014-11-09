@@ -47,7 +47,7 @@ void Hazel::setBank(Bank* inBank)
     world.bank = inBank;
 }
 
-void Hazel::setPlayer(AudioPlayer* inPlayer)
+void Hazel::setAudioPlayer(AudioPlayer* inPlayer)
 {
     world.initSound(inPlayer);
 }
@@ -55,7 +55,7 @@ void Hazel::setPlayer(AudioPlayer* inPlayer)
 void Hazel::init()
 {
     renderer = new RendererGL2;
-    Sprite::renderer = renderer;
+    Mesh::renderer = renderer;
     renderer->init();
 
     glEnable(GL_BLEND);

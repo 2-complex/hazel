@@ -5,14 +5,14 @@
 namespace g2c
 {
     /*! An implementation of Renderer to draw meshes using g2c's graphics library.
-        
-        Set Sprite::renderer to an instance of RendererG to and call init().  Then all meshes
+
+        Set Mesh::renderer to an instance of RendererG to and call init().  Then all meshes
         will draw using it.*/
     class RendererG : public Renderer {
     public:
         RendererG();
         virtual ~RendererG();
-        
+
     private:
 	Buffer quadBuffer;
 	IndexBuffer quadIndexBuffer;
@@ -21,7 +21,7 @@ namespace g2c
         mutable IndexBuffer polygonIndexBuffer;
 
 	Effect effect;
-	
+
         Geometry quadGeometry;
 	Shape quadShape;
 
@@ -33,7 +33,7 @@ namespace g2c
         Texture2D* defaultTexture;
     public:
         virtual void init();
-        
+
     protected:
         bool initialized;
         virtual void drawMesh(
