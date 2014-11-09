@@ -1,29 +1,0 @@
-TZERO_CHECK
-v6
-r1
-cCheck dependencies
-cPhaseScriptExecution CMake\ Rules /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/ZERO_CHECK.build/Script-E29F9AC1659F44A5A33C0452.sh
-
-N/Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/ZERO_CHECK.build/Script-E29F9AC1659F44A5A33C0452.sh
-c00000000541E71920000000000000097
-t1411281298
-s151
-
-CCheck dependencies
-r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies94306b12a9ceb941^014c6d12a9ceb941^---0#1#1#--18"Check dependencies36"07BDB693-983F-4FF7-A411-3A9B1B7185B8-
-
-CPhaseScriptExecution CMake\ Rules /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/ZERO_CHECK.build/Script-E29F9AC1659F44A5A33C0452.sh
-s432974098.429750
-e432974098.492747
-r1
-xPhaseScriptExecution
-xCMake Rules
-x/Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/ZERO_CHECK.build/Script-E29F9AC1659F44A5A33C0452.sh
-oecho ""
-o
-omake -f /Users/peterson/source/g2c/g2c/CMakeScripts/ReRunCMake.make
-omake[1]: `/Users/peterson/source/g2c/g2c/CMakeFiles/cmake.check_cache' is up to date.
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Run custom shell script 'CMake Rules'114"PhaseScriptExecution CMake\ Rules Project.build/Debug-iphoneos/ZERO_CHECK.build/Script-E29F9AC1659F44A5A33C0452.sh2cd46e12a9ceb941^4e267e12a9ceb941^-163"echo ""make -f /Users/peterson/source/g2c/g2c/CMakeScripts/ReRunCMake.makemake[1]: `/Users/peterson/source/g2c/g2c/CMakeFiles/cmake.check_cache' is up to date.3(21%IDEActivityLogMessage2@8"echo ""-432974098#0#8#-0#-----2@68"make -f /Users/peterson/source/g2c/g2c/CMakeScripts/ReRunCMake.make-432974098#9#68#-0#-----2@86"make[1]: `/Users/peterson/source/g2c/g2c/CMakeFiles/cmake.check_cache' is up to date.-432974098#77#86#-0#-----0#0#1#--280"PhaseScriptExecution CMake\ Rules Project.build/Debug-iphoneos/ZERO_CHECK.build/Script-E29F9AC1659F44A5A33C0452.sh    cd /Users/peterson/source/g2c/g2c    /bin/sh -c /Users/peterson/source/g2c/g2c/Project.build/Debug-iphoneos/ZERO_CHECK.build/Script-E29F9AC1659F44A5A33C0452.sh36"2953DE2C-BD41-4213-BBCA-1448E2767F2D-
-b4FB85DB6-398D-43D7-AFB3-597012135D21
-

@@ -47,7 +47,7 @@ void Hazel::setBank(Bank* inBank)
     world.bank = inBank;
 }
 
-void Hazel::setPlayer(Player* inPlayer)
+void Hazel::setPlayer(AudioPlayer* inPlayer)
 {
     world.initSound(inPlayer);
 }
@@ -83,7 +83,7 @@ bool Hazel::mouseDown(const Vec2& C)
 }
 
 void Hazel::mouseDragged(const Vec2& C)
-{    
+{
     world.mouseDragged(C);
 }
 
@@ -99,12 +99,12 @@ bool Hazel::touchDown(unsigned int index, const Vec2& C)
 
 void Hazel::touchDragged(unsigned int index, const Vec2& C)
 {
-    
+
 }
 
 void Hazel::touchUp(unsigned int index, const Vec2& C)
 {
-    
+
 }
 
 void Hazel::draw() const
@@ -136,7 +136,7 @@ void Hazel::draw() const
 
         glMatrixMode(GL_PROJECTION);
         glPopMatrix();
-        
+
         glMatrixMode(GL_MODELVIEW);
         glPopMatrix();
     }

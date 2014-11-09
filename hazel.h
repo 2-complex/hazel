@@ -18,26 +18,26 @@ using namespace std;
 class HazelPrefs : public Serializable
 {
 public:
-	HazelPrefs()
-		: bank(NULL)
-		, soundFXOn(true)
-		, musicOn(true)
-		, unlockedLevel(5)
-	{
-		addProperty("musicOn", musicOn);
-		addProperty("soundFXOn", soundFXOn);
-		addProperty("unlockedLevel", unlockedLevel);
-	}
-	virtual ~HazelPrefs() {}
+    HazelPrefs()
+        : bank(NULL)
+        , soundFXOn(true)
+        , musicOn(true)
+        , unlockedLevel(5)
+    {
+        addProperty("musicOn", musicOn);
+        addProperty("soundFXOn", soundFXOn);
+        addProperty("unlockedLevel", unlockedLevel);
+    }
+    virtual ~HazelPrefs() {}
 
-	std::string key;
-	Bank* bank;
+    std::string key;
+    Bank* bank;
 
-	BoolProperty musicOn;
-	BoolProperty soundFXOn;
-	IntProperty unlockedLevel;
+    BoolProperty musicOn;
+    BoolProperty soundFXOn;
+    IntProperty unlockedLevel;
 
-	void rewrite() const;
+    void rewrite() const;
 };
 
 class HazelWorld;
@@ -48,10 +48,10 @@ class HazelWorld : public WorldBase
 {
 friend class Hazel;
 
-	Node* getNode(const string& name);
+    Node* getNode(const string& name);
 
-	void initWorld();
-	void destroyWorld();
+    void initWorld();
+    void destroyWorld();
 };
 
 
@@ -60,44 +60,44 @@ class Hazel : public App
 friend class HazelWorld;
 
 private:
-	HazelWorld world;
-	Game game;
+    HazelWorld world;
+    Game game;
 
-	RendererGL2* renderer;
-	double lastTime;
+    RendererGL2* renderer;
+    double lastTime;
 
-	int windowWidth;
-	int windowHeight;
+    int windowWidth;
+    int windowHeight;
 
-	bool drawPhysicsOn;
+    bool drawPhysicsOn;
 
 public:
-	Hazel();
-	virtual ~Hazel();
+    Hazel();
+    virtual ~Hazel();
 
-	virtual void setBank(Bank* inBank);
-	virtual void setPlayer(Player* inPlayer);
+    virtual void setBank(Bank* inBank);
+    virtual void setPlayer(AudioPlayer* inPlayer);
 
-	void init();
-	void destroy();
+    void init();
+    void destroy();
 
-	virtual void draw() const;
+    virtual void draw() const;
 
-	virtual void keyboard(unsigned char inkey);
-	virtual void keyDown(unsigned char inkey);
-	virtual void keyUp(unsigned char inkey);
+    virtual void keyboard(unsigned char inkey);
+    virtual void keyDown(unsigned char inkey);
+    virtual void keyUp(unsigned char inkey);
 
-	virtual void reshape(int width, int height);
+    virtual void reshape(int width, int height);
 
-	virtual bool mouseDown(const Vec2& C);
-	virtual void mouseDragged(const Vec2& C);
-	virtual void mouseUp(const Vec2& C);
+    virtual bool mouseDown(const Vec2& C);
+    virtual void mouseDragged(const Vec2& C);
+    virtual void mouseUp(const Vec2& C);
 
-	virtual bool touchDown(unsigned int index, const Vec2& C);
-	virtual void touchDragged(unsigned int index, const Vec2& C);
-	virtual void touchUp(unsigned int index, const Vec2& C);
+    virtual bool touchDown(unsigned int index, const Vec2& C);
+    virtual void touchDragged(unsigned int index, const Vec2& C);
+    virtual void touchUp(unsigned int index, const Vec2& C);
 
-	virtual void step(double t);
+    virtual void step(double t);
 };
 
 
